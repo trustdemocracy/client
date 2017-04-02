@@ -1,9 +1,29 @@
-<header>
-  {{ 'Title' | translate:lang }}
+<header class="main-header">
+  <div class="ui container">
+    <nav>
+      <div class="item">
+        <img src="assets/images/logo-sm.png" alt="Trust Democracy logo" />
+      </div>
+
+      <div class="item">
+        {{ 'Title' | translate:lang }}
+      </div>
+    </nav>
+  </div>
 </header>
 <main class="host-wrapper">
   <router-outlet></router-outlet>
 </main>
-<footer>
-  Footer
+<footer class="main-footer">
+  <div class="ui container">
+    <div class="footer-nav">
+      <div class="item">
+        {{ 'Title' | translate:lang }}
+      </div>
+
+      <div class="item">
+        ES | EN
+      </div>
+    </div>
+  </div>
 </footer>
