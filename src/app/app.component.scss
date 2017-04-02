@@ -35,15 +35,16 @@
 .host-wrapper {
   flex: 1;
   display: flex;
+  padding-top: 60px; 
 }
 
 .main-footer {
   background: $footer-background-color;
   color: $inverse-text-color;
+  padding: 2em 0em;
 
   .footer-nav {
     display: flex;
     justify-content: space-between;
-    padding: 1em;
   }
 }

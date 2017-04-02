@@ -7,12 +7,27 @@
   justify-content: center;
   align-items: center;
   background: $background-color;
+  position: relative;
+
+
+  .background-image {
+    position: absolute;
+    background: url('~assets/images/background-login.jpg') no-repeat center center fixed;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+  }
 }
 
 .login-form {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
+  position: relative;
+  z-index: 1;
 
   &>.primary-action {
     flex: 3;
