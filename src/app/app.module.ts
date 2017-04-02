@@ -2,12 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
+import {SuiModule} from 'ng2-semantic-ui';
+import { TranslationModule } from 'angular-l10n';
 
 import { AppComponent } from './app.component';
 
-import {SuiModule} from 'ng2-semantic-ui';
 
-import { RouterModule, Routes } from '@angular/router';
+
+
 
 const routes: Routes = [
 ];
@@ -21,6 +25,7 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     SuiModule,
+    TranslationModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [],
