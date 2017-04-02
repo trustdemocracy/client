@@ -1,0 +1,44 @@
+@import '~styles/base/variables';
+
+:host {
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $background-color;
+}
+
+.login-form {
+  display: flex;
+  padding: 0;
+
+  &>.primary-action {
+    flex: 3;
+    padding: 2em;
+
+    h2 {
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+
+  &>.secondary-action {
+    flex: 2;
+    padding: 2em;
+    background: $secondary-background-color;
+
+    p {
+      color: $subtle-color;
+    }
+
+    button {
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+}

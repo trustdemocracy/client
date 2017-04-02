@@ -1,0 +1,27 @@
+<section class="ui raised segment text container login-form">
+  <div class="primary-action">
+    <h2>{{ 'login' | translate:lang }}</h2>
+    <form class="ui form">
+      <div class="field">
+        <label>{{ 'email or username' | translate:lang }}</label>
+        <input type="text" name="first-name" placeholder="{{ 'email or username' | translate:lang }}">
+      </div>
+      <div class="field">
+        <label>{{ 'password' | translate:lang }}</label>
+        <input type="text" name="last-name" placeholder="{{ 'password' | translate:lang }}">
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <sui-checkbox [(ngModel)]="remember" name="remember">{{ 'remember me' | translate:lang }}</sui-checkbox>
+        </div>
+      </div>
+      <button class="ui green button" type="submit">{{ 'login' | translate:lang }}</button>
+    </form>
+  </div
+  >
+  <div class="secondary-action">
+    <h2>{{ 'dont have an account?' | translate:lang }}</h2>
+    <p>{{ 'register now and start participating' | translate:lang }}</p>
+    <button class="ui basic blue button">{{ 'register' | translate:lang }}</button>
+  </div>
+</section>

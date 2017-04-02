@@ -1,3 +1,10 @@
 {
-    "Title": "Trust Democracy, platform for democracy"
+    "Title": "Trust Democracy, platform for democracy",
+    "login": "Login",
+    "register": "Register",
+    "email or username": "Email or username",
+    "password": "Password",
+    "remember me": "Remember me",
+    "dont have an account?": "Don't have an account?",
+    "register now and start participating": "Register now and start participanting in democracy."
 }

@@ -8,17 +8,20 @@ import {SuiModule} from 'ng2-semantic-ui';
 import { TranslationModule } from 'angular-l10n';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 
 
 
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
