@@ -2,11 +2,19 @@
   <div class="ui container">
     <nav>
       <div class="item">
-        <img src="assets/images/logo-sm.png" alt="Trust Democracy logo" />
+        <a routerLink="/">
+          <img src="assets/images/logo-sm.png" alt="Trust Democracy logo" />
+        </a>
       </div>
 
       <div class="item">
         {{ 'Title' | translate:lang }}
+      </div>
+
+      <div class="item">
+        <a routerLink="/login">
+          {{ 'login' | translate:lang }}
+        </a>
       </div>
     </nav>
   </div>

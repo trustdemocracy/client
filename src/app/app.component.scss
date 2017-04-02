@@ -4,6 +4,7 @@
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background: $background-color;
 }
 
 .main-header {
@@ -16,6 +17,7 @@
   nav {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     .item {
     padding: 0.6em;
@@ -24,10 +26,6 @@
         display: block;
         width: 2.9em;
       }
-
-      &:last-child {
-        margin-left: auto;
-      }
     }
   }
 }
@@ -35,7 +33,7 @@
 .host-wrapper {
   flex: 1;
   display: flex;
-  padding-top: 60px; 
+  padding-top: 58px;
 }
 
 .main-footer {
