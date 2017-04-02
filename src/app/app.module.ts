@@ -5,6 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import {SuiModule} from 'ng2-semantic-ui';
+
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+];
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +19,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    SuiModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
