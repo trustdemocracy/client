@@ -2,9 +2,15 @@
     "Title": "Trust Democracy, platform for democracy",
     "login": "Login",
     "register": "Register",
+    "name": "Name",
+    "surname": "Surname",
     "email or username": "Email or username",
+    "email": "Email",
+    "username": "Username",
     "password": "Password",
     "remember me": "Remember me",
     "dont have an account?": "Don't have an account?",
-    "register now and start participating": "Register now and start participanting in democracy."
+    "already have an account?": "Already have an account?",
+    "register now and start participating": "Register now and start participanting in democracy.",
+    "login now and start participating": "Login now and start participanting in democracy."
 }

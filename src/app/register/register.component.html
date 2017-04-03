@@ -1,0 +1,41 @@
+<section class="ui raised segment text container login-form">
+  <div class="primary-action">
+    <h2>{{ 'register' | translate:lang }}</h2>
+    <form class="ui form">
+      <div class="field">
+        <label>{{ 'email' | translate:lang }}</label>
+        <input type="text" name="first-name" placeholder="{{ 'email or username' | translate:lang }}">
+      </div>
+      <div class="field">
+        <label>{{ 'username' | translate:lang }}</label>
+        <input type="text" name="first-name" placeholder="{{ 'email or username' | translate:lang }}">
+      </div>
+      <div class="field">
+        <label>{{ 'password' | translate:lang }}</label>
+        <input type="text" name="last-name" placeholder="{{ 'password' | translate:lang }}">
+      </div>
+      <div class="field">
+        <label>{{ 'name' | translate:lang }}</label>
+        <input type="text" name="last-name" placeholder="{{ 'password' | translate:lang }}">
+      </div>
+      <div class="field">
+        <label>{{ 'surname' | translate:lang }}</label>
+        <input type="text" name="last-name" placeholder="{{ 'password' | translate:lang }}">
+      </div>
+      <div class="field">
+        <div class="ui checkbox">
+          <sui-checkbox [(ngModel)]="remember" name="remember">{{ 'remember me' | translate:lang }}</sui-checkbox>
+        </div>
+      </div>
+      <button class="ui green button" type="submit">{{ 'register' | translate:lang }}</button>
+    </form>
+  </div
+  >
+  <div class="secondary-action">
+    <h2>{{ 'already have an account?' | translate:lang }}</h2>
+    <p>{{ 'login now and start participating' | translate:lang }}</p>
+    <a class="ui basic blue button"  routerLink="/login">{{ 'login' | translate:lang }}</a>
+  </div>
+</section>
+
+<div class="background-image"></div>

@@ -2,9 +2,15 @@
     "Title": "Trust Democracy, plataforma para la democracia",
     "login": "Iniciar sesión",
     "register": "Registrarse",
+    "name": "Nombre",
+    "surname": "Apellido",
     "email or username": "Correo o usuario",
+    "email": "Correo",
+    "username": "Nombre de usuario",
     "password": "Contraseña",
     "remember me": "Recordarme",
     "dont have an account?": "¿No tienes cuenta?",
-    "register now and start participating": "Registrate ahora y empieza a participar en la democracia."
+    "already have an account?": "¿Ya tienes cuenta?",
+    "register now and start participating": "Registrate ahora y empieza a participar en la democracia.",
+    "login now and start participating": "Inicia sesión ahora y empieza a participar en la democracia."
 }
