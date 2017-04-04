@@ -45,27 +45,32 @@
       }
 
       &.vote {
+        .border.favour {
+          border-bottom: 1px solid #1ebc30;
+        }
+        .text.favour {
+          color: #1ebc30;
+        }
+
+        .border.against {
+          border-bottom: 1px solid #db2828;
+        }
+        .text.against {
+          color: #db2828;
+        }
+
         span {
           font-style: italic;
-
-          &.border.favour {
-            border-bottom: 1px solid #1ebc30;
-          }
-          &.text.favour {
-            color: #1ebc30;
-          }
-
-          &.border.against {
-            border-bottom: 1px solid #db2828;
-          }
-          &.text.against {
-            color: #db2828;
-          }
         }
 
         .votes {
           width: 100%;
           margin-bottom: 10px;
+
+          .contribution {
+            margin-bottom: 20px;
+            text-align: center;
+          }
 
           .legend {
             display: flex;
@@ -97,6 +102,11 @@
             }
           }
         }
+      }
+
+      .meta {
+        text-align: right;
+        width: 100%;
       }
     }
   }
