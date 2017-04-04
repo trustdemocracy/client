@@ -10,12 +10,14 @@ import { TranslationModule } from 'angular-l10n';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 
 
 
 
 const routes: Routes = [
+  { path: '', component: TimelineComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent }
 ];
@@ -24,7 +26,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    TimelineComponent
   ],
   imports: [
     BrowserModule,

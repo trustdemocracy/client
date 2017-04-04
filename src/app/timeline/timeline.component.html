@@ -1,0 +1,160 @@
+<div class="ui grid container">
+  <div class="four wide computer five wide tablet sixteen wide mobile column">
+    <div class="ui card account-card">
+      <div class="content">
+        <div class="header">username</div>
+        <div class="meta">Name Surname</div>
+      </div>
+      <div class="extra content">
+        <a class="ui basic black button edit-account-btn">
+          {{ 'edit account' | translate:lang }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="twelve wide computer eleven wide tablet sixteen wide mobile column">
+    <div class="ui feed">
+
+      <div class="event publication">
+        <div class="content">
+          <div class="ui teal ribbon label">
+            <i class="announcement icon"></i> {{ 'publication' | translate:lang }}
+          </div>
+
+          <div class="summary">
+            <a class="user">username</a> {{ 'published the proposal' | translate:lang }}
+            <a>Name of the proposal</a>
+            <div class="date">
+              1 hour ago
+            </div>
+          </div>
+
+          <div class="extra text">
+            <blockquote>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </blockquote>
+            <a>{{ 'view proposal' | translate:lang }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event modification">
+        <div class="content">
+          <div class="ui blue ribbon label">
+            <i class="edit icon"></i> {{ 'modification' | translate:lang }}
+          </div>
+
+          <div class="summary">
+            <a class="user">username</a> {{ 'edited the proposal' | translate:lang }}
+            <a>Name of the proposal</a>
+            <div class="date">
+              7 days ago
+            </div>
+          </div>
+          <div class="extra text">
+            <a class="user">username</a> {{ 'deleted' | translate:lang }}:
+            <blockquote class="deleted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </blockquote>
+
+            <a class="user">username</a> {{ 'deleted' | translate:lang }}:
+            <blockquote class="deleted">
+              sed do eiusmod
+            </blockquote>
+
+            <a class="user">username</a> {{ 'added' | translate:lang }}:
+            <blockquote class="added">
+              labore nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+            </blockquote>
+
+            <a>{{ 'view changes' | translate:lang }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event comment">
+        <div class="content">
+          <div class="ui brown ribbon label">
+            <i class="talk icon"></i> {{ 'comment' | translate:lang }}
+          </div>
+
+          <div class="summary">
+            <a class="user">username</a> {{ 'commented in the proposal' | translate:lang }}
+            <a>Name of the proposal</a>
+            <div class="date">
+              7 days ago
+            </div>
+          </div>
+          <div class="extra text">
+            <blockquote>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </blockquote>
+            <a>{{ 'view comment' | translate:lang }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event vote">
+        <div class="content">
+          <div class="ui orange ribbon label">
+            <i class="thumbs up icon"></i> {{ 'vote' | translate:lang }}
+          </div>
+
+          <div class="summary">
+            <a class="user">username</a> {{ 'voted' | translate:lang }} <span class="favour">{{ 'in favour' | translate:lang }}</span> {{ 'the proposal' | translate:lang }}
+            <a>Name of the proposal</a>
+            <div class="date">
+              7 days ago
+            </div>
+          </div>
+          <div class="extra text">
+            <div class="votes">
+              <div class="legend">
+                <span class="favour">{{ 'in favour' | translate:lang }}</span>
+                <span class="favour"><a class="user">username</a> contributed with 0.9%</span>
+                <span class="against">{{ 'against' | translate:lang }}</span>
+              </div>
+              <div class="bar">
+                <div class="favour" style="flex:0.4">40%</div>
+                <div class="against" style="flex:0.6">60%</div>
+              </div>
+            </div>
+            <a>{{ 'view proposal' | translate:lang }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="event vote">
+        <div class="content">
+          <div class="ui orange ribbon label">
+            <i class="thumbs down icon"></i> {{ 'vote' | translate:lang }}
+          </div>
+
+          <div class="summary">
+            <a class="user">username</a> {{ 'voted' | translate:lang }} <span class="against">{{ 'against' | translate:lang }}</span> {{ 'the proposal' | translate:lang }}
+            <a>Name of the proposal</a>
+            <div class="date">
+              7 days ago
+            </div>
+          </div>
+          <div class="extra text">
+            <div class="votes">
+              <div class="legend">
+                <span class="favour">{{ 'in favour' | translate:lang }}</span>
+                <span class="against"><a class="user">username</a> contributed with 0.9%</span>
+                <span class="against">{{ 'against' | translate:lang }}</span>
+              </div>
+              <div class="bar">
+                <div class="favour" style="flex:0.4">40%</div>
+                <div class="against" style="flex:0.6">60%</div>
+              </div>
+            </div>
+            <a>{{ 'view proposal' | translate:lang }}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

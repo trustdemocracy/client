@@ -1,0 +1,109 @@
+@import '~styles/base/variables';
+
+:host {
+  min-width: 100%;
+  min-height: 100%;
+
+  padding-top: 10px;
+
+  .feed {
+
+    .event {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-top: none;
+      border-radius: 0.2em;
+      padding: 5px 10px 10px 10px;
+
+      &:first-child {
+        border: 1px solid #ddd;
+      }
+
+      .ribbon.label {
+        left: calc(-1rem - 0.9em);
+      }
+
+      .extra.text {
+        padding-left: 15px;
+        max-width: none;
+
+        blockquote {
+          font-style: italic;
+          margin: 0 0 5px 0;
+          padding: 3px 5px;
+        }
+      }
+
+      &.modification {
+        .added {
+          background: #eaffea;
+        }
+
+        .deleted {
+          background: #ffecec;
+        }
+      }
+
+      &.vote {
+        span {
+          font-style: italic;
+
+          &.favour {
+            color: #1ebc30;
+          }
+
+          &.against {
+            color: #db2828;
+          }
+        }
+
+        .votes {
+          width: 100%;
+          margin-bottom: 10px;
+
+          .legend {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .bar {
+            width: 100%;
+            display: flex;
+            color: #fff;
+
+            .favour,
+            .against {
+              height: 100%;
+              flex: 1;
+              padding: 0.2em 1em;
+              height: 1.75em;
+            }
+
+            .favour {
+              background: #1ebc30;
+              border-radius: 0.3em 0 0 0.3em;
+              text-align: right;
+            }
+
+            .against {
+              background: #db2828;
+              border-radius: 0 0.3em 0.3em 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .account-card {
+    width: 100%;
+
+    .edit-account-btn {
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+
+}
+
+
