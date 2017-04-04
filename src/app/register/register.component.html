@@ -1,39 +1,39 @@
 <section class="ui raised segment text container login-form">
   <div class="primary-action">
-    <h2>{{ 'register' | translate:lang }}</h2>
+    <h2>{{ 'Register' | translate:lang }}</h2>
     <form class="ui form">
       <div class="field">
-        <label>{{ 'email' | translate:lang }}</label>
+        <label>{{ 'Email' | translate:lang }}</label>
         <input type="text" name="first-name" placeholder="{{ 'email or username' | translate:lang }}">
       </div>
       <div class="field">
-        <label>{{ 'username' | translate:lang }}</label>
+        <label>{{ 'Username' | translate:lang }}</label>
         <input type="text" name="first-name" placeholder="{{ 'email or username' | translate:lang }}">
       </div>
       <div class="field">
-        <label>{{ 'password' | translate:lang }}</label>
+        <label>{{ 'Password' | translate:lang }}</label>
         <input type="text" name="last-name" placeholder="{{ 'password' | translate:lang }}">
       </div>
       <div class="field">
-        <label>{{ 'name' | translate:lang }}</label>
+        <label>{{ 'Name' | translate:lang }}</label>
         <input type="text" name="last-name" placeholder="{{ 'password' | translate:lang }}">
       </div>
       <div class="field">
-        <label>{{ 'surname' | translate:lang }}</label>
+        <label>{{ 'Surname' | translate:lang }}</label>
         <input type="text" name="last-name" placeholder="{{ 'password' | translate:lang }}">
       </div>
       <div class="field">
         <div class="ui checkbox">
-          <sui-checkbox [(ngModel)]="remember" name="remember">{{ 'remember me' | translate:lang }}</sui-checkbox>
+          <sui-checkbox [(ngModel)]="remember" name="remember">{{ 'Remember me' | translate:lang }}</sui-checkbox>
         </div>
       </div>
-      <button class="ui green button" type="submit">{{ 'register' | translate:lang }}</button>
+      <button class="ui green button" type="submit">{{ 'Register' | translate:lang }}</button>
     </form>
   </div
   >
   <div class="secondary-action">
-    <h2>{{ 'already have an account?' | translate:lang }}</h2>
-    <p>{{ 'login now and start participating' | translate:lang }}</p>
+    <h2>{{ 'Already have an account?' | translate:lang }}</h2>
+    <p>{{ 'lLogin now and start participanting in democracy' | translate:lang }}.</p>
     <a class="ui basic blue button"  routerLink="/login">{{ 'login' | translate:lang }}</a>
   </div>
 </section>

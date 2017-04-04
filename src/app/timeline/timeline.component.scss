@@ -48,11 +48,17 @@
         span {
           font-style: italic;
 
-          &.favour {
+          &.border.favour {
+            border-bottom: 1px solid #1ebc30;
+          }
+          &.text.favour {
             color: #1ebc30;
           }
 
-          &.against {
+          &.border.against {
+            border-bottom: 1px solid #db2828;
+          }
+          &.text.against {
             color: #db2828;
           }
         }

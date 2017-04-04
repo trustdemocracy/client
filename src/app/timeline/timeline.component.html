@@ -7,7 +7,7 @@
       </div>
       <div class="extra content">
         <a class="ui basic black button edit-account-btn">
-          {{ 'edit account' | translate:lang }}
+          {{ 'Edit account' | translate:lang }}
         </a>
       </div>
     </div>
@@ -19,7 +19,7 @@
       <div class="event publication">
         <div class="content">
           <div class="ui teal ribbon label">
-            <i class="announcement icon"></i> {{ 'publication' | translate:lang }}
+            <i class="announcement icon"></i> {{ 'Publication' | translate:lang }}
           </div>
 
           <div class="summary">
@@ -34,7 +34,7 @@
             <blockquote>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </blockquote>
-            <a>{{ 'view proposal' | translate:lang }}</a>
+            <a>{{ 'View proposal' | translate:lang }}</a>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
       <div class="event modification">
         <div class="content">
           <div class="ui blue ribbon label">
-            <i class="edit icon"></i> {{ 'modification' | translate:lang }}
+            <i class="edit icon"></i> {{ 'Modification' | translate:lang }}
           </div>
 
           <div class="summary">
@@ -68,7 +68,7 @@
               labore nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
             </blockquote>
 
-            <a>{{ 'view changes' | translate:lang }}</a>
+            <a>{{ 'View changes' | translate:lang }}</a>
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
       <div class="event comment">
         <div class="content">
           <div class="ui brown ribbon label">
-            <i class="talk icon"></i> {{ 'comment' | translate:lang }}
+            <i class="talk icon"></i> {{ 'Comment' | translate:lang }}
           </div>
 
           <div class="summary">
@@ -90,7 +90,7 @@
             <blockquote>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </blockquote>
-            <a>{{ 'view comment' | translate:lang }}</a>
+            <a>{{ 'View comment' | translate:lang }}</a>
           </div>
         </div>
       </div>
@@ -98,11 +98,12 @@
       <div class="event vote">
         <div class="content">
           <div class="ui orange ribbon label">
-            <i class="thumbs up icon"></i> {{ 'vote' | translate:lang }}
+            <i class="thumbs up icon"></i> {{ 'Vote' | translate:lang }}
           </div>
 
           <div class="summary">
-            <a class="user">username</a> {{ 'voted' | translate:lang }} <span class="favour">{{ 'in favour' | translate:lang }}</span> {{ 'the proposal' | translate:lang }}
+            <a class="user">username</a> 
+            <span class="border favour"> {{ 'voted in favour of the proposal' | translate:lang }}</span>
             <a>Name of the proposal</a>
             <div class="date">
               7 days ago
@@ -111,16 +112,16 @@
           <div class="extra text">
             <div class="votes">
               <div class="legend">
-                <span class="favour">{{ 'in favour' | translate:lang }}</span>
-                <span class="favour"><a class="user">username</a> contributed with 0.9%</span>
-                <span class="against">{{ 'against' | translate:lang }}</span>
+                <span class="text favour">{{ 'In favour' | translate:lang }}</span>
+                <span class="text favour"><a class="user">username</a> {{ 'contributed with a' | translate:lang }} 0.9%</span>
+                <span class="text against">{{ 'Against' | translate:lang }}</span>
               </div>
               <div class="bar">
                 <div class="favour" style="flex:0.4">40%</div>
                 <div class="against" style="flex:0.6">60%</div>
               </div>
             </div>
-            <a>{{ 'view proposal' | translate:lang }}</a>
+            <a>{{ 'View proposal' | translate:lang }}</a>
           </div>
         </div>
       </div>
@@ -128,11 +129,12 @@
       <div class="event vote">
         <div class="content">
           <div class="ui orange ribbon label">
-            <i class="thumbs down icon"></i> {{ 'vote' | translate:lang }}
+            <i class="thumbs down icon"></i> {{ 'Vote' | translate:lang }}
           </div>
 
           <div class="summary">
-            <a class="user">username</a> {{ 'voted' | translate:lang }} <span class="against">{{ 'against' | translate:lang }}</span> {{ 'the proposal' | translate:lang }}
+            <a class="user">username</a> 
+            <span class="border against"> {{ 'voted against the proposal' | translate:lang }}</span>
             <a>Name of the proposal</a>
             <div class="date">
               7 days ago
@@ -141,16 +143,16 @@
           <div class="extra text">
             <div class="votes">
               <div class="legend">
-                <span class="favour">{{ 'in favour' | translate:lang }}</span>
-                <span class="against"><a class="user">username</a> contributed with 0.9%</span>
-                <span class="against">{{ 'against' | translate:lang }}</span>
+                <span class="text favour">{{ 'In favour' | translate:lang }}</span>
+                <span class="text against"><a class="user">username</a> {{ 'contributed with a' | translate:lang }} 10%</span>
+                <span class="text against">{{ 'Against' | translate:lang }}</span>
               </div>
               <div class="bar">
-                <div class="favour" style="flex:0.4">40%</div>
-                <div class="against" style="flex:0.6">60%</div>
+                <div class="favour" style="flex:0.8">80%</div>
+                <div class="against" style="flex:0.2">20%</div>
               </div>
             </div>
-            <a>{{ 'view proposal' | translate:lang }}</a>
+            <a>{{ 'View proposal' | translate:lang }}</a>
           </div>
         </div>
       </div>
