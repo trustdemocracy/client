@@ -13,10 +13,9 @@
     position: absolute;
     background: url('~assets/images/background-login.jpg') no-repeat center center fixed;
     background-size: cover;
-    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + #{$main-padding-bottom});
+    height: calc(100% + #{$main-padding-bottom} + #{$main-padding-bottom});
     opacity: 0.15;
   }
 }
