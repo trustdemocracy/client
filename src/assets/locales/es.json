@@ -32,5 +32,11 @@
     "Against": "En contra",
     "voted in favour of the proposal": "ha votado a favor de la propuesta",
     "voted against the proposal": "ha votado en contra de la propuesta",
-    "Trending proposals": "Propuestas populares"
+    "Trending proposals": "Propuestas populares",
+
+    "Profile": "Perfil",
+    "Visibility": "Visibilidad",
+    "Delete account": "Borrar cuenta",
+    "Edit profile": "Editar perfil",
+    "Update": "Actualizar"
 }

@@ -32,5 +32,11 @@
     "Against": "Against",
     "voted in favour of the proposal": "voted in favour of the proposal",
     "voted against the proposal": "voted against the proposal",
-    "Trending proposals": "Trending proposals"
+    "Trending proposals": "Trending proposals",
+
+    "Profile": "Profile",
+    "Visibility": "Visibility",
+    "Delete account": "Delete account",
+    "Edit profile": "Edit profile",
+    "Update": "Update"
 }

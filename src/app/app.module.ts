@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -19,7 +20,8 @@ import { TimelineComponent } from './timeline/timeline.component';
 const routes: Routes = [
   { path: '', component: TimelineComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'user/edit', component: EditProfileComponent }
 ];
 
 @NgModule({
@@ -27,7 +29,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    TimelineComponent
+    TimelineComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,
