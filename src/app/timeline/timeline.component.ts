@@ -7,10 +7,9 @@ import { Translation, LocaleService, TranslationService } from 'angular-l10n';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent extends Translation {
-    remember: boolean;
 
-    constructor(public translation: TranslationService) {
-        super(translation);
-    }
+  constructor(public translation: TranslationService) {
+    super(translation);
+  }
 
 }

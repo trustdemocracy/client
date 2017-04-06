@@ -7,10 +7,10 @@ import { Translation, LocaleService, TranslationService } from 'angular-l10n';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends Translation {
-    remember: boolean;
+  remember: boolean;
 
-    constructor(public translation: TranslationService) {
-        super(translation);
-    }
+  constructor(public translation: TranslationService) {
+    super(translation);
+  }
 
 }

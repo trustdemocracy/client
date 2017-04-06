@@ -8,8 +8,8 @@ import { Translation, LocaleService, TranslationService } from 'angular-l10n';
 })
 export class EditProfileComponent extends Translation {
 
-    constructor(public translation: TranslationService) {
-        super(translation);
-    }
+  constructor(public translation: TranslationService) {
+    super(translation);
+  }
 
 }
