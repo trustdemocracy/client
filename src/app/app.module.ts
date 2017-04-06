@@ -13,6 +13,7 @@ import { RegisterComponent } from './register/register.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ProposalComponent } from './proposals/index/proposal.component';
+import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.component';
 
 
 
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'user/edit', component: EditProfileComponent },
-  { path: 'proposals/:id', component: ProposalComponent }
+  { path: 'proposals/:id', component: ProposalComponent },
+  { path: 'proposals/:id/edit', component: EditProposalComponent },
 ];
 
 @NgModule({
@@ -33,7 +35,8 @@ const routes: Routes = [
     RegisterComponent,
     TimelineComponent,
     EditProfileComponent,
-    ProposalComponent
+    ProposalComponent,
+    EditProposalComponent
   ],
   imports: [
     BrowserModule,

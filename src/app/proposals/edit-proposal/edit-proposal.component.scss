@@ -1,0 +1,21 @@
+@import '~styles/base/variables';
+
+:host {
+  min-width: 100%;
+
+  .proposal {
+    input,
+    textarea {
+      border: none;
+      background: transparent;
+    }
+
+    textarea {
+      text-align: justify;
+
+      &.summary {
+        font-style: italic;
+      }
+    }
+  }
+}
