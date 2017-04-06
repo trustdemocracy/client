@@ -39,5 +39,17 @@
     "Visibility": "Visibilidad",
     "Delete account": "Borrar cuenta",
     "Edit profile": "Editar perfil",
-    "Update": "Actualizar"
+    "Update": "Actualizar",
+
+    "Deadline": "Fecha de caducidad",
+    "Summary": "Resumen",
+    "Original source": "Fuente original",
+    "Motivation": "Motivación",
+    "Measures": "Medidas",
+    "Votes": "Votos",
+    "Vote in favour": "Votar a favor",
+    "Vote against": "Votar en contra",
+    "Comments": "Comentarios",
+    "Reply": "Responder",
+    "Add comment": "Añadir comentario"
 }

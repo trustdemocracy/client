@@ -39,5 +39,17 @@
     "Visibility": "Visibility",
     "Delete account": "Delete account",
     "Edit profile": "Edit profile",
-    "Update": "Update"
+    "Update": "Update",
+
+    "Deadline": "Deadline",
+    "Summary": "Summary",
+    "Original source": "Original source",
+    "Motivation": "Motivation",
+    "Measures": "Measures",
+    "Votes": "Votes",
+    "Vote in favour": "Vote in favour",
+    "Vote against": "Vote against",
+    "Comments": "Comments",
+    "Reply": "Reply",
+    "Add comment": "Add comment"
 }
