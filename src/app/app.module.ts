@@ -12,7 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { TimelineComponent } from './timeline/timeline.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { ProposalComponent } from './proposals/index/proposal.component';
+import { ProposalComponent } from './proposals/proposal/proposal.component';
 import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.component';
 
 
