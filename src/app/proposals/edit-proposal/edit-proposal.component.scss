@@ -8,13 +8,36 @@
     textarea {
       border: none;
       background: transparent;
+      text-align: justify;
+      display: block;
+      width: 100%;
+      outline: none;
     }
 
     textarea {
-      text-align: justify;
+      height: 150px;
+      resize: vertical;
+    }
 
-      &.summary {
+    &>div {
+      margin-bottom: 1em;
+
+      &>label {
+        display: block;
+        font-size: 15px;
+        font-weight: 700;
+        margin: 25px 0 14px 0;
+
+        &:first-child{
+          margin-top: 0;
+        }
+      }
+    }
+
+    .summary {
+      textarea {
         font-style: italic;
+        color: $subtle-color;
       }
     }
   }

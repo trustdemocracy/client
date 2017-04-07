@@ -1,26 +1,27 @@
 <section class="ui text container">
-  <div class="proposal">
-    <form class="ui form">
-      <div class="field">
+  <form>
+
+    <div class="proposal">
+      <div class="title">
         <label>{{ 'Title of the proposal' | translate:lang }}</label>
         <input type="text" name="last-name" placeholder="{{ 'Title of the proposal' | translate:lang }}..." />
       </div>
 
-      <div class="field">
+      <div class="summary">
         <label>{{ 'Summary' | translate:lang }}</label>
-        <textarea class="summary" placeholder="{{ 'Summary' | translate:lang }}...">
+        <textarea placeholder="{{ 'Summary' | translate:lang }}...">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
 irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </textarea>
       </div>
 
-      <div class="field">
+      <div class="source">
         <label>{{ 'Original source' | translate:lang }}</label>
         <input type="text" name="last-name" placeholder="{{ 'Original source' | translate:lang }}..." />
       </div>
 
-      <div class="field">
+      <div class="motivation">
         <label>{{ 'Motivation' | translate:lang }}</label>
         <textarea placeholder="{{ 'Motivation' | translate:lang }}...">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -40,7 +41,7 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
         </textarea>
       </div>
 
-      <div class="field">
+      <div class="measures">
         <label>{{ 'Measures' | translate:lang }}</label>
         <textarea placeholder="{{ 'Measures' | translate:lang }}...">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -60,7 +61,8 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
         </textarea>
       </div>
 
-      <button class="ui floated right green button" type="submit">{{ 'Update' | translate:lang }}</button>
-    </form>
-  </div>
+      <button class="ui green button" type="submit">{{ 'Update' | translate:lang }}</button>
+    </div>
+
+  </form>
 </section>
