@@ -1,0 +1,19 @@
+@import '~styles/base/variables';
+
+:host {
+  min-width: 100%;
+
+  .proposal {
+    .extra.content {
+      text-align: center;
+
+      .favour {
+        color: $favour-color;
+      }
+
+      .against {
+        color: $against-color;
+      }
+    }
+  }
+}
