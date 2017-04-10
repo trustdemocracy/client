@@ -8,7 +8,7 @@
       </div>
       <div class="extra content">
         <p>{{ 'Trust relationships' | translate:lang }}</p>
-        <a routerLink="users/trust">
+        <a routerLink="/users/trust">
           <i class="users icon"></i>
           <i class="angle right icon"></i> 22
           <i class="angle right icon"></i>
@@ -20,7 +20,7 @@
       </div>
       <div class="extra content">
         <p>{{ 'Follow relationships' | translate:lang }}</p>
-        <a routerLink="users/follow">
+        <a routerLink="/users/follow">
           <i class="users icon"></i>
           <i class="angle right icon"></i> 22
           <i class="angle right icon"></i>
@@ -30,7 +30,7 @@
           <i class="users icon"></i>
         </a>
       </div>
-      <a class="ui bottom attached violet button" routerLink="user/edit">
+      <a class="ui bottom attached violet button" routerLink="/user/edit">
         <i class="edit icon"></i> {{ 'Edit account' | translate:lang }}
       </a>
     </div>
@@ -39,7 +39,7 @@
       <h3>{{ 'Trending proposals' | translate:lang }}</h3>
       <div class="item">
         <div class="content">
-          <a class="header" routerLink="proposals/1">Name of the proposal</a>
+          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
           <div class="meta">
             <span>7 days ago</span>
           </div>
@@ -51,13 +51,32 @@
             </p>
           </div>
           <div class="extra">
-            <a routerLink="proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
+            <a routerLink="/proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
           </div>
         </div>
       </div>
       <div class="item">
         <div class="content">
-          <a class="header" routerLink="proposals/1">Name of the proposal</a>
+          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
+          <div class="meta">
+            <span>7 days ago</span>
+          </div>
+          <div class="description">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </div>
+          <div class="extra">
+            <a routerLink="/proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="content">
+          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
           <div class="meta">
             <span>7 days ago</span>
           </div>
@@ -76,7 +95,7 @@
 
       <div class="item">
         <div class="content">
-          <a class="header" routerLink="proposals/1">Name of the proposal</a>
+          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
           <div class="meta">
             <span>7 days ago</span>
           </div>
@@ -88,26 +107,7 @@
             </p>
           </div>
           <div class="extra">
-            <a routerLink="proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="content">
-          <a class="header" routerLink="proposals/1">Name of the proposal</a>
-          <div class="meta">
-            <span>7 days ago</span>
-          </div>
-          <div class="description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-          <div class="extra">
-            <a routerLink="proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
+            <a routerLink="/proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@
 
           <div class="summary">
             <a class="user">username</a> {{ 'published the proposal' | translate:lang }}
-            <a routerLink="proposals/1">Name of the proposal</a>
+            <a routerLink="/proposals/1">Name of the proposal</a>
             <div class="date">
               1 hour ago
             </div>
@@ -140,7 +140,7 @@
             </blockquote>
           </div>
           <div class="meta">
-            <a routerLink="proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
+            <a routerLink="/proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
           </div>
         </div>
       </div>
@@ -153,7 +153,7 @@
 
           <div class="summary">
             <a class="user">username</a> {{ 'edited the proposal' | translate:lang }}
-            <a routerLink="proposals/1">Name of the proposal</a>
+            <a routerLink="/proposals/1">Name of the proposal</a>
             <div class="date">
               7 days ago
             </div>
@@ -188,7 +188,7 @@
 
           <div class="summary">
             <a class="user">username</a> {{ 'commented in the proposal' | translate:lang }}
-            <a routerLink="proposals/1">Name of the proposal</a>
+            <a routerLink="/proposals/1">Name of the proposal</a>
             <div class="date">
               7 days ago
             </div>
@@ -214,7 +214,7 @@
           <div class="summary">
             <a class="user">username</a>
             <span class="border favour"> {{ 'voted in favour of the proposal' | translate:lang }}</span>
-            <a routerLink="proposals/1">Name of the proposal</a>
+            <a routerLink="/proposals/1">Name of the proposal</a>
             <div class="date">
               7 days ago
             </div>
@@ -233,7 +233,7 @@
             </div>
           </div>
           <div class="meta">
-            <a routerLink="proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
+            <a routerLink="/proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
           </div>
         </div>
       </div>
@@ -247,7 +247,7 @@
           <div class="summary">
             <a class="user">username</a>
             <span class="border against"> {{ 'voted against the proposal' | translate:lang }}</span>
-            <a routerLink="proposals/1">Name of the proposal</a>
+            <a routerLink="/proposals/1">Name of the proposal</a>
             <div class="date">
               7 days ago
             </div>
@@ -266,7 +266,7 @@
             </div>
           </div>
           <div class="meta">
-            <a routerLink="proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
+            <a routerLink="/proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
           </div>
         </div>
       </div>
