@@ -30,6 +30,10 @@ export class AppComponent extends Translation implements OnInit {
     this.resetScroll();
   }
 
+  selectLanguage(language: string): void {
+      this.locale.setCurrentLanguage(language);
+  }
+
   resetScroll(): void {
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
