@@ -8,10 +8,10 @@ import { SuiModule } from 'ng2-semantic-ui';
 import { TranslationModule } from 'angular-l10n';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { TimelineComponent } from './timeline/timeline.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { LoginComponent } from './users/user/login/login.component';
+import { RegisterComponent } from './users/user/register/register.component';
+import { EditProfileComponent } from './users/user/edit-profile/edit-profile.component';
 import { TrustComponent } from './users/trust/trust.component';
 import { FollowComponent } from './users/follow/follow.component';
 import { ProposalsComponent } from './proposals/proposals.component';
