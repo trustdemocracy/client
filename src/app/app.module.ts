@@ -9,6 +9,7 @@ import { TranslationModule } from 'angular-l10n';
 
 import { AppComponent } from './app.component';
 import { TimelineComponent } from './timeline/timeline.component';
+import { UserComponent } from './users/user/user.component';
 import { LoginComponent } from './users/user/login/login.component';
 import { RegisterComponent } from './users/user/register/register.component';
 import { EditProfileComponent } from './users/user/edit-profile/edit-profile.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'user/edit', component: EditProfileComponent },
+  { path: 'user/:id', component: UserComponent },
   { path: 'users/trust', component: TrustComponent },
   { path: 'users/follow', component: FollowComponent },
   { path: 'proposals', component: ProposalsComponent },
@@ -41,6 +43,7 @@ const routes: Routes = [
     RegisterComponent,
     TimelineComponent,
     EditProfileComponent,
+    UserComponent,
     TrustComponent,
     FollowComponent,
     ProposalsComponent,

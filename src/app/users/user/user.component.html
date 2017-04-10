@@ -30,9 +30,12 @@
           <i class="users icon"></i>
         </a>
       </div>
-      <a class="ui bottom attached violet button" routerLink="user/edit">
-        <i class="edit icon"></i> {{ 'Edit account' | translate:lang }}
-      </a>
+      <div class="extra content">
+        <div class="ui two buttons">
+          <div class="ui blue button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</div>
+          <div class="ui teal button"><i class="unhide icon"></i> {{ 'Follow' | translate:lang }}</div>
+        </div>
+      </div>
     </div>
 
     <div class="ui divided items proposals">
