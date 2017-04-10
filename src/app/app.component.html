@@ -1,20 +1,28 @@
 <header class="main-header">
   <div class="ui container">
-    <nav>
+    <nav class="ui menu">
       <div class="item">
         <a routerLink="/">
           <img src="assets/images/logo-sm.png" alt="Trust Democracy logo" />
         </a>
       </div>
 
-      <div class="item">
-        {{ 'Title' | translate:lang }}
-      </div>
-
-      <div class="item">
-        <a routerLink="/login">
-          {{ 'Login' | translate:lang }}
-        </a>
+      <div class="right menu">
+        <div class="item">
+          <a routerLink="/proposals">
+            <i class="file text outline icon"></i> {{ 'Proposals' | translate:lang }}
+          </a>
+        </div>
+        <div class="item">
+          <a routerLink="/users/follow">
+            <i class="users icon"></i> {{ 'Users' | translate:lang }}
+          </a>
+        </div>
+        <div class="item">
+          <a routerLink="/login">
+            {{ 'Log out' | translate:lang }}
+          </a>
+        </div>
       </div>
     </nav>
   </div>
