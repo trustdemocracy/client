@@ -4,13 +4,34 @@
       <div class="content">
         <div class="header">username</div>
         <div class="meta">Name Surname</div>
+        <div class="meta">5 {{ 'units of trust' | translate:lang }}</div>
       </div>
       <div class="extra content">
-        5 {{ 'units of trust' | translate:lang }}
+        <p>{{ 'Trust' | translate:lang }}</p>
+        <a>
+          <i class="users icon"></i>
+          <i class="angle right icon"></i> 22
+          <i class="angle right icon"></i>
+          <i class="user icon"></i>
+          <i class="angle right icon"></i> 1
+          <i class="angle right icon"></i>
+          <i class="users icon"></i>
+        </a>
+      </div>
+      <div class="extra content">
+        <p>{{ 'Follow' | translate:lang }}</p>
+        <a>
+          <i class="users icon"></i>
+          <i class="angle right icon"></i> 22
+          <i class="angle right icon"></i>
+          <i class="user icon"></i>
+          <i class="angle right icon"></i> 1
+          <i class="angle right icon"></i>
+          <i class="users icon"></i>
+        </a>
       </div>
       <div class="ui bottom attached violet button" routerLink="user/edit">
-        <i class="edit icon"></i>
-        {{ 'Edit account' | translate:lang }}
+        <i class="edit icon"></i> {{ 'Edit account' | translate:lang }}
       </div>
     </div>
 
