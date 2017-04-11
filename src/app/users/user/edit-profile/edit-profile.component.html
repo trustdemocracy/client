@@ -1,0 +1,52 @@
+<section class="ui container">
+  <div class="ui grid">
+    <div class="four wide column computer tablet only">
+      <div class="ui secondary vertical menu desktop-menu">
+        <a class="item active">{{ 'Profile' | translate:lang }}</a>
+        <a class="item">{{ 'Visibility' | translate:lang }}</a>
+        <a class="item">{{ 'Delete account' | translate:lang }}</a>
+      </div>
+    </div>
+
+    <div class="sixteen wide column mobile only">
+      <div class="ui secondary pointing menu mobile-menu">
+        <a class="item active">{{ 'Profile' | translate:lang }}</a>
+        <a class="item">{{ 'Visibility' | translate:lang }}</a>
+        <a class="item">{{ 'Delete account' | translate:lang }}</a>
+      </div>
+    </div>
+
+    <div class="eight wide computer eight wide tablet sixteen wide mobile column">
+      <div class="edit-form">
+        <h2>{{ 'Edit profile' | translate:lang }}</h2>
+        <form class="ui form">
+          <div class="field">
+            <label>{{ 'Username' | translate:lang }}</label>
+            <input type="text" name="first-name" value="username" disabled="disabled" />
+          </div>
+          <div class="field">
+            <label>{{ 'Email' | translate:lang }}</label>
+            <input type="text" name="first-name" value="example@example.com" disabled="disabled" />
+          </div>
+          <div class="field">
+            <label>{{ 'Name' | translate:lang }}</label>
+            <input type="text" name="last-name" placeholder="{{ 'Name' | translate:lang }}">
+          </div>
+          <div class="field">
+            <label>{{ 'Surname' | translate:lang }}</label>
+            <input type="text" name="last-name" placeholder="{{ 'Surname' | translate:lang }}">
+          </div>
+          <button class="ui green button" type="submit">{{ 'Update' | translate:lang }}</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="four wide column computer tablet only">
+      <p class="help-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      </p>
+    </div>
+  </div>
+</section>

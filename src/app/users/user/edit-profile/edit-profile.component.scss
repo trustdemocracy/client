@@ -1,0 +1,31 @@
+@import '~styles/base/variables';
+
+:host {
+  min-width: 100%;
+
+  .desktop-menu {
+    width: 100%
+  }
+
+  .mobile-menu {
+    display: flex;
+    justify-content: space-between;
+
+    .item {
+      flex: 1;
+      justify-content: center;
+    }
+  }
+
+  .help-text {
+    font-size: 0.8em;
+    color: $subtle-color;
+  }
+}
+
+.edit-form {
+  button {
+    width: 100%;
+    text-transform: uppercase;
+  }
+}

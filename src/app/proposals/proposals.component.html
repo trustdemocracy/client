@@ -1,0 +1,25 @@
+<section class="ui container proposals">
+  <div class="ui grid">
+    <div class="four wide computer eight wide tablet sixteen wide mobile column proposal" *ngFor="let i of proposals">
+      <a class="ui fluid card" routerLink="/proposals/1">
+        <div class="content">
+          <div class="header">Name of the proposal</div>
+          <div class="meta">
+            <span class="category">{{ 'Deadline' | translate:lang }} 25 December 2017</span>
+          </div>
+          <div class="description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua. Ut enim ad minim veniam</p>
+          </div>
+        </div>
+        <div class="extra content">
+          <span class="favour">40% {{ 'in favour' | translate:lang }}</span>
+          <span class="against">60% {{ 'against' | translate:lang }}</span>
+        </div>
+        <div class="ui bottom attached basic blue button">
+          {{ 'View proposal' | translate:lang }}
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

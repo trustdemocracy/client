@@ -1,0 +1,60 @@
+@import '~styles/base/variables';
+
+:host {
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+
+  .background-image {
+    position: absolute;
+    background: url('~assets/images/background-login.jpg') no-repeat center center fixed;
+    background-size: cover;
+    left: 0;
+    width: 100%;
+    height: calc(100% + #{$main-padding-bottom} + #{$main-padding-bottom});
+    opacity: 0.15;
+  }
+}
+
+.login-form {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+
+  &>.primary-action {
+    flex: 3;
+    padding: 2em;
+    min-width: 250px;
+
+    h2 {
+      text-align: center;
+    }
+
+    button {
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+
+  &>.secondary-action {
+    flex: 2;
+    padding: 2em;
+    background: $secondary-background-color;
+    min-width: 230px;
+
+    p {
+      color: $subtle-color;
+    }
+
+    a {
+      width: 100%;
+      text-transform: uppercase;
+    }
+  }
+}

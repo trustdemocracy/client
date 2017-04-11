@@ -1,0 +1,66 @@
+@import '~styles/base/variables';
+
+:host {
+  min-width: 100%;
+
+  .proposal {
+    margin-bottom: 1.5em;
+
+    h2 {
+      margin-bottom: 0.1em;
+    }
+
+    .deadline {
+      font-size: 0.8em;
+      span {
+        margin-left: 10px;
+        font-style: italic;
+        color: $subtle-color;
+      }
+    }
+
+    p {
+      text-align: justify;
+    }
+
+    .summary {
+      font-style: italic;
+      color: $subtle-color;
+    }
+  }
+
+  .votes {
+    margin-bottom: 1.5em;
+
+    .statistics {
+      justify-content: space-between;
+      margin: 0;
+
+      .statistic {
+        flex: 1;
+        margin: 0;
+
+        button {
+          margin: 10px;
+        }
+
+        &.favour {
+          .label {
+            color: $favour-color;
+          }
+        }
+
+        &.against {
+          .label {
+            color: $against-color;
+          }
+        }
+      }
+    }
+  }
+
+  .comments {
+    margin-bottom: 1.5em;
+    max-width: 100%;
+  }
+}
