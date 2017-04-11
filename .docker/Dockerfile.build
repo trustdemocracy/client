@@ -1,0 +1,8 @@
+FROM node:alpine
+
+MAINTAINER Luis Emilio Velasco
+
+VOLUME /app
+
+ENTRYPOINT ["sh"]
+CMD ["/app/.docker/build.sh"]
