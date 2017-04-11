@@ -7,7 +7,7 @@ import { Translation, LocaleService, TranslationService } from 'angular-l10n';
   styleUrls: ['./proposals.component.scss']
 })
 export class ProposalsComponent extends Translation {
-  private proposals = new Array(50);
+  public proposals = new Array(50);
 
   constructor(public translation: TranslationService) {
     super(translation);
