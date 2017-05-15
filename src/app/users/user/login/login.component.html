@@ -15,6 +15,7 @@
           <sui-checkbox [(ngModel)]="remember" name="remember">{{ 'Remember me' | translate:lang }}</sui-checkbox>
         </div>
       </div>
+      <p *ngIf="error" class="ui red message">{{ error }}</p>
       <button class="ui green button" type="submit" [disabled]="!loginForm.form.valid">
         {{ 'Login' | translate:lang }}
       </button>

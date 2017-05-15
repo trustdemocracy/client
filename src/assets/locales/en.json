@@ -61,5 +61,7 @@
     "Vote against": "Vote against",
     "Comments": "Comments",
     "Reply": "Reply",
-    "Add comment": "Add comment"
+    "Add comment": "Add comment",
+
+    "Invalid credentials": "Invalid credentials"
 }

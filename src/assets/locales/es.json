@@ -61,5 +61,7 @@
     "Vote against": "Votar en contra",
     "Comments": "Comentarios",
     "Reply": "Responder",
-    "Add comment": "Añadir comentario"
+    "Add comment": "Añadir comentario",
+
+    "Invalid credentials": "Credenciales inválidas"
 }
