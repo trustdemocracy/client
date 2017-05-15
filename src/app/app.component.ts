@@ -45,6 +45,10 @@ export class AppComponent extends Translation implements OnInit {
     this.locale.setCurrentLanguage(this.availableLocales[this.selectedLanguage]);
   }
 
+  logout(): void {
+    this.authenticationService.logout();
+  }
+
   resetScroll(): void {
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
