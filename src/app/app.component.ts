@@ -8,6 +8,12 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent extends Translation implements OnInit {
+  selectedLanguage:string;
+  availableLanguages: string[] = ['English', 'Español'];
+  availableLocales = {
+    'English': 'en',
+    'Español': 'es'
+  };
 
   constructor(public locale: LocaleService,
     public translation: TranslationService,
@@ -30,8 +36,8 @@ export class AppComponent extends Translation implements OnInit {
     this.resetScroll();
   }
 
-  selectLanguage(language: string): void {
-      this.locale.setCurrentLanguage(language);
+  selectLanguage(): void {
+    this.locale.setCurrentLanguage(this.availableLocales[this.selectedLanguage]);
   }
 
   resetScroll(): void {
