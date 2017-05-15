@@ -37,7 +37,7 @@ export class AuthenticationService {
   logout(): void {
     this.currentToken = null;
     localStorage.removeItem(this.STORAGE_TOKEN_KEY);
-    sessionStorage.removeItem(this.STORAGE_TOKEN_KEY);
+    this.deleteCookie(this.STORAGE_TOKEN_KEY);
   }
 
   private getStoredToken(): string {
@@ -58,6 +58,10 @@ export class AuthenticationService {
 
   private setCookie(name: string, value: string): void {
     document.cookie = name + '=' + value;
+  }
+
+  private deleteCookie(name:string): void {
+    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
   }
 
   private getCookie(name: string): string {
