@@ -7,8 +7,7 @@ import { User } from "app/_models/user";
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
-  providers: [AuthenticationService]
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends Translation {
   remember: boolean;
