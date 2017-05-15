@@ -1,7 +1,7 @@
 <section class="ui raised segment text container login-form">
   <div class="primary-action">
     <h2>{{ 'Login' | translate:lang }}</h2>
-    <form class="ui form" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <form class="ui form" [ngClass]="{'loading': loading}" (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="field">
         <label for="username">{{ 'Email or username' | translate:lang }}</label>
         <input id="username" type="text" [(ngModel)]="user.username" name="username" required placeholder="{{ 'Username' | translate:lang }}">

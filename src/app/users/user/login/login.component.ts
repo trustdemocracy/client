@@ -14,6 +14,7 @@ export class LoginComponent extends Translation {
   remember: boolean;
   user: User = new User();
   error: string = '';
+  loading: boolean = false;
 
   constructor(
     public translation: TranslationService,
@@ -25,9 +26,11 @@ export class LoginComponent extends Translation {
 
   onSubmit() {
     this.error = '';
+    this.loading = true;
 
     this.authenticationService.login(this.user)
       .subscribe((success: boolean) => {
+        this.loading = false;
         if (success) {
           this.router.navigate(['/']);
         } else {
