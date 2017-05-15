@@ -41,18 +41,34 @@ export class AuthenticationService {
   }
 
   private getStoredToken(): string {
-    let sessionToken = sessionStorage.getItem(this.STORAGE_TOKEN_KEY);
-    if (sessionToken !== null) {
-      return sessionToken;
+    let cookieToken = this.getCookie(this.STORAGE_TOKEN_KEY);
+    if (cookieToken !== null) {
+      return cookieToken;
     }
     return localStorage.getItem(this.STORAGE_TOKEN_KEY);
   }
 
-  private storeToken(token: string, remember: boolean) {
+  private storeToken(token: string, remember: boolean): void {
     if (remember) {
       localStorage.setItem(this.STORAGE_TOKEN_KEY, token);
     } else {
-      sessionStorage.setItem(this.STORAGE_TOKEN_KEY, token);
+      this.setCookie(this.STORAGE_TOKEN_KEY, token);
     }
+  }
+
+  private setCookie(name: string, value: string): void {
+    document.cookie = name + '=' + value;
+  }
+
+  private getCookie(name: string): string {
+    return document.cookie
+      .split(';')
+      .map(c => c.trim())
+      .filter(cookie => {
+        return cookie.substring(0, name.length + 1) === `${name}=`;
+      })
+      .map(cookie => {
+        return decodeURIComponent(cookie.substring(name.length + 1));
+      })[0] || null;
   }
 }

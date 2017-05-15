@@ -28,11 +28,11 @@ export class LoginComponent extends Translation {
     this.error = '';
     this.loading = true;
 
-    this.authenticationService.login(this.user)
+    this.authenticationService.login(this.user, this.remember)
       .subscribe((success: boolean) => {
         this.loading = false;
         if (success) {
-          this.router.navigate(['/']);
+          this.router.navigate(['']);
         } else {
           this.error = this.translation.translate('Invalid credentials');
         }
