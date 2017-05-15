@@ -18,22 +18,23 @@ import { FollowComponent } from './users/follow/follow.component';
 import { ProposalsComponent } from './proposals/proposals.component';
 import { ProposalComponent } from './proposals/proposal/proposal.component';
 import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.component';
+import { AuthGuard } from "app/guards/AuthGuard";
 
 
 
 
 
 const routes: Routes = [
-  { path: '', component: TimelineComponent },
+  { path: '', component: TimelineComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'user/edit', component: EditProfileComponent },
-  { path: 'user/:id', component: UserComponent },
-  { path: 'users/trust', component: TrustComponent },
-  { path: 'users/follow', component: FollowComponent },
-  { path: 'proposals', component: ProposalsComponent },
-  { path: 'proposals/:id', component: ProposalComponent },
-  { path: 'proposals/:id/edit', component: EditProposalComponent },
+  { path: 'user/edit', component: EditProfileComponent, canActivate: [AuthGuard] },
+  { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'users/trust', component: TrustComponent, canActivate: [AuthGuard] },
+  { path: 'users/follow', component: FollowComponent, canActivate: [AuthGuard] },
+  { path: 'proposals', component: ProposalsComponent, canActivate: [AuthGuard] },
+  { path: 'proposals/:id', component: ProposalComponent, canActivate: [AuthGuard] },
+  { path: 'proposals/:id/edit', component: EditProposalComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
@@ -58,7 +59,9 @@ const routes: Routes = [
     TranslationModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

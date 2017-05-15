@@ -14,6 +14,7 @@ export class AppComponent extends Translation implements OnInit {
     'English': 'en',
     'Español': 'es'
   };
+  currentUser: string = localStorage.getItem('currentUser');
 
   constructor(public locale: LocaleService,
     public translation: TranslationService,
