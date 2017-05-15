@@ -15,7 +15,6 @@ export class AppComponent extends Translation implements OnInit {
     'English': 'en',
     'Español': 'es'
   };
-  isUserLogged: boolean = this.authenticationService.isLogged();
 
   constructor(
     public locale: LocaleService,
@@ -43,6 +42,10 @@ export class AppComponent extends Translation implements OnInit {
 
   selectLanguage(): void {
     this.locale.setCurrentLanguage(this.availableLocales[this.selectedLanguage]);
+  }
+
+  isUserLogged(): boolean {
+    return this.authenticationService.isLogged();
   }
 
   logout(): void {

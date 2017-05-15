@@ -20,6 +20,7 @@ import { ProposalComponent } from './proposals/proposal/proposal.component';
 import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.component';
 import { AuthGuard } from "app/_guards/auth.guard";
 import { AuthenticationService } from "app/_services/authentication.service";
+import { LoggedGuard } from "app/_guards/logged.guard";
 
 
 
@@ -27,8 +28,8 @@ import { AuthenticationService } from "app/_services/authentication.service";
 
 const routes: Routes = [
   { path: '', component: TimelineComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoggedGuard] },
+  { path: 'register', component: RegisterComponent, canActivate: [LoggedGuard] },
   { path: 'user/edit', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'users/trust', component: TrustComponent, canActivate: [AuthGuard] },
@@ -62,6 +63,7 @@ const routes: Routes = [
   ],
   providers: [
     AuthGuard,
+    LoggedGuard,
     AuthenticationService
   ],
   bootstrap: [AppComponent]

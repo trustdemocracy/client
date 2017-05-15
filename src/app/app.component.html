@@ -7,7 +7,7 @@
         </a>
       </div>
 
-      <div class="right menu" *ngIf="isUserLogged">
+      <div class="right menu" *ngIf="isUserLogged()">
         <div class="item">
           <a routerLink="/proposals">
             <i class="file text outline icon"></i> {{ 'Proposals' | translate:lang }}
