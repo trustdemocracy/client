@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Translation, LocaleService, TranslationService } from 'angular-l10n';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthenticationService } from "app/_services/authentication.service";
 
 @Component({
   selector: 'app-root',
@@ -8,17 +9,20 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent extends Translation implements OnInit {
-  selectedLanguage:string;
+  selectedLanguage: string;
   availableLanguages: string[] = ['English', 'Español'];
   availableLocales = {
     'English': 'en',
     'Español': 'es'
   };
-  currentUser: string = localStorage.getItem('currentUser');
+  isUserLogged: boolean = this.authenticationService.isLogged();
 
-  constructor(public locale: LocaleService,
+  constructor(
+    public locale: LocaleService,
     public translation: TranslationService,
-    private router: Router) {
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
     super(translation);
 
     this.locale.addConfiguration()

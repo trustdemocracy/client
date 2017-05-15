@@ -19,6 +19,7 @@ import { ProposalsComponent } from './proposals/proposals.component';
 import { ProposalComponent } from './proposals/proposal/proposal.component';
 import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.component';
 import { AuthGuard } from "app/_guards/auth.guard";
+import { AuthenticationService } from "app/_services/authentication.service";
 
 
 
@@ -60,7 +61,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    AuthGuard
+    AuthGuard,
+    AuthenticationService
   ],
   bootstrap: [AppComponent]
 })
