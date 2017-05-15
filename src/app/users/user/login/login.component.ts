@@ -1,23 +1,23 @@
 import { Component } from '@angular/core';
 import { Translation, LocaleService, TranslationService } from 'angular-l10n';
-import { LoginService } from './login.service';
-import { User } from "app/models/user";
+import { AuthenticationService } from 'app/_services/authentication.service';
+import { User } from "app/_models/user";
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  providers: [LoginService]
+  providers: [AuthenticationService]
 })
 export class LoginComponent extends Translation {
   remember: boolean;
   user: User = new User();
 
-  constructor(public translation: TranslationService, private loginService: LoginService) {
+  constructor(public translation: TranslationService, private authenticationService: AuthenticationService) {
     super(translation);
   }
 
   onSubmit() {
-    this.loginService.loginUser(this.user);
+    this.authenticationService.login(this.user);
   }
 }

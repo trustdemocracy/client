@@ -18,7 +18,7 @@ import { FollowComponent } from './users/follow/follow.component';
 import { ProposalsComponent } from './proposals/proposals.component';
 import { ProposalComponent } from './proposals/proposal/proposal.component';
 import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.component';
-import { AuthGuard } from "app/guards/AuthGuard";
+import { AuthGuard } from "app/_guards/auth.guard";
 
 
 
