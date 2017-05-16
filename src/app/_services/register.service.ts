@@ -11,7 +11,7 @@ export class RegisterService {
   constructor(private http: Http) {
   }
 
-  register(user: User, remember: boolean = false): Observable<boolean> {
+  register(user: User): Observable<boolean> {
     return this.http.post(environment.usersApi.createUser, JSON.stringify(user))
       .map((response: Response) => {
         return response.ok;
