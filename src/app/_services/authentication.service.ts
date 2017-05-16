@@ -21,6 +21,7 @@ export class AuthenticationService {
         if (response.ok) {
           const token = response.json() && response.json().token;
           if (token) {
+            this.currentToken = token;
             this.storeToken(token, remember);
             return true;
           }
