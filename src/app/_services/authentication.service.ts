@@ -4,9 +4,12 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { User } from 'app/_models/user';
 import { environment } from 'app/../environments/environment';
+import { APIMessages } from "app/_services/api-messages";
 
 @Injectable()
 export class AuthenticationService {
+  private readonly BAD_CREDENTIALS = 'Bad credentials';
+
   private readonly ACCESS_TOKEN_KEY: string = 'userToken';
   private readonly REFRESH_TOKEN_KEY: string = 'refreshToken';
   private accessToken: string;
@@ -36,6 +39,12 @@ export class AuthenticationService {
         }
 
         return false;
+      })
+      .catch((error: Response) => {
+        if (error.status === 401 && error.json().message === this.BAD_CREDENTIALS) {
+          return Observable.throw(APIMessages.BAD_CREDENTIALS);
+        }
+        return Observable.throw(APIMessages.SERVER_PROBLEM);
       });
   }
 

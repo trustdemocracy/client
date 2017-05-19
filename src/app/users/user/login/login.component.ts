@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { Translation, LocaleService, TranslationService } from 'angular-l10n';
 import { AuthenticationService } from 'app/_services/authentication.service';
 import { User } from "app/_models/user";
+import { APIMessages } from "app/_services/api-messages";
 
 @Component({
   selector: 'login',
@@ -33,6 +34,12 @@ export class LoginComponent extends Translation {
         if (success) {
           this.router.navigate(['']);
         } else {
+          this.error = this.translation.translate('Invalid credentials');
+        }
+      }, (error: APIMessages) => {
+        this.loading = false;
+
+        if (error === APIMessages.BAD_CREDENTIALS) {
           this.error = this.translation.translate('Invalid credentials');
         }
       });
