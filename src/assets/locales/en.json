@@ -63,5 +63,6 @@
     "Reply": "Reply",
     "Add comment": "Add comment",
 
-    "Invalid credentials": "Invalid credentials"
+    "Invalid credentials": "Invalid credentials",
+    "Username already exists": "Username already exists"
 }

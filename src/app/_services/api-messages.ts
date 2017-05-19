@@ -1,0 +1,4 @@
+export enum APIMessages {
+  USERNAME_ALREADY_EXISTS,
+  SERVER_PROBLEM
+}

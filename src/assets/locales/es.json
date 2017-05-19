@@ -63,5 +63,6 @@
     "Reply": "Responder",
     "Add comment": "Añadir comentario",
 
-    "Invalid credentials": "Credenciales inválidas"
+    "Invalid credentials": "Credenciales inválidas",
+    "Username already exists": "El nombre de usuario ya existe"
 }
