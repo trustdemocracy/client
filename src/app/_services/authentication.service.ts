@@ -100,6 +100,10 @@ export class AuthenticationService {
     return user;
   }
 
+  updateUser(User): Observable<boolean> {
+    return null;
+  }
+
   private getAccessToken(): string {
     let cookieToken = this.getCookie(this.ACCESS_TOKEN_KEY);
     if (cookieToken !== null) {
