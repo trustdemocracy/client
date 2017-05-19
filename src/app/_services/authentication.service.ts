@@ -41,7 +41,8 @@ export class AuthenticationService {
 
   refreshAccessToken(): Observable<boolean> {
     const content: string = JSON.stringify({ refreshToken: this.refreshToken });
-    const headers: Headers = this.addAuthHeader(new Headers());
+    const headers: Headers = new Headers();
+    headers.append('Authorization', this.getAuthorizationHeader());
 
     return this.http.post(environment.usersApi.refreshToken, content, headers)
       .map((response: Response) => {
@@ -69,9 +70,8 @@ export class AuthenticationService {
     this.removeTokens();
   }
 
-  addAuthHeader(headers: Headers): Headers {
-    headers.append('Authorization', this.accessToken);
-    return headers;
+  getAuthorizationHeader(): string {
+    return 'Bearer: ' + this.accessToken;
   }
 
   private getAccessToken(): string {
