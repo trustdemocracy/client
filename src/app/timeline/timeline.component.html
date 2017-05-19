@@ -2,8 +2,8 @@
   <div class="four wide computer five wide tablet sixteen wide mobile column">
     <div class="ui card account-card">
       <div class="content">
-        <div class="header">username</div>
-        <div class="meta">Name Surname</div>
+        <div class="header">{{ user.username }}</div>
+        <div class="meta">{{ user.name }} {{ user.surname }}</div>
         <div class="meta">5 {{ 'units of trust' | translate:lang }}</div>
       </div>
       <div class="extra content">

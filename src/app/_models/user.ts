@@ -5,6 +5,7 @@ export class User {
   name: string;
   surname: string;
   password: string;
+  visibility: string;
 
   constructor() {
 

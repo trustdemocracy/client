@@ -83,6 +83,23 @@ export class AuthenticationService {
     return 'Bearer: ' + this.accessToken;
   }
 
+  getUser(): User {
+    if (this.accessToken === '') {
+      return null;
+    }
+
+    const jwt = this.decodeJwt(this.accessToken);
+    const user = new User();
+    user.id = jwt['sub'];
+    user.username = jwt['username'];
+    user.email = jwt['email'];
+    user.name = jwt['name'];
+    user.surname = jwt['surname'];
+    user.visibility = jwt['visibility'];
+
+    return user;
+  }
+
   private getAccessToken(): string {
     let cookieToken = this.getCookie(this.ACCESS_TOKEN_KEY);
     if (cookieToken !== null) {
@@ -136,5 +153,11 @@ export class AuthenticationService {
       .map(cookie => {
         return decodeURIComponent(cookie.substring(name.length + 1));
       })[0] || null;
+  }
+
+  private decodeJwt(token: string): object {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
   }
 }
