@@ -21,6 +21,7 @@ import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.c
 import { AuthGuard } from "app/_guards/auth.guard";
 import { AuthenticationService } from "app/_services/authentication.service";
 import { LoggedGuard } from "app/_guards/logged.guard";
+import { HttpService } from "app/_services/http.service";
 
 
 
@@ -64,7 +65,8 @@ const routes: Routes = [
   providers: [
     AuthGuard,
     LoggedGuard,
-    AuthenticationService
+    AuthenticationService,
+    HttpService
   ],
   bootstrap: [AppComponent]
 })

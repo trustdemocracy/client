@@ -5,11 +5,16 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { ErrorObservable } from "rxjs/observable/ErrorObservable";
 import { Subscribable } from "rxjs/Observable";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class HttpService {
 
-  constructor(private http: Http, private authService: AuthenticationService) {
+  constructor(
+    private http: Http,
+    private authService: AuthenticationService,
+    private router: Router
+  ) {
   }
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
@@ -56,9 +61,13 @@ export class HttpService {
             .flatMap((success: boolean) => {
               if (success) {
                 return generator();
-              } else {
-                return Observable.throw(error);
               }
+              return Observable.throw(error);
+            })
+            .catch(() => {
+              this.authService.logout();
+              this.router.navigate(['/login']);
+              return Observable.throw(error);
             });
         }
         return Observable.throw(error);

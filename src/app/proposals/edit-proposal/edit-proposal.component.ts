@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Translation, LocaleService, TranslationService } from 'angular-l10n';
 import { Proposal } from "app/_models/proposal";
 import { ActivatedRoute, Params } from "@angular/router";
+import { ProposalsService } from "app/_services/proposals.service";
 
 @Component({
   selector: 'edit-proposal',
   templateUrl: './edit-proposal.component.html',
-  styleUrls: ['./edit-proposal.component.scss']
+  styleUrls: ['./edit-proposal.component.scss'],
+  providers: [ProposalsService]
 })
 export class EditProposalComponent extends Translation implements OnInit {
   proposal: Proposal;
@@ -14,7 +16,8 @@ export class EditProposalComponent extends Translation implements OnInit {
 
   constructor(
     public translation: TranslationService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private proposalsService: ProposalsService
   ) {
     super(translation);
   }
@@ -32,7 +35,16 @@ export class EditProposalComponent extends Translation implements OnInit {
   }
 
   saveProposal(): void {
-    console.log(this.proposal);
+    if (this.isNew) {
+      this.proposalsService.create(this.proposal)
+        .subscribe((proposal: Proposal) => {
+          if (proposal !== null) {
+            this.proposal = proposal;
+          }
+        });
+    } else {
+
+    }
   }
 
   private getFakeProposal(): Proposal {
