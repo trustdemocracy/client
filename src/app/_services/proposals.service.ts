@@ -59,4 +59,17 @@ export class ProposalsService {
         return null;
       });
   }
+
+  delete(id: string): Observable<Proposal> {
+    const url = environment.proposalsApi.deleteProposal
+      .replace(':proposalId', id);
+
+    return this.http.delete(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return Proposal.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
 }

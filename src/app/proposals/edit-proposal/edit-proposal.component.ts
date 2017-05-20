@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { Translation, LocaleService, TranslationService } from 'angular-l10n';
 import { Proposal } from "app/_models/proposal";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { ProposalsService } from "app/_services/proposals.service";
 
 @Component({
@@ -17,6 +18,8 @@ export class EditProposalComponent extends Translation implements OnInit {
   constructor(
     public translation: TranslationService,
     private route: ActivatedRoute,
+    private location: Location,
+    private router: Router,
     private proposalsService: ProposalsService
   ) {
     super(translation);
@@ -37,17 +40,16 @@ export class EditProposalComponent extends Translation implements OnInit {
     });
   }
 
-  saveProposal(): void {
+  createProposal(): void {
     if (this.isNew) {
       this.proposalsService.create(this.proposal)
         .subscribe((proposal: Proposal) => {
           if (proposal !== null) {
             this.isNew = false;
             this.proposal = proposal;
+            this.location.replaceState("/proposals/" + proposal.id + "/edit");
           }
         });
-    } else {
-
     }
   }
 
@@ -65,6 +67,15 @@ export class EditProposalComponent extends Translation implements OnInit {
       .subscribe((proposal: Proposal) => {
         if (proposal !== null) {
           this.proposal = proposal;
+        }
+      });
+  }
+
+  deleteProposal(): void {
+    this.proposalsService.delete(this.proposal.id)
+      .subscribe((proposal: Proposal) => {
+        if (proposal !== null) {
+          this.router.navigate(['']);
         }
       });
   }

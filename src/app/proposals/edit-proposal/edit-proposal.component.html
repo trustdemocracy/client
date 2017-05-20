@@ -1,10 +1,11 @@
 <section class="ui text container">
-  <form (ngSubmit)="saveProposal()">
+  <form (ngSubmit)="createProposal()">
 
     <div class="proposal">
       <div class="title">
         <label>{{ 'Title of the proposal' | translate:lang }}</label>
-        <input type="text" name="title" [(ngModel)]="proposal.title" placeholder="{{ 'Title of the proposal' | translate:lang }}..." />
+        <input type="text" name="title" [(ngModel)]="proposal.title" placeholder="{{ 'Title of the proposal' | translate:lang }}..."
+        />
       </div>
 
       <div class="summary">
@@ -14,7 +15,8 @@
 
       <div class="source">
         <label>{{ 'Original source' | translate:lang }}</label>
-        <input type="text" name="source" [(ngModel)]="proposal.source" placeholder="{{ 'Original source' | translate:lang }}..." />
+        <input type="text" name="source" [(ngModel)]="proposal.source" placeholder="{{ 'Original source' | translate:lang }}..."
+        />
       </div>
 
       <div class="motivation">
@@ -28,9 +30,9 @@
       </div>
 
       <button *ngIf="isNew" class="ui green button" type="submit">{{ 'Create proposal' | translate:lang }}</button>
-      <button *ngIf="!isNew" class="ui green button" type="submit">{{ 'Update' | translate:lang }}</button>
-  <button *ngIf="!isNew && !proposal.isPublished()" class="ui blue button" (click)="publishProposal()">{{ 'Publish proposal' | translate:lang }}</button>
-  <button *ngIf="proposal.isPublished()" class="ui yellow button" (click)="unpublishProposal()">{{ 'Unpublish proposal' | translate:lang }}</button>
+      <button *ngIf="!isNew" class="ui red button" (click)="deleteProposal()">{{ 'Delete proposal' | translate:lang }}</button>
+      <button *ngIf="!isNew && !proposal.isPublished()" class="ui blue button" (click)="publishProposal()">{{ 'Publish proposal' | translate:lang }}</button>
+      <button *ngIf="proposal.isPublished()" class="ui yellow button" (click)="unpublishProposal()">{{ 'Unpublish proposal' | translate:lang }}</button>
     </div>
 
   </form>
