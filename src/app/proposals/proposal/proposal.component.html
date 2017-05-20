@@ -57,68 +57,44 @@
 
   </div>
 
-  <div class="ui comments">
+  <div class="ui comments" [ngClass]="{'loading form': loadingComments}">
     <h3 class="ui dividing header">{{ 'Comments' | translate:lang }}</h3>
 
-    <div class="comment">
-      <div class="content">
-        <a class="author">username</a>
-        <div class="metadata">
-          <span class="date">Today at 5:42PM</span>
-        </div>
-        <div class="text">
-          Lorem ipsum dolor sit amet
-        </div>
-        <div class="actions">
-          <a class="reply">{{ 'Reply' | translate:lang }}</a>
-        </div>
-      </div>
-    </div>
+    <p class="ui info message" *ngIf="!proposal.hasComments()">
+      {{ 'There are no comments, be the first one!' | translate:lang }}
+    </p>
 
-    <div class="comment">
+    <div class="comment" *ngFor="let comment of proposal.comments">
       <div class="content">
-        <a class="author">username</a>
+        <a class="author">{{ comment.authorUsername }}</a>
         <div class="metadata">
-          <span class="date">Yesterday at 12:30AM</span>
+          <span class="date">{{ comment.timestamp }}</span>
         </div>
         <div class="text">
-          Duis aute irure dolor in reprehenderit in voluptate
+          {{ comment.content }}
         </div>
         <div class="actions">
           <a class="reply">{{ 'Reply' | translate:lang }}</a>
         </div>
-      </div>
-      <div class="comments">
-        <div class="comment">
-          <div class="content">
-            <a class="author">username</a>
-            <div class="metadata">
-              <span class="date">Just now</span>
-            </div>
-            <div class="text">
-              Consectetur adipiscing elit, sed do eiusmod
-            </div>
-            <div class="actions">
-              <a class="reply">{{ 'Reply' | translate:lang }}</a>
+        <div class="comments" *ngIf="comment.hasComments()">
+          <div class="comment" *ngFor="let subComment of comment.comments">
+            <div class="content">
+              <a class="author">{{ subComment.authorUsername }}</a>
+              <div class="metadata">
+                <span class="date">{{ subComment.timestamp }}</span>
+              </div>
+              <div class="text">
+                {{ subComment.content }}
+              </div>
+              <div class="actions">
+                <a class="reply">{{ 'Reply' | translate:lang }}</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="comment">
-      <div class="content">
-        <a class="author">username</a>
-        <div class="metadata">
-          <span class="date">5 days ago</span>
-        </div>
-        <div class="text">
-          Dolor in reprehenderit
-        </div>
-        <div class="actions">
-          <a class="reply">{{ 'Reply' | translate:lang }}</a>
-        </div>
-      </div>
-    </div>
+
     <form class="ui reply form">
       <div class="field">
         <textarea></textarea>

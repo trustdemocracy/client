@@ -1,4 +1,5 @@
 import { User } from "app/_models/user";
+import { Comment } from "app/_models/comment";
 
 export class Proposal {
   id: string;
@@ -11,6 +12,8 @@ export class Proposal {
 
   authorUsername: string;
 
+  comments: Comment[];
+
   constructor() {
   }
 
@@ -20,6 +23,10 @@ export class Proposal {
 
   isOwner(user: User): boolean {
     return this.authorUsername === user.username;
+  }
+
+  hasComments(): boolean {
+    return this.comments && this.comments.length > 0;
   }
 
   static buildFromJson(json: any): Proposal {
