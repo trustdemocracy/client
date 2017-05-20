@@ -21,9 +21,35 @@ export class ProposalsService {
       });
   }
 
-  getProposal(id: string): Observable<Proposal> {
+  find(id: string): Observable<Proposal> {
     const url = environment.proposalsApi.getProposal
-      .replace(':id', id);
+      .replace(':proposalId', id);
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return Proposal.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
+
+  publish(id: string): Observable<Proposal> {
+    const url = environment.proposalsApi.publishProposal
+      .replace(':proposalId', id);
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return Proposal.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
+
+  unpublish(id: string): Observable<Proposal> {
+    const url = environment.proposalsApi.unpublishProposal
+      .replace(':proposalId', id);
 
     return this.http.get(url)
       .map((response: Response) => {

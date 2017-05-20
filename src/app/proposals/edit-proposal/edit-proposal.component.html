@@ -29,6 +29,8 @@
 
       <button *ngIf="isNew" class="ui green button" type="submit">{{ 'Create proposal' | translate:lang }}</button>
       <button *ngIf="!isNew" class="ui green button" type="submit">{{ 'Update' | translate:lang }}</button>
+  <button *ngIf="!isNew && !proposal.isPublished()" class="ui blue button" (click)="publishProposal()">{{ 'Publish proposal' | translate:lang }}</button>
+  <button *ngIf="proposal.isPublished()" class="ui yellow button" (click)="unpublishProposal()">{{ 'Unpublish proposal' | translate:lang }}</button>
     </div>
 
   </form>

@@ -20,8 +20,8 @@ export const environment = {
   },
   proposalsApi: {
     createProposal: proposalsApiBase + "/proposals",
-    getProposal: proposalsApiBase + "/proposals/:id",
-    deleteProposal: proposalsApiBase + "/proposals/:id",
+    getProposal: proposalsApiBase + "/proposals/:proposalId",
+    deleteProposal: proposalsApiBase + "/proposals/:proposalId",
     publishProposal: proposalsApiBase + "/proposals/:proposalId/publish",
     unpublishProposal: proposalsApiBase + "/proposals/:proposalId/unpublish",
 

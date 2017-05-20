@@ -12,6 +12,10 @@ export class Proposal {
   constructor() {
   }
 
+  isPublished(): boolean {
+    return this.status === 'PUBLISHED';
+  }
+
   static buildFromJson(json: any): Proposal {
     const instance = new Proposal();
 
@@ -21,6 +25,7 @@ export class Proposal {
     instance.source = json.source;
     instance.motivation = json.motivation;
     instance.measures = json.measures;
+    instance.status = json.status;
     instance.authorUsername = json.authorUsername;
 
     return instance;

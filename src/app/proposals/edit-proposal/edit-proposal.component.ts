@@ -11,7 +11,7 @@ import { ProposalsService } from "app/_services/proposals.service";
   providers: [ProposalsService]
 })
 export class EditProposalComponent extends Translation implements OnInit {
-  proposal: Proposal;
+  proposal: Proposal = new Proposal();
   isNew: boolean;
 
   constructor(
@@ -29,7 +29,10 @@ export class EditProposalComponent extends Translation implements OnInit {
         this.isNew = true;
         this.proposal = new Proposal();
       } else {
-        this.proposal = this.getFakeProposal();
+        this.proposalsService.find(id)
+          .subscribe((proposal: Proposal) => {
+            this.proposal = proposal;
+          });
       }
     });
   }
@@ -39,6 +42,7 @@ export class EditProposalComponent extends Translation implements OnInit {
       this.proposalsService.create(this.proposal)
         .subscribe((proposal: Proposal) => {
           if (proposal !== null) {
+            this.isNew = false;
             this.proposal = proposal;
           }
         });
@@ -47,14 +51,21 @@ export class EditProposalComponent extends Translation implements OnInit {
     }
   }
 
-  private getFakeProposal(): Proposal {
-    const proposal = new Proposal();
-    proposal.title = 'TITLEEE t, sed do eiusmod tempor irure dolor in reprehenderit in voluptate velit esse cillum do';
-    proposal.brief = 'BRIEFFFF psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-    proposal.source = 'google.com';
-    proposal.motivation = 'MOTIVATION psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-    proposal.measures = 'MEASURES psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.psum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
-    return proposal;
+  publishProposal(): void {
+    this.proposalsService.publish(this.proposal.id)
+      .subscribe((proposal: Proposal) => {
+        if (proposal !== null) {
+          this.proposal = proposal;
+        }
+      });
   }
 
+  unpublishProposal(): void {
+    this.proposalsService.unpublish(this.proposal.id)
+      .subscribe((proposal: Proposal) => {
+        if (proposal !== null) {
+          this.proposal = proposal;
+        }
+      });
+  }
 }

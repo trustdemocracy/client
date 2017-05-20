@@ -26,7 +26,7 @@ export class ProposalComponent extends Translation implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const id = params['id'];
-      this.proposalsService.getProposal(id)
+      this.proposalsService.find(id)
         .subscribe((proposal: Proposal) => {
           if (proposal !== null) {
             this.proposal = proposal
