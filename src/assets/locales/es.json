@@ -75,5 +75,9 @@
     "With private visibility only your username and name will be available for the people who is not following you": "Con visibilidad privada únicamente tu nombre y nombre de usuario será público para la gente que no te sigue",
     "With public visibility all your activity will be available for anyone who want to access it": "Con visibilidad pública toda tu actividad podrá ser vista por cualquier persona que no te siga",
     "This action cannot be undone, please, be completely aware of this before deleting your account": "Esta acción no se puede deshacer, por favor, se consciente de esto antes de borrar tu cuenta",
-    "Introduce your username to confirm you want to delete your account": "Introduce tu nombre de usuario para confirmar que quieres borrar tu cuenta"
+    "Introduce your username to confirm you want to delete your account": "Introduce tu nombre de usuario para confirmar que quieres borrar tu cuenta",
+
+    "Profile updated successfully": "Perfil actualizado con éxito",
+    "Visibility updated successfully": "Visibilidad actualizada con éxito",
+    "Password updated successfully": "Contraseña actualizada con éxito"
 }

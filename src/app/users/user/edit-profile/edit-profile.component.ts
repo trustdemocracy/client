@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, transition, state, style, animate } from '@angular/core';
 import { Router } from "@angular/router";
 import { Translation, LocaleService, TranslationService } from 'angular-l10n';
 import { AuthenticationService } from "app/_services/authentication.service";
@@ -22,6 +22,8 @@ export class EditProfileComponent extends Translation implements OnInit {
 
   repeatedPassword: string;
   passwordsMatch: boolean = true;
+
+  submitSuccess: boolean;
 
   constructor(
     public translation: TranslationService,
@@ -51,6 +53,9 @@ export class EditProfileComponent extends Translation implements OnInit {
     this.auth.updateUser(user)
       .subscribe((success: boolean) => {
         this.loading = false;
+        if (success) {
+          this.showSuccess();
+        }
       });
   }
 
@@ -61,6 +66,9 @@ export class EditProfileComponent extends Translation implements OnInit {
     this.auth.updateUser(user)
       .subscribe((success: boolean) => {
         this.loading = false;
+        if (success) {
+          this.showSuccess();
+        }
       });
   }
 
@@ -71,6 +79,9 @@ export class EditProfileComponent extends Translation implements OnInit {
     this.auth.updateUser(user)
       .subscribe((success: boolean) => {
         this.loading = false;
+        if (success) {
+          this.showSuccess();
+        }
       });
   }
 
@@ -85,4 +96,9 @@ export class EditProfileComponent extends Translation implements OnInit {
       });
   }
 
+
+  private showSuccess() {
+    this.submitSuccess = true;
+    setTimeout(() => this.submitSuccess = false, 3000);
+  }
 }

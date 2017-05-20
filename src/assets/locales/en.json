@@ -75,5 +75,9 @@
     "With private visibility only your username and name will be available for the people who is not following you": "With private visibility only your username and name will be available for the people who is not following you",
     "With public visibility all your activity will be available for anyone who want to access it": "With public visibility all your activity will be available for anyone who want to access it",
     "This action cannot be undone, please, be completely aware of this before deleting your account": "This action cannot be undone, please, be completely aware of this before deleting your account",
-    "Introduce your username to confirm you want to delete your account": "Introduce your username to confirm you want to delete your account"
+    "Introduce your username to confirm you want to delete your account": "Introduce your username to confirm you want to delete your account",
+
+    "Profile updated successfully": "Profile updated successfully",
+    "Visibility updated successfully": "Visibility updated successfully",
+    "Password updated successfully": "Password updated successfully"
 }

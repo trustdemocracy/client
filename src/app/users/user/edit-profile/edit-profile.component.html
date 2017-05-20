@@ -16,6 +16,7 @@
       <div class="edit-form" *ngIf="'profile' === currentTab">
         <h2>{{ 'Edit profile' | translate:lang }}</h2>
         <form class="ui form" [ngClass]="{'loading': loading}" (ngSubmit)="updateProfile()" #profileForm="ngForm">
+          <p *ngIf="submitSuccess" class="fade ui green message">{{ 'Profile updated successfully' | translate:lang }}</p>
           <div class="field">
             <label>{{ 'Username' | translate:lang }}</label>
             <input type="text" value="{{ user.username }}" disabled="disabled" />
@@ -39,6 +40,7 @@
       <div class="edit-form" *ngIf="'visibility' === currentTab">
         <h2>{{ 'Visibility' | translate:lang }}</h2>
         <form class="ui form" [ngClass]="{'loading': loading}" (ngSubmit)="updateVisibility()" #visibilityForm="ngForm">
+          <p *ngIf="submitSuccess" class="fade ui green message">{{ 'Visibility updated successfully' | translate:lang }}</p>
           <div class="grouped fields">
             <div class="field">
               <sui-radio-button value="PRIVATE" [(ngModel)]="user.visibility" name="visibility">
@@ -61,6 +63,7 @@
       <div class="edit-form" *ngIf="'password' === currentTab">
         <h2>{{ 'Password' | translate:lang }}</h2>
         <form class="ui form" [ngClass]="{'loading': loading}" (ngSubmit)="updatePassword()" #passwordForm="ngForm">
+          <p *ngIf="submitSuccess" class="fade ui green message">{{ 'Password updated successfully' | translate:lang }}</p>
           <div class="field">
             <label>{{ 'New password' | translate:lang }}</label>
             <input type="password" [(ngModel)]="user.password" name="password" required placeholder="{{ 'New password' | translate:lang }}">
