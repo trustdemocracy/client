@@ -1,3 +1,5 @@
+import { User } from "app/_models/user";
+
 export class Proposal {
   id: string;
   title: string;
@@ -14,6 +16,10 @@ export class Proposal {
 
   isPublished(): boolean {
     return this.status === 'PUBLISHED';
+  }
+
+  isOwner(user: User): boolean {
+    return this.authorUsername === user.username;
   }
 
   static buildFromJson(json: any): Proposal {

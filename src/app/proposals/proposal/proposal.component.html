@@ -17,7 +17,13 @@
 
     <h4>{{ 'Measures' | translate:lang }}</h4>
     <p class="measures">{{ proposal.measures }}</p>
+
+    <a *ngIf="hasEditButton()" class="ui yellow button" routerLink="/proposals/{{ proposal.id }}/edit">
+      <i class="write icon"></i> {{ 'Edit proposal' | translate:lang }}
+    </a>
   </div>
+
+
 
   <div class="votes">
     <h3 class="ui dividing header">{{ 'Votes' | translate:lang }}</h3>

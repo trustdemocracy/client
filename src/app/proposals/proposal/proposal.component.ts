@@ -3,6 +3,7 @@ import { Translation, LocaleService, TranslationService } from 'angular-l10n';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { ProposalsService } from "app/_services/proposals.service";
 import { Proposal } from "app/_models/proposal";
+import { AuthenticationService } from "app/_services/authentication.service";
 
 @Component({
   selector: 'proposal',
@@ -19,7 +20,8 @@ export class ProposalComponent extends Translation implements OnInit {
     public translation: TranslationService,
     private route: ActivatedRoute,
     private router: Router,
-    private proposalsService: ProposalsService
+    private proposalsService: ProposalsService,
+    private authService: AuthenticationService
   ) {
     super(translation);
   }
@@ -36,6 +38,10 @@ export class ProposalComponent extends Translation implements OnInit {
           this.router.navigateByUrl('/404', {skipLocationChange: true});
         });
     });
+  }
+
+  hasEditButton(): boolean {
+    return this.proposal.isOwner(this.authService.getUser());
   }
 
 }
