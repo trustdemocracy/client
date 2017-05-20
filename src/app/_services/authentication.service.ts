@@ -132,6 +132,18 @@ export class AuthenticationService {
   }
 
   encapsulateWithRefresh(generator: (() => Observable<Response>)): Observable<Response> {
+    if (this.isAboutToExpire()) {
+      return this.refreshAccessToken()
+        .flatMap((success: boolean) => {
+          return generator();
+        })
+        .catch((error: Error) => {
+          this.logout();
+          this.router.navigate(['/login']);
+          return Observable.throw(error);
+        });
+    }
+
     return generator()
       .catch((error: Response) => {
         if (error.status === 401) {
@@ -150,6 +162,12 @@ export class AuthenticationService {
         }
         return Observable.throw(error);
       });
+  }
+
+  private isAboutToExpire(): boolean {
+    const token = this.decodeJwt(this.accessToken);
+    const expirationInMilis = token['exp'] * 1000;
+    return expirationInMilis <= Date.now();
   }
 
   private getAccessToken(): string {
