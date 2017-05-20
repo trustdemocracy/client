@@ -82,5 +82,8 @@
 
     "Profile updated successfully": "Profile updated successfully",
     "Visibility updated successfully": "Visibility updated successfully",
-    "Password updated successfully": "Password updated successfully"
+    "Password updated successfully": "Password updated successfully",
+
+    "The page you are looking for doesn't exists": "The page you are looking for doesn't exists",
+    "Go back home": "Go back home"
 }

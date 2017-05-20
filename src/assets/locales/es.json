@@ -82,5 +82,8 @@
 
     "Profile updated successfully": "Perfil actualizado con éxito",
     "Visibility updated successfully": "Visibilidad actualizada con éxito",
-    "Password updated successfully": "Contraseña actualizada con éxito"
+    "Password updated successfully": "Contraseña actualizada con éxito",
+
+    "The page you are looking for doesn't exists": "La página que estás buscando no existe",
+    "Go back home": "Volver a inicio"
 }

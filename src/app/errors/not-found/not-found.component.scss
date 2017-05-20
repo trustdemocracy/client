@@ -1,0 +1,33 @@
+@import '~styles/base/variables';
+
+:host {
+  min-width: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: 10em;
+    word-spacing: -30px;
+
+    span {
+      &.pink {
+        color: #e61a8d;
+      }
+      &.blue {
+        color: #1678c2;
+      }
+      &.teal {
+        color: #009c95;
+      }
+      &.green {
+        color: #16ab39;
+      }
+      &.brown {
+        color: #975b33;
+      }
+    }
+  }
+
+  h3 {
+    margin-bottom: 50px;
+  }
+}

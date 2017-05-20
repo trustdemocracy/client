@@ -22,6 +22,7 @@ import { AuthGuard } from "app/_guards/auth.guard";
 import { AuthenticationService } from "app/_services/authentication.service";
 import { LoggedGuard } from "app/_guards/logged.guard";
 import { HttpService } from "app/_services/http.service";
+import { NotFoundComponent } from "app/errors/not-found/not-found.component";
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'proposals', component: ProposalsComponent, canActivate: [AuthGuard] },
   { path: 'proposals/:id', component: ProposalComponent, canActivate: [AuthGuard] },
   { path: 'proposals/:id/edit', component: EditProposalComponent, canActivate: [AuthGuard] },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
@@ -52,7 +54,8 @@ const routes: Routes = [
     FollowComponent,
     ProposalsComponent,
     ProposalComponent,
-    EditProposalComponent
+    EditProposalComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
