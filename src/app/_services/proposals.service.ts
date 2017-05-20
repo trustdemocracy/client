@@ -18,7 +18,19 @@ export class ProposalsService {
           return Proposal.buildFromJson(response.json());
         }
         return null;
-      })
+      });
   }
 
+  getProposal(id: string): Observable<Proposal> {
+    const url = environment.proposalsApi.getProposal
+      .replace(':id', id);
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return Proposal.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
 }
