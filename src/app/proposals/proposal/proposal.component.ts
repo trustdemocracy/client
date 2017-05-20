@@ -20,6 +20,9 @@ export class ProposalComponent extends Translation implements OnInit {
   proposal: Proposal;
   loadingComments: boolean;
 
+  loadingCreateComment: boolean;
+  comment: Comment = new Comment();
+
   constructor(
     public translation: TranslationService,
     private route: ActivatedRoute,
@@ -52,6 +55,17 @@ export class ProposalComponent extends Translation implements OnInit {
       .subscribe((comments: Comment[]) => {
         this.loadingComments = false;
         this.proposal.comments = comments;
+      });
+  }
+
+  createComment(): void {
+    this.loadingCreateComment = true;
+    this.comment.proposalId = this.proposal.id;
+    this.commentsService.create(this.comment)
+      .subscribe((comment: Comment) => {
+        this.loadingCreateComment = false;
+        this.proposal.comments.push(comment);
+        this.comment = new Comment();
       });
   }
 

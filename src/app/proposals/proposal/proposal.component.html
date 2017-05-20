@@ -18,7 +18,7 @@
     <h4>{{ 'Measures' | translate:lang }}</h4>
     <p class="measures">{{ proposal.measures }}</p>
 
-    <a *ngIf="hasEditButton()" class="ui yellow button" routerLink="/proposals/{{ proposal.id }}/edit">
+    <a *ngIf="hasEditButton()" class="ui yellow labeled icon button" routerLink="/proposals/{{ proposal.id }}/edit">
       <i class="write icon"></i> {{ 'Edit proposal' | translate:lang }}
     </a>
   </div>
@@ -86,22 +86,19 @@
               <div class="text">
                 {{ subComment.content }}
               </div>
-              <div class="actions">
-                <a class="reply">{{ 'Reply' | translate:lang }}</a>
-              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <form class="ui reply form">
+    <form class="ui reply form" (ngSubmit)="createComment()" [ngClass]="{'loading': loadingCreateComment}" #commentForm="ngForm">
       <div class="field">
-        <textarea></textarea>
+        <textarea name="comment" [(ngModel)]="comment.content" required></textarea>
       </div>
-      <div class="ui blue labeled submit icon button">
+      <button class="ui blue labeled submit icon button" type="submit" [disabled]="!commentForm.form.valid">
         <i class="icon edit"></i> {{ 'Add comment' | translate:lang }}
-      </div>
+      </button>
     </form>
   </div>
 </section>

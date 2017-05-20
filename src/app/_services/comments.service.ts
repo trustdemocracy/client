@@ -11,6 +11,21 @@ export class CommentsService {
   constructor(private http: HttpService) {
   }
 
+  create(comment: Comment): Observable<Comment> {
+    const url = environment.proposalsApi.createComment
+      .replace(':proposalId', comment.proposalId);
+
+    delete comment['comments'];
+
+    return this.http.post(url, JSON.stringify(comment))
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return Comment.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
+
   find(proposalId: string): Observable<Comment[]> {
     const url = environment.proposalsApi.getComments
       .replace(':proposalId', proposalId);
