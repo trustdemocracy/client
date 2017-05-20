@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { User } from 'app/_models/user';
 import { environment } from 'app/../environments/environment';
 import { APIMessages } from "app/_services/api-messages";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthenticationService {
@@ -16,7 +17,7 @@ export class AuthenticationService {
   private refreshToken: string;
   private remember: boolean;
 
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
     this.accessToken = this.getAccessToken();
     this.refreshToken = this.getRefreshToken();
   }
@@ -106,7 +107,9 @@ export class AuthenticationService {
     const headers: Headers = new Headers();
     headers.append('Authorization', this.getAuthorizationHeader());
 
-    return this.http.put(url, content, { 'headers': headers })
+    return this.encapsulateWithRefresh(
+      () => this.http.put(url, content, { 'headers': headers })
+    )
       .map((response: Response) => {
         this.refreshAccessToken()
           .subscribe();
@@ -120,9 +123,32 @@ export class AuthenticationService {
     const headers: Headers = new Headers();
     headers.append('Authorization', this.getAuthorizationHeader());
 
-    return this.http.delete(url, { 'headers': headers })
+    return this.encapsulateWithRefresh(
+      () => this.http.delete(url, { 'headers': headers })
+    )
       .map((response: Response) => {
         return response.ok && response.json();
+      });
+  }
+
+  encapsulateWithRefresh(generator: (() => Observable<Response>)): Observable<Response> {
+    return generator()
+      .catch((error: Response) => {
+        if (error.status === 401) {
+          return this.refreshAccessToken()
+            .flatMap((success: boolean) => {
+              if (success) {
+                return generator();
+              }
+              return Observable.throw(error);
+            })
+            .catch(() => {
+              this.logout();
+              this.router.navigate(['/login']);
+              return Observable.throw(error);
+            });
+        }
+        return Observable.throw(error);
       });
   }
 

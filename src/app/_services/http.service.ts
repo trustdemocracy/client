@@ -18,25 +18,25 @@ export class HttpService {
   }
 
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.encapsulateWithRefresh(
+    return this.authService.encapsulateWithRefresh(
       () => this.http.get(url, this.appendAuthHeader(options))
     );
   }
 
   post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.encapsulateWithRefresh(
+    return this.authService.encapsulateWithRefresh(
       () => this.http.post(url, body, this.appendAuthHeader(options))
     );
   }
 
   put(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    return this.encapsulateWithRefresh(
+    return this.authService.encapsulateWithRefresh(
       () => this.http.put(url, body, this.appendAuthHeader(options))
     );
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
-    return this.encapsulateWithRefresh(
+    return this.authService.encapsulateWithRefresh(
       () => this.http.delete(url, this.appendAuthHeader(options))
     );
   }
@@ -51,26 +51,5 @@ export class HttpService {
     }
     options.headers.append('Authorization', this.authService.getAuthorizationHeader());
     return options;
-  }
-
-  private encapsulateWithRefresh(generator: (() => Observable<Response>)): Observable<Response> {
-    return generator()
-      .catch((error: Response) => {
-        if (error.status === 401) {
-          return this.authService.refreshAccessToken()
-            .flatMap((success: boolean) => {
-              if (success) {
-                return generator();
-              }
-              return Observable.throw(error);
-            })
-            .catch(() => {
-              this.authService.logout();
-              this.router.navigate(['/login']);
-              return Observable.throw(error);
-            });
-        }
-        return Observable.throw(error);
-      });
   }
 }
