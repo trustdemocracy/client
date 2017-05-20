@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Translation, LocaleService, TranslationService } from 'angular-l10n';
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { ProposalsService } from "app/_services/proposals.service";
 import { Proposal } from "app/_models/proposal";
 
@@ -13,11 +13,12 @@ import { Proposal } from "app/_models/proposal";
   ]
 })
 export class ProposalComponent extends Translation implements OnInit {
-  proposal: Proposal = new Proposal();
+  proposal: Proposal;
 
   constructor(
     public translation: TranslationService,
     private route: ActivatedRoute,
+    private router: Router,
     private proposalsService: ProposalsService
   ) {
     super(translation);
@@ -32,7 +33,7 @@ export class ProposalComponent extends Translation implements OnInit {
             this.proposal = proposal
           }
         }, (error: Error) => {
-          // not found
+          this.router.navigateByUrl('/404', {skipLocationChange: true});
         });
     });
   }

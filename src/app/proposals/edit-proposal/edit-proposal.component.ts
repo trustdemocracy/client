@@ -12,7 +12,7 @@ import { ProposalsService } from "app/_services/proposals.service";
   providers: [ProposalsService]
 })
 export class EditProposalComponent extends Translation implements OnInit {
-  proposal: Proposal = new Proposal();
+  proposal: Proposal;
   isNew: boolean;
 
   constructor(
@@ -35,6 +35,8 @@ export class EditProposalComponent extends Translation implements OnInit {
         this.proposalsService.find(id)
           .subscribe((proposal: Proposal) => {
             this.proposal = proposal;
+          }, (error: Error) => {
+            this.router.navigateByUrl('/404', { skipLocationChange: true });
           });
       }
     });
