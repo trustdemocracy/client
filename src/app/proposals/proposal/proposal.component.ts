@@ -31,6 +31,8 @@ export class ProposalComponent extends Translation implements OnInit {
           if (proposal !== null) {
             this.proposal = proposal
           }
+        }, (error: Error) => {
+          // not found
         });
     });
   }
