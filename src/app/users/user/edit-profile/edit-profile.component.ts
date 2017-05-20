@@ -48,31 +48,41 @@ export class EditProfileComponent extends Translation implements OnInit {
     const user = this.auth.getUser();
     user.name = this.user.name;
     user.surname = this.user.surname;
-    this.auth.updateUser(user);
-    this.loading = false;
+    this.auth.updateUser(user)
+      .subscribe((success: boolean) => {
+        this.loading = false;
+      });
   }
 
   updateVisibility() {
     this.loading = true;
     const user = this.auth.getUser();
     user.visibility = this.user.visibility;
-    this.auth.updateUser(user);
-    this.loading = false;
+    this.auth.updateUser(user)
+      .subscribe((success: boolean) => {
+        this.loading = false;
+      });
   }
 
   updatePassword() {
     this.loading = true;
     const user = this.auth.getUser();
     user.password = this.user.password;
-    this.auth.updateUser(user);
-    this.loading = false;
+    this.auth.updateUser(user)
+      .subscribe((success: boolean) => {
+        this.loading = false;
+      });
   }
 
   deleteAccount() {
     this.loading = true;
-    this.auth.logout();
-    this.router.navigate(['/login']);
-    this.loading = false;
+    const user = this.auth.getUser();
+    this.auth.deleteUser(user)
+      .subscribe((success: boolean) => {
+        this.loading = false;
+        this.auth.logout();
+        this.router.navigate(['/login']);
+      });
   }
 
 }

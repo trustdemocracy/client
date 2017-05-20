@@ -53,7 +53,7 @@ export class AuthenticationService {
     const headers: Headers = new Headers();
     headers.append('Authorization', this.getAuthorizationHeader());
 
-    return this.http.post(environment.usersApi.refreshToken, content, headers)
+    return this.http.post(environment.usersApi.refreshToken, content, { 'headers': headers })
       .map((response: Response) => {
         if (response.ok && response.json()) {
           const accessToken = response.json().accessToken;
@@ -100,8 +100,30 @@ export class AuthenticationService {
     return user;
   }
 
-  updateUser(User): Observable<boolean> {
-    return null;
+  updateUser(user: User): Observable<boolean> {
+    const url = environment.usersApi.updateUser.replace(':userId', user.id);
+    const content: string = JSON.stringify(user);
+    const headers: Headers = new Headers();
+    headers.append('Authorization', this.getAuthorizationHeader());
+
+    return this.http.put(url, content, { 'headers': headers })
+      .map((response: Response) => {
+        this.refreshAccessToken()
+          .subscribe();
+
+        return response.ok && response.json();
+      });
+  }
+
+  deleteUser(user: User): Observable<boolean> {
+    const url = environment.usersApi.deleteUser.replace(':userId', user.id);
+    const headers: Headers = new Headers();
+    headers.append('Authorization', this.getAuthorizationHeader());
+
+    return this.http.delete(url, { 'headers': headers })
+      .map((response: Response) => {
+        return response.ok && response.json();
+      });
   }
 
   private getAccessToken(): string {
