@@ -68,7 +68,7 @@
       <div class="content">
         <a class="author">{{ comment.authorUsername }}</a>
         <div class="metadata">
-          <span class="date">{{ comment.timestamp }}</span>
+          <span class="date">{{ comment.timestamp | localeDate:lang:'fullDate' }}</span>
         </div>
         <div class="text">
           {{ comment.content }}
@@ -81,7 +81,7 @@
             <div class="content">
               <a class="author">{{ subComment.authorUsername }}</a>
               <div class="metadata">
-                <span class="date">{{ subComment.timestamp }}</span>
+                <span class="date">{{ subComment.timestamp | localeDate:lang:'fullDate' }}</span>
               </div>
               <div class="text">
                 {{ subComment.content }}

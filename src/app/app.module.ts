@@ -5,7 +5,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { SuiModule } from 'ng2-semantic-ui';
-import { TranslationModule } from 'angular-l10n';
+import { LocalizationModule } from 'angular-l10n';
 
 import { AppComponent } from './app.component';
 import { TimelineComponent } from './timeline/timeline.component';
@@ -62,7 +62,7 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     SuiModule,
-    TranslationModule.forRoot(),
+    LocalizationModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [

@@ -6,7 +6,7 @@ export class Comment {
   rootCommentId: string;
   authorUsername: string;
   content: string;
-  timepstamp: number;
+  timestamp: number;
   votes: any;
 
   comments: Comment[] = [];
@@ -30,7 +30,7 @@ export class Comment {
     instance.rootCommentId = json.rootCommentId;
     instance.authorUsername = json.authorUsername;
     instance.content = json.content;
-    instance.timepstamp = json.timepstamp;
+    instance.timestamp = json.timestamp;
     instance.votes = json.votes;
 
     return instance;

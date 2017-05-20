@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Translation, LocaleService, TranslationService } from 'angular-l10n';
+import { Localization, LocaleService, TranslationService } from 'angular-l10n';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { ProposalsService } from "app/_services/proposals.service";
 import { Proposal } from "app/_models/proposal";
@@ -16,7 +16,7 @@ import { CommentsService } from "app/_services/comments.service";
     CommentsService
   ]
 })
-export class ProposalComponent extends Translation implements OnInit {
+export class ProposalComponent extends Localization implements OnInit {
   proposal: Proposal;
   loadingComments: boolean;
 
@@ -25,13 +25,14 @@ export class ProposalComponent extends Translation implements OnInit {
 
   constructor(
     public translation: TranslationService,
+    public locale: LocaleService,
     private route: ActivatedRoute,
     private router: Router,
     private proposalsService: ProposalsService,
     private commentsService: CommentsService,
     private authService: AuthenticationService
   ) {
-    super(translation);
+    super(locale, translation);
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Translation, LocaleService, TranslationService } from 'angular-l10n';
+import { Localization, LocaleService, TranslationService } from 'angular-l10n';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthenticationService } from "app/_services/authentication.service";
 
@@ -8,7 +8,7 @@ import { AuthenticationService } from "app/_services/authentication.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends Translation implements OnInit {
+export class AppComponent extends Localization implements OnInit {
   selectedLanguage: string;
   availableLanguages: string[] = ['English', 'Español'];
   availableLocales = {
@@ -22,7 +22,7 @@ export class AppComponent extends Translation implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService
   ) {
-    super(translation);
+    super(locale, translation);
 
     this.locale.addConfiguration()
       .addLanguages(['es', 'en'])
