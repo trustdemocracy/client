@@ -11,6 +11,27 @@ export class RelationshipsService {
   constructor(private http: HttpService) {
   }
 
+  findAll(): Observable<Relationship[]> {
+    const url = environment.socialApi.getRelationshipsWithUser;
+    const json = { 'targetUserId': null };
+
+    return this.http.post(url, JSON.stringify(json))
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          const relationshipsArray = response.json().relationships;
+          const relationships: Relationship[] = []
+
+          for (let i = 0; i < relationshipsArray.length; i++) {
+            let relationship = Relationship.buildFromJson(relationshipsArray[i]);
+            relationships.push(relationship);
+          }
+
+          return relationships;
+        }
+        return null;
+      });
+  }
+
   findWithUser(id: string): Observable<Relationship[]> {
     const url = environment.socialApi.getRelationshipsWithUser;
     const json = { 'targetUserId': id };
