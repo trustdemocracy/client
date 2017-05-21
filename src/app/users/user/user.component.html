@@ -24,7 +24,7 @@
     </div>
 
     <div class="ui divided items proposals">
-      <h3>{{ 'Trending proposals' | translate:lang }}</h3>
+      <h4>{{ 'Trending proposals of' | translate:lang:{ username: user.username} }}</h4>
       <div class="item" *ngFor="let proposal of proposals">
         <div class="content">
           <a class="header" routerLink="/proposals/{{ proposal.id }}">{{ proposal.title }}</a>
