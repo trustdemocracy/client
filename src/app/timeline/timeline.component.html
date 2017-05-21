@@ -2,7 +2,7 @@
   <div class="four wide computer five wide tablet sixteen wide mobile column">
     <div class="ui card account-card">
       <div class="content">
-        <div class="header">{{ user.username }}</div>
+        <div class="header"><a routerLink="/user/{{ user.username }}">{{ user.username }}</a></div>
         <div class="meta">{{ user.name }} {{ user.surname }}</div>
         <div class="meta">5 {{ 'units of trust' | translate:lang }}</div>
       </div>
