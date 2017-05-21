@@ -21,6 +21,8 @@ export const environment = {
   proposalsApi: {
     createProposal: proposalsApiBase + "/proposals",
     getProposal: proposalsApiBase + "/proposals/:proposalId",
+    getProposals: proposalsApiBase + "/proposals/",
+    getProposalsByAuthor: proposalsApiBase + "/proposals?authorId=:authorId",
     deleteProposal: proposalsApiBase + "/proposals/:proposalId",
     publishProposal: proposalsApiBase + "/proposals/:proposalId/publish",
     unpublishProposal: proposalsApiBase + "/proposals/:proposalId/unpublish",
