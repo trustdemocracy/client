@@ -13,8 +13,7 @@ import { UserComponent } from './users/user/user.component';
 import { LoginComponent } from './users/user/login/login.component';
 import { RegisterComponent } from './users/user/register/register.component';
 import { EditProfileComponent } from './users/user/edit-profile/edit-profile.component';
-import { TrustComponent } from './users/trust/trust.component';
-import { FollowComponent } from './users/follow/follow.component';
+import { RelationshipsComponent } from './users/relationships/relationships.component';
 import { ProposalsComponent } from './proposals/proposals.component';
 import { ProposalComponent } from './proposals/proposal/proposal.component';
 import { EditProposalComponent } from './proposals/edit-proposal/edit-proposal.component';
@@ -36,8 +35,7 @@ const routes: Routes = [
   { path: 'user/edit', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
-  { path: 'users/trust', component: TrustComponent, canActivate: [AuthGuard] },
-  { path: 'users/follow', component: FollowComponent, canActivate: [AuthGuard] },
+  { path: 'users/relationships', component: RelationshipsComponent, canActivate: [AuthGuard] },
   { path: 'proposals', component: ProposalsComponent, canActivate: [AuthGuard] },
   { path: 'proposals/:id', component: ProposalComponent, canActivate: [AuthGuard] },
   { path: 'proposals/:id/edit', component: EditProposalComponent, canActivate: [AuthGuard] },
@@ -53,8 +51,7 @@ const routes: Routes = [
     EditProfileComponent,
     UserComponent,
     UsersComponent,
-    TrustComponent,
-    FollowComponent,
+    RelationshipsComponent,
     ProposalsComponent,
     ProposalComponent,
     EditProposalComponent,

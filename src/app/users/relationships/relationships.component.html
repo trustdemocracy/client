@@ -1,0 +1,98 @@
+<section class="ui grid container proposals">
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h3>
+      {{ 'Users you follow' | translate:lang }}
+      <span class="ui teal circular label">{{ followed.length }}</span>
+    </h3>
+
+    <p class="ui info message" *ngIf="!followed.length">
+      {{ "You don't follow anybody yet" | translate:lang }}.<br />
+      <a routerLink="/users">{{ 'Start following someone now' | translate:lang }}.</a>
+    </p>
+
+    <div class="ui card" *ngIf="followed.length">
+      <div class="ui content">
+        <div class="ui middle big aligned selection divided list">
+          <div class="item" *ngFor="let rel of followed" routerLink="/user/{{ rel.targetUsername }}">
+            <div class="content">
+              <div class="header">{{ rel.targetUsername }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h3>
+      {{ 'Users following you' | translate:lang }}
+      <span class="ui teal circular label">{{ following.length }}</span>
+    </h3>
+
+    <p class="ui info message" *ngIf="!following.length">
+      {{ 'No body is following you yet' | translate:lang }}.<br />
+      <a routerLink="/proposals">{{ 'Try participating in some proposals' | translate:lang }}.</a>
+    </p>
+
+    <div class="ui card" *ngIf="following.length">
+      <div class="ui content">
+        <div class="ui middle big aligned selection divided list">
+          <div class="item" *ngFor="let rel of following" routerLink="/user/{{ rel.originUsername }}">
+            <div class="content">
+              <div class="header">{{ rel.originUsername }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h3>
+      {{ 'Users you trust' | translate:lang }}
+      <span class="ui blue circular label">{{ trusted.length }}</span>
+    </h3>
+
+    <p class="ui info message" *ngIf="!trusted.length">
+      {{ "You don't trust anybody yet" | translate:lang }}.<br />
+      <a routerLink="/users">{{ 'Start trusting someone now' | translate:lang }}.</a>
+    </p>
+
+    <div class="ui card" *ngIf="trusted.length">
+      <div class="ui content">
+        <div class="ui middle big aligned selection divided list">
+          <div class="item" *ngFor="let rel of trusted" routerLink="/user/{{ rel.targetUsername }}">
+            <div class="content">
+              <div class="header">{{ rel.targetUsername }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h3>
+      {{ 'Users trusting you' | translate:lang }}
+      <span class="ui blue circular label">{{ trusting.length }}</span>
+    </h3>
+
+    <p class="ui info message" *ngIf="!trusting.length">
+      {{ 'No body is trusting you yet' | translate:lang }}.<br />
+      <a routerLink="/proposals">{{ 'Try participating in some proposals' | translate:lang }}.</a>
+    </p>
+
+    <div class="ui card" *ngIf="trusting.length">
+      <div class="ui content">
+        <div class="ui middle big aligned selection divided list">
+          <div class="item" *ngFor="let rel of trusting" routerLink="/user/{{ rel.originUsername }}">
+            <div class="content">
+              <div class="header">{{ rel.originUsername }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

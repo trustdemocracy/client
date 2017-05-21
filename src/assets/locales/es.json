@@ -21,11 +21,20 @@
     "Register now and start participanting in democracy": "Registrate ahora y empieza a participar en la democracia",
     "Login now and start participanting in democracy": "Inicia sesión ahora y empieza a participar en la democracia",
 
+    "All users": "Todos los usuarios",
     "units of trust": "unidades de confianza",
     "Trust relationships": "Relaciones de confianza",
+    "Pending trust approvals": "Peticiones de confianza pendientes",
     "Follow relationships": "Relaciones de seguimiento",
+    "Pending follow approvals": "Peticiones de seguimiento pendientes",
+    "Accept": "Aceptar",
+    "Cancel": "Cancelar",
     "Trust": "Confiar",
+    "Trusts you": "Confía en ti",
+    "Untrust": "Dejar de confiar",
     "Follow": "Seguir",
+    "Follows you": "Te sigue",
+    "Unfollow": "Dejar de seguir",
     "View user": "Ver usuario",
     "Edit account": "Editar cuenta",
     "Publication": "Publicación",
@@ -46,6 +55,7 @@
     "voted in favour of the proposal": "ha votado a favor de la propuesta",
     "voted against the proposal": "ha votado en contra de la propuesta",
     "Trending proposals": "Propuestas populares",
+    "Trending proposals of": "Propuestas populares de {{ username }}",
 
     "Profile": "Perfil",
     "Visibility": "Visibilidad",
@@ -94,5 +104,19 @@
     "The page you are looking for doesn't exists": "La página que estás buscando no existe",
     "Go back home": "Volver a inicio",
 
-    "There are no comments, be the first one!": "No hay comentarios, ¡Sé el primero!"
+    "There are no comments, be the first one!": "No hay comentarios, ¡Sé el primero!",
+
+    "You have pending requests!": "¡Tienes peticiones pendientes!",
+
+    "Users you follow": "Usuarios que sigues",
+    "You don't follow anybody yet": "No sigues a nadie todavía",
+    "Start following someone now": "Empieza a seguir a alguien ahora",
+    "Users following you": "Usuarios que te siguen",
+    "No body is following you yet": "Nadie te sigue todavía",
+    "Users you trust": "Usuarios en quienes confías",
+    "You don't trust anybody yet": "No confías en nadie todavía",
+    "Start trusting someone now": "Empieza a confiar en alguien ahora",
+    "Users trusting you": "Usuarios que confían en ti",
+    "No body is trusting you yet": "Nadie confía en ti",
+    "Try participating in some proposals": "Prueba a participar en alguna propuesta"
 }

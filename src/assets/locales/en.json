@@ -21,11 +21,20 @@
     "Register now and start participanting in democracy": "Register now and start participanting in democracy",
     "Login now and start participanting in democracy": "Login now and start participanting in democracy",
 
+    "All users": "All users",
     "units of trust": "units of trust",
     "Trust relationships": "Trust relationships",
+    "Pending trust approvals": "Pending trust approvals",
     "Follow relationships": "Follow relationships",
+    "Pending follow approvals": "Pending follow approvals",
+    "Accept": "Accept",
+    "Cancel": "Cancel",
     "Trust": "Trust",
+    "Trusts you": "Trusts you",
+    "Untrust": "Untrust",
     "Follow": "Follow",
+    "Follows you": "Follows you",
+    "Unfollow": "Unfollow",
     "View user": "View user",
     "Edit account": "Edit account",
     "Publication": "Publication",
@@ -46,6 +55,7 @@
     "voted in favour of the proposal": "voted in favour of the proposal",
     "voted against the proposal": "voted against the proposal",
     "Trending proposals": "Trending proposals",
+    "Trending proposals of": "{{ username }}'s trending proposals",
 
     "Profile": "Profile",
     "Visibility": "Visibility",
@@ -94,5 +104,19 @@
     "The page you are looking for doesn't exists": "The page you are looking for doesn't exists",
     "Go back home": "Go back home",
 
-    "There are no comments, be the first one!": "There are no comments, be the first one!"
+    "There are no comments, be the first one!": "There are no comments, be the first one!",
+
+    "You have pending requests!": "You have pending requests!",
+
+    "Users you follow": "Users you follow",
+    "You don't follow anybody yet": "You don't follow anybody yet",
+    "Start following someone now": "Start following someone now",
+    "Users following you": "Users following you",
+    "No body is following you yet": "No body is following you yet",
+    "Users you trust": "Users you trust",
+    "You don't trust anybody yet": "You don't trust anybody yet",
+    "Start trusting someone now": "Start trusting someone now",
+    "Users trusting you": "Users trusting you",
+    "No body is trusting you yet": "No body is trusting you yet",
+    "Try participating in some proposals": "Try participating in some proposals"
 }
