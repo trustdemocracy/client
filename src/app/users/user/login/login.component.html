@@ -3,7 +3,7 @@
     <h2>{{ 'Login' | translate:lang }}</h2>
     <form class="ui form" [ngClass]="{'loading': loading}" (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="field">
-        <label for="username">{{ 'Email or username' | translate:lang }}</label>
+        <label for="username">{{ 'Username' | translate:lang }}</label>
         <input id="username" type="text" [(ngModel)]="user.username" name="username" required placeholder="{{ 'Username' | translate:lang }}">
       </div>
       <div class="field">
