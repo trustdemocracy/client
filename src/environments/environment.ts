@@ -47,6 +47,8 @@ export const environment = {
     unTrust: socialApiBase + "/trust/untrust",
     acceptTrust: socialApiBase + "/trust/accept",
     cancelTrust: socialApiBase + "/trust/cancel",
-    getTrustRequests: socialApiBase + "/trust/requests"
+    getTrustRequests: socialApiBase + "/trust/requests",
+
+    getRelationshipsWithUser: socialApiBase + "/relationships"
   }
 };

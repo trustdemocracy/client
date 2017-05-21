@@ -10,6 +10,7 @@ import { SocialEvent } from "app/_models/socialevent";
 import { AuthenticationService } from "app/_services/authentication.service";
 import { FollowService } from "app/_services/follow.service";
 import { Relationship } from "app/_models/relationship";
+import { RelationshipsService } from "app/_services/relationships.service";
 
 @Component({
   selector: 'user',
@@ -19,7 +20,8 @@ import { Relationship } from "app/_models/relationship";
     UsersService,
     ProposalsService,
     EventsService,
-    FollowService
+    FollowService,
+    RelationshipsService
   ]
 })
 export class UserComponent extends Localization implements OnInit {
@@ -28,7 +30,11 @@ export class UserComponent extends Localization implements OnInit {
   events: SocialEvent[];
   isCurrentUser: boolean;
 
+  relationshipsWithUser: Relationship[] = [];
+
+  isFollowed: boolean;
   isFollowing: boolean;
+  isTrusted: boolean;
   isTrusting: boolean;
 
   constructor(
@@ -40,6 +46,7 @@ export class UserComponent extends Localization implements OnInit {
     private usersService: UsersService,
     private proposalsService: ProposalsService,
     private followService: FollowService,
+    private relationshipsService: RelationshipsService,
     private eventsService: EventsService
   ) {
     super(locale, translation);
@@ -57,10 +64,19 @@ export class UserComponent extends Localization implements OnInit {
       .subscribe((user: User) => {
         this.user = user;
         this.isCurrentUser = user.id === this.authService.getUser().id;
+        this.loadRelationships(user.id);
         this.loadProposals(user.id);
         this.loadEvents(user.id);
       }, (error: Error) => {
         this.router.navigateByUrl('/404', { skipLocationChange: true });
+      });
+  }
+
+  loadRelationships(userId: string): void {
+    this.relationshipsService.findWithUser(userId)
+      .subscribe((relationships: Relationship[]) => {
+        this.relationshipsWithUser = relationships;
+        this.notifyState();
       });
   }
 
@@ -84,7 +100,7 @@ export class UserComponent extends Localization implements OnInit {
     this.followService.follow(this.user.id)
       .subscribe((relationship: Relationship) => {
         if (relationship !== null) {
-          this.isFollowing = true;
+          this.addRelationship(relationship);
         }
       });
   }
@@ -93,9 +109,62 @@ export class UserComponent extends Localization implements OnInit {
     this.followService.unfollow(this.user.id)
       .subscribe((relationship: Relationship) => {
         if (relationship !== null) {
-          this.isFollowing = true;
+          this.removeRelationship(relationship);
         }
       });
   }
 
+  private addRelationship(rel: Relationship): void {
+    this.relationshipsWithUser.push(rel);
+    this.notifyState();
+  }
+
+  private removeRelationship(rel: Relationship): void {
+    this.relationshipsWithUser.forEach((item, index, array) => {
+      if (item.originId === rel.originId && item.type === rel.type) {
+        array.splice(index, 1);
+      }
+    });
+    this.notifyState();
+  }
+
+  private notifyState(): void {
+    this.resetFollowed();
+    this.resetFollowing();
+    this.resetTrusting();
+    this.resetTrusted();
+  }
+
+  private resetFollowing(): void {
+    this.isFollowing = this.hasRelationship((rel: Relationship) =>
+      this.user.id === rel.originId && rel.type === 'FOLLOW'
+    );
+  }
+
+  private resetFollowed(): void {
+    this.isFollowed = this.hasRelationship((rel: Relationship) =>
+      this.user.id === rel.targetId && rel.type === 'FOLLOW'
+    );
+  }
+
+  private resetTrusting(): void {
+    this.isTrusting = this.hasRelationship((rel: Relationship) =>
+      this.user.id === rel.originId && rel.type === 'TRUST'
+    );
+  }
+
+  private resetTrusted(): void {
+    this.isTrusted = this.hasRelationship((rel: Relationship) =>
+      this.user.id === rel.targetId && rel.type === 'TRUST'
+    );
+  }
+
+  private hasRelationship(strategy: ((rel: Relationship) => boolean)): boolean {
+    for (let relationship of this.relationshipsWithUser) {
+      if (strategy(relationship)) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
