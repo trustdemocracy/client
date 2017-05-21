@@ -3,7 +3,7 @@ export class SocialEvent {
   userId: string;
   username: string;
   type: string;
-  timestamp: string;
+  timestamp: number;
 
   constructor() {
   }

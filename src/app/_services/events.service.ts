@@ -26,7 +26,7 @@ export class EventsService {
             events.push(event);
           }
 
-          return events;
+          return events.sort((a, b) => b.timestamp - a.timestamp);
         }
         return null;
       });
