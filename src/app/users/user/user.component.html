@@ -30,7 +30,7 @@
           <i class="users icon"></i>
         </a>
       </div>
-      <div class="extra content">
+      <div class="extra content" *ngIf="!isCurrentUser">
         <div class="ui two buttons">
           <div class="ui blue button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</div>
           <div class="ui teal button"><i class="unhide icon"></i> {{ 'Follow' | translate:lang }}</div>
