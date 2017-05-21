@@ -72,7 +72,7 @@
               </div>
 
               <div class="summary">
-                <a class="user">{{ event.username }}</a> {{ 'published the proposal' | translate:lang }}
+                <a class="user" routerLink="/user/{{ event.username }}">{{ event.username }}</a> {{ 'published the proposal' | translate:lang }}
                 <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
                 <div class="date">
                   {{ event.timestamp | localeDate:lang:'fullDate' }}
@@ -95,7 +95,7 @@
               </div>
 
               <div class="summary">
-                <a class="user">{{ event.username }}</a> {{ 'edited the proposal' | translate:lang }}
+                <a class="user" routerLink="/user/{{ event.username }}">{{ event.username }}</a> {{ 'edited the proposal' | translate:lang }}
                 <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
                 <div class="date">
                   {{ event.timestamp | localeDate:lang:'fullDate' }}
@@ -133,7 +133,7 @@
               </div>
 
               <div class="summary">
-                <a class="user">{{ event.username }}</a> {{ 'commented in the proposal' | translate:lang }}
+                <a class="user" routerLink="/user/{{ event.username }}">{{ event.username }}</a> {{ 'commented in the proposal' | translate:lang }}
                 <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
                 <div class="date">
                   {{ event.timestamp | localeDate:lang:'fullDate' }}
@@ -155,7 +155,7 @@
               </div>
 
               <div class="summary">
-                <a class="user">{{ event.username }}</a>
+                <a class="user" routerLink="/user/{{ event.username }}">{{ event.username }}</a>
                 <span class="border favour" *ngIf="event.option === 'FAVOUR'"> {{ 'voted in favour of the proposal' | translate:lang }}</span>
                 <span class="border against" *ngIf="event.option === 'AGAINST'"> {{ 'voted against the proposal' | translate:lang }}</span>
                 <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
