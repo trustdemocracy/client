@@ -11,6 +11,7 @@ import { AuthenticationService } from "app/_services/authentication.service";
 import { FollowService } from "app/_services/follow.service";
 import { Relationship } from "app/_models/relationship";
 import { RelationshipsService } from "app/_services/relationships.service";
+import { TrustService } from "app/_services/trust.service";
 
 @Component({
   selector: 'user',
@@ -21,6 +22,7 @@ import { RelationshipsService } from "app/_services/relationships.service";
     ProposalsService,
     EventsService,
     FollowService,
+    TrustService,
     RelationshipsService
   ]
 })
@@ -46,6 +48,7 @@ export class UserComponent extends Localization implements OnInit {
     private usersService: UsersService,
     private proposalsService: ProposalsService,
     private followService: FollowService,
+    private trustService: TrustService,
     private relationshipsService: RelationshipsService,
     private eventsService: EventsService
   ) {
@@ -107,6 +110,24 @@ export class UserComponent extends Localization implements OnInit {
 
   unfollowUser(): void {
     this.followService.unfollow(this.user.id)
+      .subscribe((relationship: Relationship) => {
+        if (relationship !== null) {
+          this.removeRelationship(relationship);
+        }
+      });
+  }
+
+  trustUser(): void {
+    this.trustService.trust(this.user.id)
+      .subscribe((relationship: Relationship) => {
+        if (relationship !== null) {
+          this.addRelationship(relationship);
+        }
+      });
+  }
+
+  untrustUser(): void {
+    this.trustService.untrust(this.user.id)
       .subscribe((relationship: Relationship) => {
         if (relationship !== null) {
           this.removeRelationship(relationship);

@@ -40,7 +40,7 @@
       </div>
 
       <a (click)="trustUser()" *ngIf="!isTrusted" class="ui blue attached labeled icon button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</a>
-      <a (click)="untrustUser()" *ngIf="isTrusted" class="ui blue attached labeled icon button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</a>
+      <a (click)="untrustUser()" *ngIf="isTrusted" class="ui blue attached labeled icon button"><i class="user add icon"></i> {{ 'Untrust' | translate:lang }}</a>
       <a (click)="followUser()" *ngIf="!isFollowed" class="ui teal attached labeled icon button"><i class="unhide icon"></i> {{ 'Follow' | translate:lang }}</a>
       <a (click)="unfollowUser()" *ngIf="isFollowed" class="ui teal attached labeled icon button"><i class="unhide icon"></i> {{ 'Unfollow' | translate:lang }}</a>
     </div>

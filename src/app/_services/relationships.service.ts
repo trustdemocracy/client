@@ -13,7 +13,7 @@ export class RelationshipsService {
 
   findWithUser(id: string): Observable<Relationship[]> {
     const url = environment.socialApi.getRelationshipsWithUser;
-    const json = {'targetUserId': id};
+    const json = { 'targetUserId': id };
 
     return this.http.post(url, JSON.stringify(json))
       .map((response: Response) => {
@@ -21,7 +21,7 @@ export class RelationshipsService {
           const relationshipsArray = response.json().relationships;
           const relationships: Relationship[] = []
 
-          for (let i = 0; i< relationshipsArray.length; i++) {
+          for (let i = 0; i < relationshipsArray.length; i++) {
             let relationship = Relationship.buildFromJson(relationshipsArray[i]);
             relationships.push(relationship);
           }
