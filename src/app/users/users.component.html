@@ -7,11 +7,11 @@
           <div class="header">{{ rel.originUsername }}</div>
         </div>
         <div class="ui two bottom attached buttons">
-          <button (click)="cancelFollow(rel.originId)" class="ui basic red labeled icon button">
+          <button (click)="cancelFollow(rel.originId)" class="ui basic orange labeled icon button">
             <i class="remove icon"></i>
             {{ 'Cancel' | translate:lang }}
           </button>
-          <button (click)="acceptFollow(rel.originId)" class="ui green labeled icon button">
+          <button (click)="acceptFollow(rel.originId)" class="ui teal labeled icon button">
             <i class="checkmark icon"></i>
             {{ 'Accept' | translate:lang }}
           </button>
@@ -28,11 +28,11 @@
           <div class="header">{{ rel.originUsername }}</div>
         </div>
         <div class="ui two bottom attached buttons">
-          <button (click)="cancelTrust(rel.originId)" class="ui basic red labeled icon button">
+          <button (click)="cancelTrust(rel.originId)" class="ui basic orange labeled icon button">
             <i class="remove icon"></i>
             {{ 'Cancel' | translate:lang }}
           </button>
-          <button (click)="acceptTrust(rel.originId)" class="ui green labeled icon button">
+          <button (click)="acceptTrust(rel.originId)" class="ui teal labeled icon button">
             <i class="checkmark icon"></i>
             {{ 'Accept' | translate:lang }}
           </button>
