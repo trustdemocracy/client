@@ -1,0 +1,62 @@
+<section class="ui grid container proposals">
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h2>{{ 'Users you follow' | translate:lang }} ({{ followed.length }})</h2>
+
+    <div class="ui middle big aligned divided list">
+      <div class="item" *ngFor="let rel of followed">
+        <div class="right floated content">
+          <a class="ui button" routerLink="/user/{{ rel.targetUsername }}">{{ 'View user' | translate:lang }}</a>
+        </div>
+        <div class="content">
+          {{ rel.targetUsername }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h2>{{ 'Users following you' | translate:lang }} ({{ following.length }})</h2>
+
+    <div class="ui middle big aligned divided list">
+      <div class="item" *ngFor="let rel of following">
+        <div class="right floated content">
+          <a class="ui button" routerLink="/user/{{ rel.originUsername }}">{{ 'View user' | translate:lang }}</a>
+        </div>
+        <div class="content">
+          {{ rel.originUsername }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h2>{{ 'Users you trust' | translate:lang }} ({{ trusted.length }})</h2>
+
+    <div class="ui middle big aligned divided list">
+      <div class="item" *ngFor="let rel of trusted">
+        <div class="right floated content">
+          <a class="ui button" routerLink="/user/{{ rel.targetUsername }}">{{ 'View user' | translate:lang }}</a>
+        </div>
+        <div class="content">
+          {{ rel.targetUsername }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="four wide computer eight wide tablet sixteen wide mobile column">
+    <h2>{{ 'Users trusting you' | translate:lang }} ({{ trusting.length }})</h2>
+
+    <div class="ui middle big aligned divided list">
+      <div class="item" *ngFor="let rel of trusting">
+        <div class="right floated content">
+          <a class="ui button" routerLink="/user/{{ rel.originUsername }}">{{ 'View user' | translate:lang }}</a>
+        </div>
+        <div class="content">
+          {{ rel.originUsername }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
