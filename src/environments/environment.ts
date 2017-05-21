@@ -13,6 +13,7 @@ export const environment = {
     getToken: usersApiBase + "/token",
     refreshToken: usersApiBase + "/token/refresh",
 
+    findAll: usersApiBase + "/users",
     createUser: usersApiBase + "/users",
     findUser: usersApiBase + "/users/:userId",
     updateUser: usersApiBase + "/users/:userId",

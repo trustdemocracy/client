@@ -23,6 +23,7 @@ import { AuthenticationService } from "app/_services/authentication.service";
 import { LoggedGuard } from "app/_guards/logged.guard";
 import { HttpService } from "app/_services/http.service";
 import { NotFoundComponent } from "app/errors/not-found/not-found.component";
+import { UsersComponent } from "app/users/users.component";
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, canActivate: [LoggedGuard] },
   { path: 'user/edit', component: EditProfileComponent, canActivate: [AuthGuard] },
   { path: 'user/:id', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard] },
   { path: 'users/trust', component: TrustComponent, canActivate: [AuthGuard] },
   { path: 'users/follow', component: FollowComponent, canActivate: [AuthGuard] },
   { path: 'proposals', component: ProposalsComponent, canActivate: [AuthGuard] },
@@ -50,6 +52,7 @@ const routes: Routes = [
     TimelineComponent,
     EditProfileComponent,
     UserComponent,
+    UsersComponent,
     TrustComponent,
     FollowComponent,
     ProposalsComponent,
