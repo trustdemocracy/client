@@ -117,6 +117,13 @@ export class UserComponent extends Localization implements OnInit {
       });
   }
 
+  cancelFollow(): void {
+    this.followService.cancel(this.user.id)
+      .subscribe((rel: Relationship) => {
+        this.removeRelationship(rel);
+      });
+  }
+
   trustUser(): void {
     this.trustService.trust(this.user.id)
       .subscribe((relationship: Relationship) => {
@@ -132,6 +139,13 @@ export class UserComponent extends Localization implements OnInit {
         if (relationship !== null) {
           this.removeRelationship(relationship);
         }
+      });
+  }
+
+  cancelTrust(): void {
+    this.trustService.cancel(this.user.id)
+      .subscribe((rel: Relationship) => {
+        this.removeRelationship(rel);
       });
   }
 

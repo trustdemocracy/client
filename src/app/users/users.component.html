@@ -2,26 +2,40 @@
   <h2 *ngIf="hasFollows()">{{ 'Pending follow approvals' | translate:lang }}</h2>
   <div class="ui grid">
     <div class="four wide computer eight wide tablet sixteen wide mobile column" *ngFor="let rel of follows">
-      <a class="ui fluid card" (click)="acceptFollow(rel.originId)">
+      <div class="ui fluid card">
         <div class="content">
           <div class="header">{{ rel.originUsername }}</div>
         </div>
-        <div class="ui bottom attached basic blue button">
-          {{ 'Accept follow' | translate:lang }}
+        <div class="ui two bottom attached buttons">
+          <button (click)="cancelFollow(rel.originId)" class="ui basic red labeled icon button">
+            <i class="remove icon"></i>
+            {{ 'Cancel' | translate:lang }}
+          </button>
+          <button (click)="acceptFollow(rel.originId)" class="ui green labeled icon button">
+            <i class="checkmark icon"></i>
+            {{ 'Accept' | translate:lang }}
+          </button>
         </div>
-      </a>
+      </div>
     </div>
   </div>
 
   <h2 *ngIf="hasTrusts()">{{ 'Pending trust approvals' | translate:lang }}</h2>
   <div class="ui grid">
     <div class="four wide computer eight wide tablet sixteen wide mobile column" *ngFor="let rel of trusts">
-      <a class="ui fluid card" (click)="acceptTrust(rel.originId)">
+      <a class="ui fluid card">
         <div class="content">
           <div class="header">{{ rel.originUsername }}</div>
         </div>
-        <div class="ui bottom attached basic blue button">
-          {{ 'Accept trust' | translate:lang }}
+        <div class="ui two bottom attached buttons">
+          <button (click)="cancelTrust(rel.originId)" class="ui basic red labeled icon button">
+            <i class="remove icon"></i>
+            {{ 'Cancel' | translate:lang }}
+          </button>
+          <button (click)="acceptTrust(rel.originId)" class="ui green labeled icon button">
+            <i class="checkmark icon"></i>
+            {{ 'Accept' | translate:lang }}
+          </button>
         </div>
       </a>
     </div>

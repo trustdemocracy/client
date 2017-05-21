@@ -8,11 +8,11 @@
       </div>
 
       <div class="extra content" *ngIf="isTrusting">
-        <p>{{ 'Trusts you' | translate:lang }}</p>
+        <p>{{ 'Trusts you' | translate:lang }} <a (click)="cancelTrust()" class="ui right floated">{{ 'Cancel' | translate:lang}}</a></p>
       </div>
 
       <div class="extra content" *ngIf="isFollowing">
-        <p>{{ 'Follows you' | translate:lang }}</p>
+        <p>{{ 'Follows you' | translate:lang }} <a (click)="cancelFollow()" class="ui right floated">{{ 'Cancel' | translate:lang}}</a></p>
       </div>
 
       <a (click)="trustUser()" *ngIf="!isTrusted && !isCurrentUser" class="ui blue attached labeled icon button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</a>

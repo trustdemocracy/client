@@ -56,15 +56,36 @@ export class UsersComponent extends Translation implements OnInit {
   acceptFollow(id: string): void {
     this.followService.accept(id)
       .subscribe((rel: Relationship) => {
+        this.removeRelationship(this.follows, rel);
+      });
+  }
 
+  cancelFollow(id: string): void {
+    this.followService.cancel(id)
+      .subscribe((rel: Relationship) => {
+        this.removeRelationship(this.follows, rel);
       });
   }
 
   acceptTrust(id: string): void {
     this.trustService.accept(id)
       .subscribe((rel: Relationship) => {
-
+        this.removeRelationship(this.trusts, rel);
       });
   }
 
+  cancelTrust(id: string): void {
+    this.trustService.cancel(id)
+      .subscribe((rel: Relationship) => {
+        this.removeRelationship(this.trusts, rel);
+      });
+  }
+
+  private removeRelationship(collection: Relationship[], relationship: Relationship): void {
+    collection.forEach((item, index, array) => {
+      if (relationship.originId === item.originId) {
+        array.splice(index, 1);
+      }
+    });
+  }
 }
