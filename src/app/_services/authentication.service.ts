@@ -50,6 +50,10 @@ export class AuthenticationService {
   }
 
   refreshAccessToken(): Observable<boolean> {
+    if (!this.isAboutToExpire()) {
+      return Observable.of(true);
+    }
+
     const content: string = JSON.stringify({ refreshToken: this.refreshToken });
     const headers: Headers = new Headers();
     headers.append('Authorization', this.getAuthorizationHeader());
@@ -132,19 +136,10 @@ export class AuthenticationService {
   }
 
   encapsulateWithRefresh(generator: (() => Observable<Response>)): Observable<Response> {
-    if (this.isAboutToExpire()) {
-      return this.refreshAccessToken()
-        .flatMap((success: boolean) => {
-          return generator();
-        })
-        .catch((error: Error) => {
-          this.logout();
-          this.router.navigate(['/login']);
-          return Observable.throw(error);
-        });
-    }
-
-    return generator()
+    return this.refreshAccessToken()
+      .flatMap((success: boolean) => {
+        return generator();
+      })
       .catch((error: Response) => {
         if (error.status === 401) {
           return this.refreshAccessToken()
