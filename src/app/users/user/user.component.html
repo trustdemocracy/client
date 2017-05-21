@@ -15,10 +15,12 @@
         <p>{{ 'Follows you' | translate:lang }} <a (click)="cancelFollow()" class="ui right floated">{{ 'Cancel' | translate:lang}}</a></p>
       </div>
 
-      <a (click)="trustUser()" *ngIf="!isTrusted && !isCurrentUser" class="ui blue attached labeled icon button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</a>
-      <a (click)="untrustUser()" *ngIf="isTrusted" class="ui blue attached labeled icon button"><i class="user add icon"></i> {{ 'Untrust' | translate:lang }}</a>
-      <a (click)="followUser()" *ngIf="!isFollowed && !isCurrentUser" class="ui teal attached labeled icon button"><i class="unhide icon"></i> {{ 'Follow' | translate:lang }}</a>
-      <a (click)="unfollowUser()" *ngIf="isFollowed" class="ui teal attached labeled icon button"><i class="unhide icon"></i> {{ 'Unfollow' | translate:lang }}</a>
+      <div class="ui two bottom attached buttons">
+        <a (click)="trustUser()" *ngIf="!isTrusted && !isCurrentUser" class="ui blue labeled icon button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</a>
+        <a (click)="untrustUser()" *ngIf="isTrusted" class="ui blue labeled icon button"><i class="user add icon"></i> {{ 'Untrust' | translate:lang }}</a>
+        <a (click)="followUser()" *ngIf="!isFollowed && !isCurrentUser" class="ui teal labeled icon button"><i class="unhide icon"></i> {{ 'Follow' | translate:lang }}</a>
+        <a (click)="unfollowUser()" *ngIf="isFollowed" class="ui teal labeled icon button"><i class="unhide icon"></i> {{ 'Unfollow' | translate:lang }}</a>
+      </div>
     </div>
 
     <div class="ui divided items proposals">
