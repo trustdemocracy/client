@@ -106,5 +106,17 @@
 
     "There are no comments, be the first one!": "No hay comentarios, ¡Sé el primero!",
 
-    "You have pending requests!": "¡Tienes peticiones pendientes!"
+    "You have pending requests!": "¡Tienes peticiones pendientes!",
+
+    "Users you follow": "Usuarios que sigues",
+    "You don't follow anybody yet": "No sigues a nadie todavía",
+    "Start following someone now": "Empieza a seguir a alguien ahora",
+    "Users following you": "Usuarios que te siguen",
+    "No body is following you yet": "Nadie te sigue todavía",
+    "Users you trust": "Usuarios en quienes confías",
+    "You don't trust anybody yet": "No confías en nadie todavía",
+    "Start trusting someone now": "Empieza a confiar en alguien ahora",
+    "Users trusting you": "Usuarios que confían en ti",
+    "No body is trusting you yet": "Nadie confía en ti",
+    "Try participating in some proposals": "Prueba a participar en alguna propuesta"
 }

@@ -106,5 +106,17 @@
 
     "There are no comments, be the first one!": "There are no comments, be the first one!",
 
-    "You have pending requests!": "You have pending requests!"
+    "You have pending requests!": "You have pending requests!",
+
+    "Users you follow": "Users you follow",
+    "You don't follow anybody yet": "You don't follow anybody yet",
+    "Start following someone now": "Start following someone now",
+    "Users following you": "Users following you",
+    "No body is following you yet": "No body is following you yet",
+    "Users you trust": "Users you trust",
+    "You don't trust anybody yet": "You don't trust anybody yet",
+    "Start trusting someone now": "Start trusting someone now",
+    "Users trusting you": "Users trusting you",
+    "No body is trusting you yet": "No body is trusting you yet",
+    "Try participating in some proposals": "Try participating in some proposals"
 }
