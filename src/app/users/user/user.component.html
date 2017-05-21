@@ -1,9 +1,9 @@
 <div class="ui grid container">
-  <div class="four wide computer five wide tablet sixteen wide mobile column">
+  <div class="four wide computer five wide tablet sixteen wide mobile column" *ngIf="user">
     <div class="ui card account-card">
       <div class="content">
-        <div class="header">username</div>
-        <div class="meta">Name Surname</div>
+        <div class="header">{{ user.username }}</div>
+        <div class="meta">{{ user.name }} {{ user.surname }}</div>
         <div class="meta">5 {{ 'units of trust' | translate:lang }}</div>
       </div>
       <div class="extra content">
@@ -40,77 +40,19 @@
 
     <div class="ui divided items proposals">
       <h3>{{ 'Trending proposals' | translate:lang }}</h3>
-      <div class="item">
+      <div class="item" *ngFor="let proposal of proposals">
         <div class="content">
-          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
+          <a class="header" routerLink="/proposals/{{ proposal.id }}">{{ proposal.title }}</a>
           <div class="meta">
             <span>7 days ago</span>
           </div>
           <div class="description">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              {{ proposal.brief }}
             </p>
           </div>
           <div class="extra">
-            <a routerLink="/proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="content">
-          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
-          <div class="meta">
-            <span>7 days ago</span>
-          </div>
-          <div class="description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-          <div class="extra">
-            <a routerLink="/proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="content">
-          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
-          <div class="meta">
-            <span>7 days ago</span>
-          </div>
-          <div class="description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-          <div class="extra">
-            <a routerLink="/proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="content">
-          <a class="header" routerLink="/proposals/1">Name of the proposal</a>
-          <div class="meta">
-            <span>7 days ago</span>
-          </div>
-          <div class="description">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </p>
-          </div>
-          <div class="extra">
-            <a routerLink="/proposals/1"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
+            <a routerLink="/proposals/{{ proposal.id }}"><i class="file text outline icon"></i> {{ 'View proposal' | translate:lang }}</a>
           </div>
         </div>
       </div>

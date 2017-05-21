@@ -12,6 +12,19 @@ export class UsersService {
   constructor(private http: HttpService, private authService: AuthenticationService) {
   }
 
+  find(id: string): Observable<User> {
+    const url = environment.usersApi.findUser
+      .replace(':userId', id);
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return User.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
+
   findAll(): Observable<User[]> {
     const url = environment.usersApi.findAll;
     const currentUser = this.authService.getUser();
