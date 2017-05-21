@@ -70,6 +70,10 @@
     "Reply": "Reply",
     "Add comment": "Add comment",
 
+    "Your published proposals": "Your published proposals",
+    "Your draft proposals": "Your draft proposals",
+    "All the proposals": "All the proposals",
+
     "Invalid credentials": "Invalid credentials",
     "Username already exists": "Username already exists",
     "Passwords don't match": "Passwords don't match",

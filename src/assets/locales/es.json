@@ -70,6 +70,10 @@
     "Reply": "Responder",
     "Add comment": "Añadir comentario",
 
+    "Your published proposals": "Tus propuestas publicadas",
+    "Your draft proposals": "Tus propuestas en borrador",
+    "All the proposals": "Todas las propuestas",
+
     "Invalid credentials": "Credenciales inválidas",
     "Username already exists": "El nombre de usuario ya existe",
     "Passwords don't match": "Las contraseñas no son iguales",

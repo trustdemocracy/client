@@ -1,5 +1,5 @@
 <section class="ui container proposals">
-  <h2>{{ 'Your proposals' | translate:lang }}</h2>
+  <h2>{{ 'Your published proposals' | translate:lang }}</h2>
   <div class="ui grid">
     <div class="four wide computer eight wide tablet sixteen wide mobile column proposal" *ngFor="let proposal of ownProposals">
       <a class="ui fluid card" routerLink="/proposals/{{ proposal.id }}">
@@ -18,6 +18,26 @@
         </div>
         <div class="ui bottom attached basic blue button">
           {{ 'View proposal' | translate:lang }}
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <h2>{{ 'Your draft proposals' | translate:lang }}</h2>
+  <div class="ui grid">
+    <div class="four wide computer eight wide tablet sixteen wide mobile column proposal" *ngFor="let proposal of draftProposals">
+      <a class="ui fluid card" routerLink="/proposals/{{ proposal.id }}">
+        <div class="content">
+          <div class="header">{{ proposal.title }}</div>
+          <div class="meta">
+            <span class="category">{{ 'Deadline' | translate:lang }} 25 December 2017</span>
+          </div>
+          <div class="description">
+            <p>{{ proposal.brief }}</p>
+          </div>
+        </div>
+        <div class="ui bottom attached basic blue labeled icon button">
+          <i class="edit icon"></i> {{ 'Edit proposal' | translate:lang }}
         </div>
       </a>
     </div>
@@ -47,4 +67,3 @@
     </div>
   </div>
 </section>
-

@@ -14,6 +14,7 @@ import { ProposalsService } from "app/_services/proposals.service";
 export class ProposalsComponent extends Translation implements OnInit {
   public proposals: Proposal[];
   public ownProposals: Proposal[];
+  public draftProposals: Proposal[];
 
   constructor(
     public translation: TranslationService,
@@ -25,7 +26,8 @@ export class ProposalsComponent extends Translation implements OnInit {
   ngOnInit(): void {
     this.proposalsService.findOwnProposals()
       .subscribe((proposals: Proposal[]) => {
-        this.ownProposals = proposals;
+        this.ownProposals = proposals.filter((proposal: Proposal) => proposal.isPublished());
+        this.draftProposals = proposals.filter((proposal: Proposal) => !proposal.isPublished());
       });
     this.proposalsService.findAll()
       .subscribe((proposals: Proposal[]) => {
