@@ -66,7 +66,7 @@
 
     <div class="comment" *ngFor="let comment of proposal.comments">
       <div class="content">
-        <a class="author">{{ comment.authorUsername }}</a>
+        <a class="author" routerLink="/user/{{ comment.authorUsername }}">{{ comment.authorUsername }}</a>
         <div class="metadata">
           <span class="date">{{ comment.timestamp | localeDate:lang:'fullDate' }}</span>
         </div>
@@ -79,7 +79,7 @@
         <div class="comments" *ngIf="comment.hasComments()">
           <div class="comment" *ngFor="let subComment of comment.comments">
             <div class="content">
-              <a class="author">{{ subComment.authorUsername }}</a>
+              <a class="author" routerLink="/user/{{ comment.authorUsername }}">{{ subComment.authorUsername }}</a>
               <div class="metadata">
                 <span class="date">{{ subComment.timestamp | localeDate:lang:'fullDate' }}</span>
               </div>
