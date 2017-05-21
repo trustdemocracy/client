@@ -6,30 +6,6 @@
         <div class="meta">{{ user.name }} {{ user.surname }}</div>
         <div class="meta">5 {{ 'units of trust' | translate:lang }}</div>
       </div>
-      <div class="extra content">
-        <p>{{ 'Trust relationships' | translate:lang }}</p>
-        <a routerLink="/users/trust">
-          <i class="users icon"></i>
-          <i class="angle right icon"></i> 22
-          <i class="angle right icon"></i>
-          <i class="user icon"></i>
-          <i class="angle right icon"></i> 1
-          <i class="angle right icon"></i>
-          <i class="users icon"></i>
-        </a>
-      </div>
-      <div class="extra content">
-        <p>{{ 'Follow relationships' | translate:lang }}</p>
-        <a routerLink="/users/follow">
-          <i class="users icon"></i>
-          <i class="angle right icon"></i> 22
-          <i class="angle right icon"></i>
-          <i class="user icon"></i>
-          <i class="angle right icon"></i> 1
-          <i class="angle right icon"></i>
-          <i class="users icon"></i>
-        </a>
-      </div>
 
       <div class="extra content" *ngIf="isTrusting">
         <p>{{ 'Trusts you' | translate:lang }}</p>
