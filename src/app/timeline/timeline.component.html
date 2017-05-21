@@ -62,159 +62,129 @@
   <div class="twelve wide computer eleven wide tablet sixteen wide mobile column">
     <div class="ui feed">
 
-      <div class="event publication">
-        <div class="content">
-          <div class="ui teal ribbon label">
-            <i class="announcement icon"></i> {{ 'Publication' | translate:lang }}
-          </div>
+      <ng-container *ngFor="let event of events">
+        <ng-container [ngSwitch]="event.type">
 
-          <div class="summary">
-            <a class="user">username</a> {{ 'published the proposal' | translate:lang }}
-            <a routerLink="/proposals/1">Name of the proposal</a>
-            <div class="date">
-              1 hour ago
-            </div>
-          </div>
-
-          <div class="extra text">
-            <blockquote>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-              sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </blockquote>
-          </div>
-          <div class="meta">
-            <a routerLink="/proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="event modification">
-        <div class="content">
-          <div class="ui blue ribbon label">
-            <i class="edit icon"></i> {{ 'Modification' | translate:lang }}
-          </div>
-
-          <div class="summary">
-            <a class="user">username</a> {{ 'edited the proposal' | translate:lang }}
-            <a routerLink="/proposals/1">Name of the proposal</a>
-            <div class="date">
-              7 days ago
-            </div>
-          </div>
-          <div class="extra text">
-            <a class="user">username</a> {{ 'deleted' | translate:lang }}:
-            <blockquote class="deleted">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit
-            </blockquote>
-
-            <a class="user">username</a> {{ 'deleted' | translate:lang }}:
-            <blockquote class="deleted">
-              sed do eiusmod
-            </blockquote>
-
-            <a class="user">username</a> {{ 'added' | translate:lang }}:
-            <blockquote class="added">
-              labore nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-            </blockquote>
-          </div>
-          <div class="meta">
-            <a>{{ 'View changes' | translate:lang }} <i class="copy icon"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="event comment">
-        <div class="content">
-          <div class="ui brown ribbon label">
-            <i class="talk icon"></i> {{ 'Comment' | translate:lang }}
-          </div>
-
-          <div class="summary">
-            <a class="user">username</a> {{ 'commented in the proposal' | translate:lang }}
-            <a routerLink="/proposals/1">Name of the proposal</a>
-            <div class="date">
-              7 days ago
-            </div>
-          </div>
-          <div class="extra text">
-            <blockquote>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </blockquote>
-          </div>
-          <div class="meta">
-            <a>{{ 'View comment' | translate:lang }} <i class="comments outline icon"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="event vote">
-        <div class="content">
-          <div class="ui orange ribbon label">
-            <i class="thumbs up icon"></i> {{ 'Vote' | translate:lang }}
-          </div>
-
-          <div class="summary">
-            <a class="user">username</a>
-            <span class="border favour"> {{ 'voted in favour of the proposal' | translate:lang }}</span>
-            <a routerLink="/proposals/1">Name of the proposal</a>
-            <div class="date">
-              7 days ago
-            </div>
-          </div>
-          <div class="extra text">
-            <div class="votes">
-              <div class="text favour contribution"><a class="user">username</a> {{ 'contributed with a' | translate:lang }} 0.9%</div>
-              <div class="legend">
-                <span class="text favour">{{ 'In favour' | translate:lang }}</span>
-                <span class="text against">{{ 'Against' | translate:lang }}</span>
+          <div class="event publication" *ngSwitchCase="'PUBLICATION'">
+            <div class="content">
+              <div class="ui teal ribbon label">
+                <i class="announcement icon"></i> {{ 'Publication' | translate:lang }}
               </div>
-              <div class="bar">
-                <div class="favour" style="flex:0.4">40%</div>
-                <div class="against" style="flex:0.6">60%</div>
+
+              <div class="summary">
+                <a class="user">{{ event.username }}</a> {{ 'published the proposal' | translate:lang }}
+                <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
+                <div class="date">
+                  {{ event.timestamp | localeDate:lang:'fullDate' }}
+                </div>
+              </div>
+
+              <div class="extra text">
+                <blockquote>{{ event.brief }}</blockquote>
+              </div>
+              <div class="meta">
+                <a routerLink="/proposals/{{ event.proposalId }}">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
               </div>
             </div>
           </div>
-          <div class="meta">
-            <a routerLink="/proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
-          </div>
-        </div>
-      </div>
 
-      <div class="event vote">
-        <div class="content">
-          <div class="ui orange ribbon label">
-            <i class="thumbs down icon"></i> {{ 'Vote' | translate:lang }}
-          </div>
+          <div class="event modification" *ngSwitchCase="'MODIFICATION'">
+            <div class="content">
+              <div class="ui blue ribbon label">
+                <i class="edit icon"></i> {{ 'Modification' | translate:lang }}
+              </div>
 
-          <div class="summary">
-            <a class="user">username</a>
-            <span class="border against"> {{ 'voted against the proposal' | translate:lang }}</span>
-            <a routerLink="/proposals/1">Name of the proposal</a>
-            <div class="date">
-              7 days ago
+              <div class="summary">
+                <a class="user">{{ event.username }}</a> {{ 'edited the proposal' | translate:lang }}
+                <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
+                <div class="date">
+                  {{ event.timestamp | localeDate:lang:'fullDate' }}
+                </div>
+              </div>
+              <div class="extra text">
+                <ng-container *ngFor="let deletion of event.deletions">
+                  <a class="user" routerLink="/user/{{ deletion.username }}">
+                  {{ deletion.username }}
+                  </a> {{ 'deleted' | translate:lang }}:
+                  <blockquote class="deleted">
+                    {{ deletion.content }}
+                  </blockquote>
+                </ng-container>
+
+                <ng-container *ngFor="let addition of event.additions">
+                  <a class="user" routerLink="/user/{{ addition.username }}">
+                    {{ addition.username }}
+                  </a> {{ 'added' | translate:lang }}:
+                  <blockquote class="added">
+                    {{ addition.content }}
+                  </blockquote>
+                </ng-container>
+              </div>
+              <div class="meta">
+                <a>{{ 'View changes' | translate:lang }} <i class="copy icon"></i></a>
+              </div>
             </div>
           </div>
-          <div class="extra text">
-            <div class="votes">
-              <div class="text against contribution"><a class="user">username</a> {{ 'contributed with a' | translate:lang }} 10%</div>
-              <div class="legend">
-                <span class="text favour">{{ 'In favour' | translate:lang }}</span>
-                <span class="text against">{{ 'Against' | translate:lang }}</span>
+
+          <div class="event comment" *ngSwitchCase="'COMMENT'">
+            <div class="content">
+              <div class="ui brown ribbon label">
+                <i class="talk icon"></i> {{ 'Comment' | translate:lang }}
               </div>
-              <div class="bar">
-                <div class="favour" style="flex:0.8">80%</div>
-                <div class="against" style="flex:0.2">20%</div>
+
+              <div class="summary">
+                <a class="user">{{ event.username }}</a> {{ 'commented in the proposal' | translate:lang }}
+                <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
+                <div class="date">
+                  {{ event.timestamp | localeDate:lang:'fullDate' }}
+                </div>
+              </div>
+              <div class="extra text">
+                <blockquote>{{ event.content }}</blockquote>
+              </div>
+              <div class="meta">
+                <a routerLink="/proposals/{{ event.proposalId}}" fragment="{{ event.commentId }}">{{ 'View comment' | translate:lang }} <i class="comments outline icon"></i></a>
               </div>
             </div>
           </div>
-          <div class="meta">
-            <a routerLink="/proposals/1">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
+
+          <div class="event vote" *ngSwitchCase="'VOTE'">
+            <div class="content">
+              <div class="ui orange ribbon label">
+                <i class="thumbs up icon"></i> {{ 'Vote' | translate:lang }}
+              </div>
+
+              <div class="summary">
+                <a class="user">{{ event.username }}</a>
+                <span class="border favour" *ngIf="event.option === 'FAVOUR'"> {{ 'voted in favour of the proposal' | translate:lang }}</span>
+                <span class="border against" *ngIf="event.option === 'AGAINST'"> {{ 'voted against the proposal' | translate:lang }}</span>
+                <a routerLink="/proposals/{{ event.proposalId }}">{{ event.title }}</a>
+                <div class="date">
+                  {{ event.timestamp | localeDate:lang:'fullDate' }}
+                </div>
+              </div>
+              <div class="extra text">
+                <div class="votes">
+                  <div class="text {{ event.option.toLowerCase() }} contribution"><a class="user">{{ event.username }}</a> {{ 'contributed with a' | translate:lang }} {{ event.contributed
+                    * 100 }}%</div>
+                  <div class="legend">
+                    <span class="text favour">{{ 'In favour' | translate:lang }}</span>
+                    <span class="text against">{{ 'Against' | translate:lang }}</span>
+                  </div>
+                  <div class="bar">
+                    <div class="favour" [style.flex]="event.favour">{{ event.favour * 100 }}%</div>
+                    <div class="against" [style.flex]="event.against">{{ event.against * 100 }}%</div>
+                  </div>
+                </div>
+              </div>
+              <div class="meta">
+                <a routerLink="/proposals/{{ event.proposalId }}">{{ 'View proposal' | translate:lang }} <i class="file text outline icon"></i></a>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+
+        </ng-container>
+      </ng-container>
 
     </div>
   </div>

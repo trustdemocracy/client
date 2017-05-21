@@ -31,4 +31,24 @@ export class EventsService {
         return null;
       });
   }
+
+  getTimeline(): Observable<SocialEvent[]> {
+    const url = environment.socialApi.getEvents;
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          const eventsArray = response.json().events;
+          const events: SocialEvent[] = [];
+
+          for (let i = 0; i < eventsArray.length; i++) {
+            let event = SocialEvent.buildFromJson(eventsArray[i]);
+            events.push(event);
+          }
+
+          return events.sort((a, b) => b.timestamp - a.timestamp);
+        }
+        return null;
+      });
+  }
 }
