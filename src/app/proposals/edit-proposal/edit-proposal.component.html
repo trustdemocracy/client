@@ -1,67 +1,38 @@
-<section class="ui text container">
-  <form>
+<section class="ui text container" *ngIf="proposal">
+  <form (ngSubmit)="createProposal()">
 
     <div class="proposal">
       <div class="title">
         <label>{{ 'Title of the proposal' | translate:lang }}</label>
-        <input type="text" name="last-name" placeholder="{{ 'Title of the proposal' | translate:lang }}..." />
+        <input type="text" name="title" [(ngModel)]="proposal.title" placeholder="{{ 'Title of the proposal' | translate:lang }}..."
+        />
       </div>
 
       <div class="summary">
         <label>{{ 'Summary' | translate:lang }}</label>
-        <textarea placeholder="{{ 'Summary' | translate:lang }}...">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </textarea>
+        <textarea #brief name="brief" [(ngModel)]="proposal.brief" [style.height.px]="brief.scrollHeight" placeholder="{{ 'Summary' | translate:lang }}..."></textarea>
       </div>
 
       <div class="source">
         <label>{{ 'Original source' | translate:lang }}</label>
-        <input type="text" name="last-name" placeholder="{{ 'Original source' | translate:lang }}..." />
+        <input type="text" name="source" [(ngModel)]="proposal.source" placeholder="{{ 'Original source' | translate:lang }}..."
+        />
       </div>
 
       <div class="motivation">
         <label>{{ 'Motivation' | translate:lang }}</label>
-        <textarea placeholder="{{ 'Motivation' | translate:lang }}...">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </textarea>
+        <textarea #motivation name="motivation" [(ngModel)]="proposal.motivation" [style.height.px]="motivation.scrollHeight" placeholder="{{ 'Motivation' | translate:lang }}..."></textarea>
       </div>
 
       <div class="measures">
         <label>{{ 'Measures' | translate:lang }}</label>
-        <textarea placeholder="{{ 'Measures' | translate:lang }}...">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem
-ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </textarea>
+        <textarea #measures name="measures" [(ngModel)]="proposal.measures" [style.height.px]="measures.scrollHeight" placeholder="{{ 'Measures' | translate:lang }}..."></textarea>
       </div>
 
-      <button class="ui green button" type="submit">{{ 'Update' | translate:lang }}</button>
+      <button *ngIf="isNew" class="ui green button" type="submit">{{ 'Create proposal' | translate:lang }}</button>
+      <button *ngIf="!isNew" class="ui red button" (click)="deleteProposal()">{{ 'Delete proposal' | translate:lang }}</button>
+      <button *ngIf="!isNew && !proposal.isPublished()" class="ui blue button" (click)="publishProposal()">{{ 'Publish proposal' | translate:lang }}</button>
+      <button *ngIf="proposal.isPublished()" class="ui yellow button" (click)="unpublishProposal()">{{ 'Unpublish proposal' | translate:lang }}</button>
     </div>
 
   </form>

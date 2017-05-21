@@ -1,21 +1,24 @@
 <section class="ui raised segment text container login-form">
   <div class="primary-action">
     <h2>{{ 'Login' | translate:lang }}</h2>
-    <form class="ui form">
+    <form class="ui form" [ngClass]="{'loading': loading}" (ngSubmit)="onSubmit()" #loginForm="ngForm">
       <div class="field">
-        <label>{{ 'Email or username' | translate:lang }}</label>
-        <input type="text" name="first-name" placeholder="{{ 'Email or username' | translate:lang }}">
+        <label for="username">{{ 'Username' | translate:lang }}</label>
+        <input id="username" type="text" [(ngModel)]="user.username" name="username" required placeholder="{{ 'Username' | translate:lang }}">
       </div>
       <div class="field">
-        <label>{{ 'Password' | translate:lang }}</label>
-        <input type="text" name="last-name" placeholder="{{ 'Password' | translate:lang }}">
+        <label for="password">{{ 'Password' | translate:lang }}</label>
+        <input id="password" type="password" [(ngModel)]="user.password" name="password" required placeholder="{{ 'Password' | translate:lang }}">
       </div>
       <div class="field">
         <div class="ui checkbox">
           <sui-checkbox [(ngModel)]="remember" name="remember">{{ 'Remember me' | translate:lang }}</sui-checkbox>
         </div>
       </div>
-      <button class="ui green button" type="submit">{{ 'Login' | translate:lang }}</button>
+      <p *ngIf="error" class="ui red message">{{ error }}</p>
+      <button class="ui green button" type="submit" [disabled]="!loginForm.form.valid">
+        {{ 'Login' | translate:lang }}
+      </button>
     </form>
   </div>
   <div class="secondary-action">

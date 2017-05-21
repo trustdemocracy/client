@@ -7,19 +7,19 @@
         </a>
       </div>
 
-      <div class="right menu">
+      <div class="right menu" *ngIf="isUserLogged()">
         <div class="item">
           <a routerLink="/proposals">
             <i class="file text outline icon"></i> {{ 'Proposals' | translate:lang }}
           </a>
         </div>
         <div class="item">
-          <a routerLink="/users/follow">
+          <a routerLink="/users">
             <i class="users icon"></i> {{ 'Users' | translate:lang }}
           </a>
         </div>
         <div class="item">
-          <a routerLink="/login">
+          <a routerLink="/login" (click)="logout()">
             {{ 'Log out' | translate:lang }}
           </a>
         </div>
@@ -38,8 +38,9 @@
       </div>
 
       <div class="item">
-        <a (click)="selectLanguage('es');"><i class="es flag"></i></a>
-        <a (click)="selectLanguage('en');"><i class="gb flag"></i></a>
+        <sui-select id="selectLanguage" [(ngModel)]="selectedLanguage" (ngModelChange)="selectLanguage()" placeholder="{{ 'Select language' | translate:lang }}">
+          <sui-select-option *ngFor="let language of availableLanguages" value="{{ language }}"></sui-select-option>
+        </sui-select>
       </div>
     </div>
   </div>

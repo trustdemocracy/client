@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { Translation, LocaleService, TranslationService } from 'angular-l10n';
+import { Localization, LocaleService, TranslationService } from 'angular-l10n';
 import { Router, NavigationEnd } from '@angular/router';
+import { AuthenticationService } from "app/_services/authentication.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends Translation implements OnInit {
+export class AppComponent extends Localization implements OnInit {
+  selectedLanguage: string;
+  availableLanguages: string[] = ['English', 'Español'];
+  availableLocales = {
+    'English': 'en',
+    'Español': 'es'
+  };
 
-  constructor(public locale: LocaleService,
+  constructor(
+    public locale: LocaleService,
     public translation: TranslationService,
-    private router: Router) {
-    super(translation);
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
+    super(locale, translation);
 
     this.locale.addConfiguration()
       .addLanguages(['es', 'en'])
@@ -30,8 +40,16 @@ export class AppComponent extends Translation implements OnInit {
     this.resetScroll();
   }
 
-  selectLanguage(language: string): void {
-      this.locale.setCurrentLanguage(language);
+  selectLanguage(): void {
+    this.locale.setCurrentLanguage(this.availableLocales[this.selectedLanguage]);
+  }
+
+  isUserLogged(): boolean {
+    return this.authenticationService.isLogged();
+  }
+
+  logout(): void {
+    this.authenticationService.logout();
   }
 
   resetScroll(): void {

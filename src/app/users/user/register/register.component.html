@@ -1,37 +1,39 @@
 <section class="ui raised segment text container login-form">
   <div class="primary-action">
     <h2>{{ 'Register' | translate:lang }}</h2>
-    <form class="ui form">
+    <form class="ui form" [ngClass]="{'loading': loading}" (ngSubmit)="onSubmit()" #registerForm="ngForm">
       <div class="field">
         <label>{{ 'Email' | translate:lang }}</label>
-        <input type="text" name="first-name" placeholder="{{ 'Email' | translate:lang }}">
+        <input type="text" [(ngModel)]="user.email" required name="email" placeholder="{{ 'Email' | translate:lang }}">
       </div>
       <div class="field">
         <label>{{ 'Username' | translate:lang }}</label>
-        <input type="text" name="first-name" placeholder="{{ 'Username' | translate:lang }}">
+        <input type="text" [(ngModel)]="user.username" required name="username" placeholder="{{ 'Username' | translate:lang }}">
       </div>
       <div class="field">
         <label>{{ 'Password' | translate:lang }}</label>
-        <input type="text" name="last-name" placeholder="{{ 'Password' | translate:lang }}">
+        <input type="password" [(ngModel)]="user.password" required name="password" placeholder="{{ 'Password' | translate:lang }}">
       </div>
       <div class="field">
         <label>{{ 'Repeat password' | translate:lang }}</label>
-        <input type="text" name="last-name" placeholder="{{ 'Repeat password' | translate:lang }}">
+        <input type="password" [(ngModel)]="repeatedPassword" (keyup)="checkPasswordsMatch()" required name="repeatPassword" placeholder="{{ 'Repeat password' | translate:lang }}">
       </div>
+      <p *ngIf="!passwordsMatch" class="ui red message">{{ "Passwords don't match" | translate:lang }}</p>
       <div class="field">
         <label>{{ 'Name' | translate:lang }}</label>
-        <input type="text" name="last-name" placeholder="{{ 'Name' | translate:lang }}">
+        <input type="text" [(ngModel)]="user.name" name="name" placeholder="{{ 'Name' | translate:lang }}">
       </div>
       <div class="field">
         <label>{{ 'Surname' | translate:lang }}</label>
-        <input type="text" name="last-name" placeholder="{{ 'Surname' | translate:lang }}">
+        <input type="text" [(ngModel)]="user.surname" name="surname" placeholder="{{ 'Surname' | translate:lang }}">
       </div>
       <div class="field">
         <div class="ui checkbox">
           <sui-checkbox [(ngModel)]="remember" name="remember">{{ 'Remember me' | translate:lang }}</sui-checkbox>
         </div>
       </div>
-      <button class="ui green button" type="submit">{{ 'Register' | translate:lang }}</button>
+      <p *ngIf="error" class="ui red message">{{ error }}</p>
+      <button class="ui green button" type="submit" [disabled]="!registerForm.form.valid || !passwordsMatch">{{ 'Register' | translate:lang }}</button>
     </form>
   </div>
   <div class="secondary-action">

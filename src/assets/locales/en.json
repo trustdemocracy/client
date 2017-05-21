@@ -1,5 +1,6 @@
 {
     "Title": "Trust Democracy, platform for democracy",
+    "Select language": "Select language",
     "Login": "Login",
     "Log out": "Log out",
     "Register": "Register",
@@ -12,6 +13,8 @@
     "Username": "Username",
     "Password": "Password",
     "Repeat password": "Repeat password",
+    "Current password": "Current password",
+    "New password": "New password",
     "Remember me": "Remember me",
     "Don't have an account?": "Don't have an account?",
     "Already have an account?": "Already have an account?",
@@ -23,6 +26,7 @@
     "Follow relationships": "Follow relationships",
     "Trust": "Trust",
     "Follow": "Follow",
+    "View user": "View user",
     "Edit account": "Edit account",
     "Publication": "Publication",
     "Modification": "Modification",
@@ -49,6 +53,11 @@
     "Edit profile": "Edit profile",
     "Update": "Update",
 
+    "Create proposal": "Create proposal",
+    "Delete proposal": "Delete proposal",
+    "Publish proposal": "Publish proposal",
+    "Unpublish proposal": "Unpublish proposal",
+    "Edit proposal": "Edit proposal",
     "Title of the proposal": "Title of the proposal",
     "Deadline": "Deadline",
     "Summary": "Summary",
@@ -60,5 +69,30 @@
     "Vote against": "Vote against",
     "Comments": "Comments",
     "Reply": "Reply",
-    "Add comment": "Add comment"
+    "Add comment": "Add comment",
+
+    "Your published proposals": "Your published proposals",
+    "Your draft proposals": "Your draft proposals",
+    "All the proposals": "All the proposals",
+
+    "Invalid credentials": "Invalid credentials",
+    "Username already exists": "Username already exists",
+    "Passwords don't match": "Passwords don't match",
+
+    "Private": "Private",
+    "Public": "Public",
+
+    "With private visibility only your username and name will be available for the people who is not following you": "With private visibility only your username and name will be available for the people who is not following you",
+    "With public visibility all your activity will be available for anyone who want to access it": "With public visibility all your activity will be available for anyone who want to access it",
+    "This action cannot be undone, please, be completely aware of this before deleting your account": "This action cannot be undone, please, be completely aware of this before deleting your account",
+    "Introduce your username to confirm you want to delete your account": "Introduce your username to confirm you want to delete your account",
+
+    "Profile updated successfully": "Profile updated successfully",
+    "Visibility updated successfully": "Visibility updated successfully",
+    "Password updated successfully": "Password updated successfully",
+
+    "The page you are looking for doesn't exists": "The page you are looking for doesn't exists",
+    "Go back home": "Go back home",
+
+    "There are no comments, be the first one!": "There are no comments, be the first one!"
 }
