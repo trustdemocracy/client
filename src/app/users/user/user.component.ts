@@ -8,6 +8,8 @@ import { Proposal } from "app/_models/proposal";
 import { EventsService } from "app/_services/events.service";
 import { SocialEvent } from "app/_models/socialevent";
 import { AuthenticationService } from "app/_services/authentication.service";
+import { FollowService } from "app/_services/follow.service";
+import { Relationship } from "app/_models/relationship";
 
 @Component({
   selector: 'user',
@@ -16,7 +18,8 @@ import { AuthenticationService } from "app/_services/authentication.service";
   providers: [
     UsersService,
     ProposalsService,
-    EventsService
+    EventsService,
+    FollowService
   ]
 })
 export class UserComponent extends Localization implements OnInit {
@@ -24,6 +27,9 @@ export class UserComponent extends Localization implements OnInit {
   proposals: Proposal[];
   events: SocialEvent[];
   isCurrentUser: boolean;
+
+  isFollowing: boolean;
+  isTrusting: boolean;
 
   constructor(
     public locale: LocaleService,
@@ -33,6 +39,7 @@ export class UserComponent extends Localization implements OnInit {
     private authService: AuthenticationService,
     private usersService: UsersService,
     private proposalsService: ProposalsService,
+    private followService: FollowService,
     private eventsService: EventsService
   ) {
     super(locale, translation);
@@ -70,6 +77,24 @@ export class UserComponent extends Localization implements OnInit {
       .subscribe((events: SocialEvent[]) => {
         this.events = events;
       }, (error: Error) => {
+      });
+  }
+
+  followUser(): void {
+    this.followService.follow(this.user.id)
+      .subscribe((relationship: Relationship) => {
+        if (relationship !== null) {
+          this.isFollowing = true;
+        }
+      });
+  }
+
+  unfollowUser(): void {
+    this.followService.unfollow(this.user.id)
+      .subscribe((relationship: Relationship) => {
+        if (relationship !== null) {
+          this.isFollowing = true;
+        }
       });
   }
 

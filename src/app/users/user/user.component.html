@@ -30,12 +30,9 @@
           <i class="users icon"></i>
         </a>
       </div>
-      <div class="extra content" *ngIf="!isCurrentUser">
-        <div class="ui two buttons">
-          <div class="ui blue button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</div>
-          <div class="ui teal button"><i class="unhide icon"></i> {{ 'Follow' | translate:lang }}</div>
-        </div>
-      </div>
+      <a class="ui blue attached labeled icon button"><i class="user add icon"></i> {{ 'Trust' | translate:lang }}</a>
+      <a (click)="followUser()" *ngIf="!isFollowing" class="ui teal attached labeled icon button"><i class="unhide icon"></i> {{ 'Follow' | translate:lang }}</a>
+      <a (click)="unfollowUser()" *ngIf="isFollowing" class="ui teal attached labeled icon button"><i class="unhide icon"></i> {{ 'Unfollow' | translate:lang }}</a>
     </div>
 
     <div class="ui divided items proposals">

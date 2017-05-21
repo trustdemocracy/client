@@ -38,13 +38,13 @@ export const environment = {
     getEventsByUser: socialApiBase + "/events/:userId",
 
     followUser: socialApiBase + "/follow",
-    unFollow: socialApiBase + "/follow",
+    unFollow: socialApiBase + "/follow/unfollow",
     acceptFollow: socialApiBase + "/follow/accept",
     cancelFollow: socialApiBase + "/follow/cancel",
     getFollowRequests: socialApiBase + "/follow/requests",
 
     trustUser: socialApiBase + "/trust",
-    unTrust: socialApiBase + "/trust",
+    unTrust: socialApiBase + "/trust/untrust",
     acceptTrust: socialApiBase + "/trust/accept",
     cancelTrust: socialApiBase + "/trust/cancel",
     getTrustRequests: socialApiBase + "/trust/requests"
