@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Translation, LocaleService, TranslationService } from 'angular-l10n';
+import { Localization, LocaleService, TranslationService } from 'angular-l10n';
 import { User } from "app/_models/user";
 import { UsersService } from "app/_services/users.service";
 import { ActivatedRoute, Router, Params } from "@angular/router";
 import { ProposalsService } from "app/_services/proposals.service";
 import { Proposal } from "app/_models/proposal";
+import { EventsService } from "app/_services/events.service";
+import { SocialEvent } from "app/_models/socialevent";
 
 @Component({
   selector: 'user',
@@ -12,21 +14,25 @@ import { Proposal } from "app/_models/proposal";
   styleUrls: ['./user.component.scss'],
   providers: [
     UsersService,
-    ProposalsService
+    ProposalsService,
+    EventsService
   ]
 })
-export class UserComponent extends Translation implements OnInit {
+export class UserComponent extends Localization implements OnInit {
   user: User;
   proposals: Proposal[];
+  events: SocialEvent[];
 
   constructor(
+    public locale: LocaleService,
     public translation: TranslationService,
     private route: ActivatedRoute,
     private router: Router,
     private usersService: UsersService,
-    private proposalsService: ProposalsService
+    private proposalsService: ProposalsService,
+    private eventsService: EventsService
   ) {
-    super(translation);
+    super(locale, translation);
   }
 
   ngOnInit(): void {
@@ -41,6 +47,7 @@ export class UserComponent extends Translation implements OnInit {
       .subscribe((user: User) => {
         this.user = user;
         this.loadProposals(user.id);
+        this.loadEvents(user.id);
       }, (error: Error) => {
         this.router.navigateByUrl('/404', { skipLocationChange: true });
       });
@@ -50,6 +57,15 @@ export class UserComponent extends Translation implements OnInit {
     this.proposalsService.findByAuthor(userId)
       .subscribe((proposals: Proposal[]) => {
         this.proposals = proposals;
+      }, (error: Error) => {
+      });
+  }
+
+  loadEvents(userId: string): void {
+    this.eventsService.findByAuthor(userId)
+      .subscribe((events: SocialEvent[]) => {
+        this.events = events;
+        console.log(events);
       }, (error: Error) => {
       });
   }
