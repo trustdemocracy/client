@@ -48,9 +48,6 @@
       <div class="item" *ngFor="let proposal of featuredProposals">
         <div class="content">
           <a class="header" routerLink="/proposals/{{ proposal.id }}">{{ proposal.title }}</a>
-          <div class="meta">
-            <span>7 days ago</span>
-          </div>
           <div class="description">
             <p>
               {{ proposal.brief }}
