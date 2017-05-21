@@ -36,4 +36,36 @@ export class FollowService {
         return null;
       });
   }
+
+  accept(id: string): Observable<Relationship> {
+    const url = environment.socialApi.acceptFollow;
+    const json = {'originUserId': id};
+
+    return this.http.post(url, JSON.stringify(json))
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return Relationship.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
+
+  getRequests(): Observable<Relationship[]> {
+    const url = environment.socialApi.getFollowRequests;
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          let relationshipsArray = response.json().relationships;
+          let relationships: Relationship[] = []
+
+          for (let relationship of relationshipsArray) {
+             relationships.push(Relationship.buildFromJson(relationship));
+          }
+
+          return relationships;
+        }
+        return null;
+      });
+  }
 }
