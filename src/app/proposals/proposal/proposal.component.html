@@ -36,9 +36,12 @@
         <div class="value">
           {{ proposal.votes.FAVOUR }}%
         </div>
-        <button class="ui green button" (click)="voteProposal('FAVOUR')">
+        <button class="ui green button" (click)="voteProposal('FAVOUR')" *ngIf="optionVoted !== 'FAVOUR'">
           <i class="thumbs up icon"></i>
           {{ 'Vote in favour' | translate:lang }}
+        </button>
+        <button class="ui yellow button" (click)="voteProposal('WITHDRAW')" *ngIf="optionVoted === 'FAVOUR'">
+          {{ 'Withdraw vote' | translate:lang }}
         </button>
       </div>
       <div class="statistic against">
@@ -48,9 +51,12 @@
         <div class="value">
           {{ proposal.votes.AGAINST }}%
         </div>
-        <button class="ui red button" (click)="voteProposal('AGAINST')">
+        <button class="ui red button" (click)="voteProposal('AGAINST')" *ngIf="optionVoted !== 'AGAINST'">
           <i class="thumbs down icon"></i>
           {{ 'Vote against' | translate:lang }}
+        </button>
+        <button class="ui yellow button" (click)="voteProposal('WITHDRAW')" *ngIf="optionVoted === 'AGAINST'">
+          {{ 'Withdraw vote' | translate:lang }}
         </button>
       </div>
     </div>

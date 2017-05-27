@@ -26,6 +26,8 @@ export class ProposalComponent extends Localization implements OnInit {
   loadingCreateComment: boolean;
   comment: Comment = new Comment();
 
+  optionVoted: string;
+
   constructor(
     public translation: TranslationService,
     public locale: LocaleService,
@@ -84,7 +86,7 @@ export class ProposalComponent extends Localization implements OnInit {
     vote.option = option;
     this.votesService.vote(vote)
       .subscribe((resultVote: Vote) => {
-        console.log(resultVote);
+        this.optionVoted = vote.option;
       });
   }
 
