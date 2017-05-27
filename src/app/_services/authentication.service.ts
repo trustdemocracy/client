@@ -184,6 +184,7 @@ export class AuthenticationService {
   }
 
   private storeToken(accessToken: string, refreshToken: string, remember: boolean): void {
+    this.removeTokens();
     if (remember) {
       localStorage.setItem(this.ACCESS_TOKEN_KEY, accessToken);
       localStorage.setItem(this.REFRESH_TOKEN_KEY, refreshToken);
