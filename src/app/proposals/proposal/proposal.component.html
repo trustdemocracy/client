@@ -36,7 +36,7 @@
         <div class="value">
           {{ proposal.votes.FAVOUR }}%
         </div>
-        <button class="ui green button">
+        <button class="ui green button" (click)="voteProposal('FAVOUR')">
           <i class="thumbs up icon"></i>
           {{ 'Vote in favour' | translate:lang }}
         </button>
@@ -48,7 +48,7 @@
         <div class="value">
           {{ proposal.votes.AGAINST }}%
         </div>
-        <button class="ui red button">
+        <button class="ui red button" (click)="voteProposal('AGAINST')">
           <i class="thumbs down icon"></i>
           {{ 'Vote against' | translate:lang }}
         </button>

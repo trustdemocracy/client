@@ -6,6 +6,8 @@ import { Proposal } from "app/_models/proposal";
 import { Comment } from "app/_models/comment";
 import { AuthenticationService } from "app/_services/authentication.service";
 import { CommentsService } from "app/_services/comments.service";
+import { VotesService } from "app/_services/votes.service";
+import { Vote } from "app/_models/vote";
 
 @Component({
   selector: 'proposal',
@@ -13,7 +15,8 @@ import { CommentsService } from "app/_services/comments.service";
   styleUrls: ['./proposal.component.scss'],
   providers: [
     ProposalsService,
-    CommentsService
+    CommentsService,
+    VotesService
   ]
 })
 export class ProposalComponent extends Localization implements OnInit {
@@ -30,6 +33,7 @@ export class ProposalComponent extends Localization implements OnInit {
     private router: Router,
     private proposalsService: ProposalsService,
     private commentsService: CommentsService,
+    private votesService: VotesService,
     private authService: AuthenticationService
   ) {
     super(locale, translation);
@@ -72,6 +76,16 @@ export class ProposalComponent extends Localization implements OnInit {
 
   hasEditButton(): boolean {
     return this.proposal.isOwner(this.authService.getUser());
+  }
+
+  voteProposal(option: string): void {
+    let vote = new Vote();
+    vote.proposalId = this.proposal.id;
+    vote.option = option;
+    this.votesService.vote(vote)
+      .subscribe((resultVote: Vote) => {
+        console.log(resultVote);
+      });
   }
 
 }
