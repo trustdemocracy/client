@@ -66,7 +66,7 @@
   <div class="ui comments" [ngClass]="{'loading form': loadingComments}">
     <h3 class="ui dividing header">{{ 'Comments' | translate:lang }}</h3>
 
-    <p class="ui info message" *ngIf="!proposal.hasComments()">
+    <p class="ui info message" *ngIf="!proposal.hasComments() && proposal.isPublished()">
       {{ 'There are no comments, be the first one!' | translate:lang }}
     </p>
 
@@ -98,7 +98,7 @@
       </div>
     </div>
 
-    <form class="ui reply form" (ngSubmit)="createComment()" [ngClass]="{'loading': loadingCreateComment}" #commentForm="ngForm">
+    <form class="ui reply form" (ngSubmit)="createComment()" [ngClass]="{'loading': loadingCreateComment}" #commentForm="ngForm" *ngIf="proposal.isPublished()">
       <div class="field">
         <textarea name="comment" [(ngModel)]="comment.content" required></textarea>
       </div>
