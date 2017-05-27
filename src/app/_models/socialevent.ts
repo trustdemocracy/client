@@ -96,6 +96,9 @@ export class VoteEvent extends SocialEvent {
   favour: number;
   against: number;
 
+  favourOverTotal: number = 0.5;
+  againstOverTotal: number = 0.5;
+
   constructor(content: any) {
     super();
     this.proposalId = content.proposalId;
@@ -107,6 +110,15 @@ export class VoteEvent extends SocialEvent {
 
     if (this.option === 'WITHDRAW') {
       this.contributed = -this.contributed;
+    }
+    this.setPercentajes();
+  }
+
+  private setPercentajes(): void {
+    let total = this.against + this.favour;
+    if (total > 0) {
+      this.favourOverTotal = this.favour / total;
+      this.againstOverTotal = this.against / total;
     }
   }
 }

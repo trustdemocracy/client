@@ -178,8 +178,8 @@
                     <span class="text against">{{ 'Against' | translate:lang }}</span>
                   </div>
                   <div class="bar">
-                    <div class="favour" [style.flex]="event.favour">{{ event.favour * 100 }}%</div>
-                    <div class="against" [style.flex]="event.against">{{ event.against * 100 }}%</div>
+                    <div class="favour" [style.flex]="event.favourOverTotal">{{ event.favour * 100 }}%</div>
+                    <div class="against" [style.flex]="event.againstOverTotal">{{ event.against * 100 }}%</div>
                   </div>
                 </div>
               </div>
