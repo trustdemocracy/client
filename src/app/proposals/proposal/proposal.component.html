@@ -3,7 +3,7 @@
     <h2>{{ proposal.title }}</h2>
     <div class="deadline">
       {{ 'Deadline' | translate:lang }}:
-      <span>25 December 2017</span>
+      <span>{{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
     </div>
 
     <h4>{{ 'Summary' | translate:lang }}</h4>
@@ -25,7 +25,7 @@
 
 
 
-  <div class="votes">
+  <div class="votes" *ngIf="proposal.isPublished()">
     <h3 class="ui dividing header">{{ 'Votes' | translate:lang }}</h3>
 
     <div class="ui statistics">
@@ -34,11 +34,14 @@
           {{ 'In favour' | translate:lang }}
         </div>
         <div class="value">
-          40%
+          {{ proposal.votes.FAVOUR }}%
         </div>
-        <button class="ui green button">
+        <button class="ui green button" (click)="voteProposal('FAVOUR')" *ngIf="optionVoted !== 'FAVOUR'">
           <i class="thumbs up icon"></i>
           {{ 'Vote in favour' | translate:lang }}
+        </button>
+        <button class="ui yellow button" (click)="voteProposal('WITHDRAW')" *ngIf="optionVoted === 'FAVOUR'">
+          {{ 'Withdraw vote' | translate:lang }}
         </button>
       </div>
       <div class="statistic against">
@@ -46,11 +49,14 @@
           {{ 'Against' | translate:lang }}
         </div>
         <div class="value">
-          60%
+          {{ proposal.votes.AGAINST }}%
         </div>
-        <button class="ui red button">
+        <button class="ui red button" (click)="voteProposal('AGAINST')" *ngIf="optionVoted !== 'AGAINST'">
           <i class="thumbs down icon"></i>
           {{ 'Vote against' | translate:lang }}
+        </button>
+        <button class="ui yellow button" (click)="voteProposal('WITHDRAW')" *ngIf="optionVoted === 'AGAINST'">
+          {{ 'Withdraw vote' | translate:lang }}
         </button>
       </div>
     </div>
@@ -60,7 +66,7 @@
   <div class="ui comments" [ngClass]="{'loading form': loadingComments}">
     <h3 class="ui dividing header">{{ 'Comments' | translate:lang }}</h3>
 
-    <p class="ui info message" *ngIf="!proposal.hasComments()">
+    <p class="ui info message" *ngIf="!proposal.hasComments() && proposal.isPublished()">
       {{ 'There are no comments, be the first one!' | translate:lang }}
     </p>
 
@@ -92,7 +98,7 @@
       </div>
     </div>
 
-    <form class="ui reply form" (ngSubmit)="createComment()" [ngClass]="{'loading': loadingCreateComment}" #commentForm="ngForm">
+    <form class="ui reply form" (ngSubmit)="createComment()" [ngClass]="{'loading': loadingCreateComment}" #commentForm="ngForm" *ngIf="proposal.isPublished()">
       <div class="field">
         <textarea name="comment" [(ngModel)]="comment.content" required></textarea>
       </div>

@@ -54,6 +54,7 @@
     "Against": "En contra",
     "voted in favour of the proposal": "ha votado a favor de la propuesta",
     "voted against the proposal": "ha votado en contra de la propuesta",
+    "withdrawn the vote from the proposal": "ha quitado el voto de la propuesta",
     "Trending proposals": "Propuestas populares",
     "Trending proposals of": "Propuestas populares de {{ username }}",
 
@@ -77,6 +78,7 @@
     "Votes": "Votos",
     "Vote in favour": "Votar a favor",
     "Vote against": "Votar en contra",
+    "Withdraw vote": "Quitar voto",
     "Comments": "Comentarios",
     "Reply": "Responder",
     "Add comment": "Añadir comentario",
@@ -104,7 +106,7 @@
     "The page you are looking for doesn't exists": "La página que estás buscando no existe",
     "Go back home": "Volver a inicio",
 
-    "There are no comments, be the first one!": "No hay comentarios, ¡Sé el primero!",
+    "There are no comments, be the first one!": "No hay comentarios. ¡Sé el primero!",
 
     "You have pending requests!": "¡Tienes peticiones pendientes!",
 

@@ -17,6 +17,8 @@ export class AuthenticationService {
   private refreshToken: string;
   private remember: boolean;
 
+  private refreshing: boolean;
+
   constructor(private http: Http, private router: Router) {
     this.accessToken = this.getAccessToken();
     this.refreshToken = this.getRefreshToken();
@@ -58,15 +60,23 @@ export class AuthenticationService {
     const headers: Headers = new Headers();
     headers.append('Authorization', this.getAuthorizationHeader());
 
-    return this.http.post(environment.usersApi.refreshToken, content, { 'headers': headers })
+    return Observable.of(this.refreshing)
+      .flatMap((isRefreshing: boolean) => {
+        if (!isRefreshing) {
+          this.refreshing = true;
+          return this.http.post(environment.usersApi.refreshToken, content, { 'headers': headers });
+        }
+        return Observable.of(null);
+      })
       .map((response: Response) => {
-        if (response.ok && response.json()) {
+        if (response && response.ok && response.json()) {
           const accessToken = response.json().accessToken;
           const refreshToken = response.json().refreshToken;
           if (accessToken && refreshToken) {
             this.accessToken = accessToken;
             this.refreshToken = refreshToken;
             this.storeToken(accessToken, refreshToken, this.remember);
+            this.refreshing = false;
             return true;
           }
         }
@@ -184,6 +194,7 @@ export class AuthenticationService {
   }
 
   private storeToken(accessToken: string, refreshToken: string, remember: boolean): void {
+    this.removeTokens();
     if (remember) {
       localStorage.setItem(this.ACCESS_TOKEN_KEY, accessToken);
       localStorage.setItem(this.REFRESH_TOKEN_KEY, refreshToken);

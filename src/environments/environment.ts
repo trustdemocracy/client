@@ -6,6 +6,7 @@
 const usersApiBase = "http://api.trustdemocracy.dev/v1/users";
 const proposalsApiBase = "http://api.trustdemocracy.dev/v1/proposals";
 const socialApiBase = "http://api.trustdemocracy.dev/v1/social";
+const votesApiBase = "http://api.trustdemocracy.dev/v1/votes";
 
 export const environment = {
   production: false,
@@ -50,5 +51,9 @@ export const environment = {
     getTrustRequests: socialApiBase + "/trust/requests",
 
     getRelationshipsWithUser: socialApiBase + "/relationships"
+  },
+  votesApi: {
+    voteProposal: votesApiBase + "/votes/:proposalId",
+    getVote: votesApiBase + "/votes/:proposalId"
   }
 };

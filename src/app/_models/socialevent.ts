@@ -96,13 +96,29 @@ export class VoteEvent extends SocialEvent {
   favour: number;
   against: number;
 
+  favourOverTotal: number = 0.5;
+  againstOverTotal: number = 0.5;
+
   constructor(content: any) {
     super();
     this.proposalId = content.proposalId;
     this.title = content.title;
     this.option = content.option;
     this.contributed = content.contributed;
-    this.favour = content.favour;
-    this.against = content.against;
+    this.favour = content.results.FAVOUR;
+    this.against = content.results.AGAINST;
+
+    if (this.option === 'WITHDRAW') {
+      this.contributed = -this.contributed;
+    }
+    this.setPercentajes();
+  }
+
+  private setPercentajes(): void {
+    let total = this.against + this.favour;
+    if (total > 0) {
+      this.favourOverTotal = this.favour / total;
+      this.againstOverTotal = this.against / total;
+    }
   }
 }
