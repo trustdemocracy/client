@@ -6,7 +6,7 @@
         <div class="content">
           <div class="header">{{ proposal.title }}</div>
           <div class="meta">
-            <span class="category">{{ 'Deadline' | translate:lang }} 25 December 2017</span>
+            <span class="category">{{ 'Deadline' | translate:lang }}: {{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
           </div>
           <div class="description">
             <p>{{ proposal.brief }}</p>
@@ -30,7 +30,7 @@
         <div class="content">
           <div class="header">{{ proposal.title }}</div>
           <div class="meta">
-            <span class="category">{{ 'Deadline' | translate:lang }} 25 December 2017</span>
+            <span class="category">{{ 'Deadline' | translate:lang }}: {{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
           </div>
           <div class="description">
             <p>{{ proposal.brief }}</p>
@@ -50,7 +50,7 @@
         <div class="content">
           <div class="header">{{ proposal.title }}</div>
           <div class="meta">
-            <span class="category">{{ 'Deadline' | translate:lang }} 25 December 2017</span>
+            <span class="category">{{ 'Deadline' | translate:lang }}: {{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
           </div>
           <div class="description">
             <p>{{ proposal.brief }}</p>

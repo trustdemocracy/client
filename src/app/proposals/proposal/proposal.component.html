@@ -3,7 +3,7 @@
     <h2>{{ proposal.title }}</h2>
     <div class="deadline">
       {{ 'Deadline' | translate:lang }}:
-      <span>25 December 2017</span>
+      <span>{{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
     </div>
 
     <h4>{{ 'Summary' | translate:lang }}</h4>
