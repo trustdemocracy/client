@@ -66,6 +66,13 @@
           color: $against-color;
         }
 
+        .border.withdraw {
+          border-bottom: 1px solid $withdraw-color;
+        }
+        .text.withdraw {
+          color: $withdraw-color;
+        }
+
         span {
           font-style: italic;
         }

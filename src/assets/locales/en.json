@@ -54,6 +54,7 @@
     "Against": "Against",
     "voted in favour of the proposal": "voted in favour of the proposal",
     "voted against the proposal": "voted against the proposal",
+    "withdrawn the vote from the proposal": "withdrawn the vote from the proposal",
     "Trending proposals": "Trending proposals",
     "Trending proposals of": "{{ username }}'s trending proposals",
 

@@ -104,5 +104,9 @@ export class VoteEvent extends SocialEvent {
     this.contributed = content.contributed;
     this.favour = content.results.FAVOUR;
     this.against = content.results.AGAINST;
+
+    if (this.option === 'WITHDRAW') {
+      this.contributed = -this.contributed;
+    }
   }
 }
