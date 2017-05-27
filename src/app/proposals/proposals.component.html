@@ -13,8 +13,8 @@
           </div>
         </div>
         <div class="extra content">
-          <span class="favour">40% {{ 'In favour' | translate:lang }}</span>
-          <span class="against">60% {{ 'Against' | translate:lang }}</span>
+          <span class="favour">{{ proposal.votes.FAVOUR }}% {{ 'In favour' | translate:lang }}</span>
+          <span class="against">{{ proposal.votes.AGAINST }}% {{ 'Against' | translate:lang }}</span>
         </div>
         <div class="ui bottom attached basic blue button">
           {{ 'View proposal' | translate:lang }}
@@ -57,8 +57,8 @@
           </div>
         </div>
         <div class="extra content">
-          <span class="favour">40% {{ 'In favour' | translate:lang }}</span>
-          <span class="against">60% {{ 'Against' | translate:lang }}</span>
+          <span class="favour">{{ proposal.votes.FAVOUR }}% {{ 'In favour' | translate:lang }}</span>
+          <span class="against">{{ proposal.votes.AGAINST }}% {{ 'Against' | translate:lang }}</span>
         </div>
         <div class="ui bottom attached basic blue button">
           {{ 'View proposal' | translate:lang }}

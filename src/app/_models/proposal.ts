@@ -4,6 +4,7 @@ import { Comment } from "app/_models/comment";
 export class Proposal {
   id: string;
   title: string;
+  dueDate: number;
   brief: string;
   source: string;
   motivation: string;
@@ -13,6 +14,8 @@ export class Proposal {
   authorUsername: string;
 
   comments: Comment[];
+
+  votes: { [key: string]: number };
 
   constructor() {
   }
@@ -40,6 +43,8 @@ export class Proposal {
     instance.measures = json.measures;
     instance.status = json.status;
     instance.authorUsername = json.authorUsername;
+    instance.dueDate = json.dueDate;
+    instance.votes = json.votes;
 
     return instance;
   }
