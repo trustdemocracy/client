@@ -24,5 +24,17 @@ export class VotesService {
       });
   }
 
+  getVote(proposalId: string): Observable<Vote> {
+    const url = environment.votesApi.getVote
+      .replace(':proposalId', proposalId);
+
+    return this.http.get(url)
+      .map((response: Response) => {
+        if (response.ok && response.json()) {
+          return Vote.buildFromJson(response.json());
+        }
+        return null;
+      });
+  }
 
 }

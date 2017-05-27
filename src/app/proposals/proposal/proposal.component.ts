@@ -49,6 +49,7 @@ export class ProposalComponent extends Localization implements OnInit {
           if (proposal !== null) {
             this.proposal = proposal;
             this.findComments();
+            this.findVote();
           }
         }, (error: Error) => {
           this.router.navigateByUrl('/404', { skipLocationChange: true });
@@ -62,6 +63,13 @@ export class ProposalComponent extends Localization implements OnInit {
       .subscribe((comments: Comment[]) => {
         this.loadingComments = false;
         this.proposal.comments = comments;
+      });
+  }
+
+  findVote(): void {
+    this.votesService.getVote(this.proposal.id)
+      .subscribe((resultVote: Vote) => {
+        this.optionVoted = resultVote.option;
       });
   }
 
@@ -86,7 +94,7 @@ export class ProposalComponent extends Localization implements OnInit {
     vote.option = option;
     this.votesService.vote(vote)
       .subscribe((resultVote: Vote) => {
-        this.optionVoted = vote.option;
+        this.optionVoted = resultVote.option;
       });
   }
 
