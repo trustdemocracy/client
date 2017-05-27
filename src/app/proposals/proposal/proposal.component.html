@@ -25,7 +25,7 @@
 
 
 
-  <div class="votes">
+  <div class="votes" *ngIf="proposal.isPublished()">
     <h3 class="ui dividing header">{{ 'Votes' | translate:lang }}</h3>
 
     <div class="ui statistics">
