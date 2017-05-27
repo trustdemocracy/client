@@ -102,7 +102,7 @@ export class VoteEvent extends SocialEvent {
     this.title = content.title;
     this.option = content.option;
     this.contributed = content.contributed;
-    this.favour = content.favour;
-    this.against = content.against;
+    this.favour = content.results.FAVOUR;
+    this.against = content.results.AGAINST;
   }
 }
