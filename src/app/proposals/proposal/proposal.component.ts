@@ -69,7 +69,9 @@ export class ProposalComponent extends Localization implements OnInit {
   findVote(): void {
     this.votesService.getVote(this.proposal.id)
       .subscribe((resultVote: Vote) => {
-        this.optionVoted = resultVote.option;
+        if (resultVote !== null) {
+          this.optionVoted = resultVote.option;
+        }
       });
   }
 
