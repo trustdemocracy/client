@@ -1,5 +1,6 @@
 import { User } from "app/_models/user";
 import { Comment } from "app/_models/comment";
+import { Vote } from "app/_models/vote";
 
 export class Proposal {
   id: string;
@@ -30,6 +31,25 @@ export class Proposal {
 
   hasComments(): boolean {
     return this.comments && this.comments.length > 0;
+  }
+
+  addVote(vote: Vote, previouslyVoted: string) {
+    switch(vote.option) {
+      case 'FAVOUR':
+        this.votes.FAVOUR += vote.rank;
+        break;
+      case 'AGAINST':
+        this.votes.AGAINST += vote.rank;
+        break;
+      case 'WITHDRAW':
+        if (previouslyVoted != null) {
+          let withdrawVote = new Vote();
+          withdrawVote.option = previouslyVoted;
+          withdrawVote.rank = -vote.rank;
+          this.addVote(withdrawVote, null);
+        }
+        break;
+    }
   }
 
   static buildFromJson(json: any): Proposal {

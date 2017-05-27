@@ -96,6 +96,7 @@ export class ProposalComponent extends Localization implements OnInit {
     vote.option = option;
     this.votesService.vote(vote)
       .subscribe((resultVote: Vote) => {
+        this.proposal.addVote(resultVote, this.optionVoted);
         this.optionVoted = resultVote.option;
       });
   }
