@@ -104,9 +104,10 @@ export class VoteEvent extends SocialEvent {
     this.proposalId = content.proposalId;
     this.title = content.title;
     this.option = content.option;
-    this.contributed = content.contributed;
-    this.favour = content.results.FAVOUR;
-    this.against = content.results.AGAINST;
+    this.contributed = Math.ceil(content.contributed * 100) / 100;
+    this.favour = Math.ceil(content.results.FAVOUR * 100) / 100;
+    this.against = Math.ceil(content.results.AGAINST * 100) / 100;
+
 
     if (this.option === 'WITHDRAW') {
       this.contributed = -this.contributed;

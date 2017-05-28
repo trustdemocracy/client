@@ -34,18 +34,19 @@ export class Proposal {
   }
 
   addVote(vote: Vote, previouslyVoted: string) {
+    let rank = vote.rank;
     switch(vote.option) {
       case 'FAVOUR':
-        this.votes.FAVOUR += vote.rank;
+        this.votes.FAVOUR += rank;
         break;
       case 'AGAINST':
-        this.votes.AGAINST += vote.rank;
+        this.votes.AGAINST += rank;
         break;
       case 'WITHDRAW':
         if (previouslyVoted != null) {
           let withdrawVote = new Vote();
           withdrawVote.option = previouslyVoted;
-          withdrawVote.rank = -vote.rank;
+          withdrawVote.rank = -rank;
           this.addVote(withdrawVote, null);
         }
         break;
@@ -65,6 +66,10 @@ export class Proposal {
     instance.authorUsername = json.authorUsername;
     instance.dueDate = json.dueDate;
     instance.votes = json.votes;
+
+    for (let key in instance.votes) {
+      instance.votes[key] = Math.ceil(instance.votes[key] * 100) / 100;;
+    }
 
     return instance;
   }

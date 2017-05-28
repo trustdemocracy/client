@@ -15,7 +15,7 @@ export class Vote {
     instance.proposalId = json.proposalId;
     instance.userId = json.userId;
     instance.option = json.option;
-    instance.rank = json.rank;
+    instance.rank = Math.ceil(json.rank * 100) / 100;
     instance.proposalLocked = json.proposalLocked;
 
     return instance;
