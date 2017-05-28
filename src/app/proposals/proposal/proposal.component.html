@@ -34,7 +34,7 @@
           {{ 'In favour' | translate:lang }}
         </div>
         <div class="value">
-          {{ proposal.votes.FAVOUR }}%
+          {{ proposal.votes.FAVOUR * 100 }}%
         </div>
         <button class="ui green button" (click)="voteProposal('FAVOUR')" *ngIf="optionVoted !== 'FAVOUR'">
           <i class="thumbs up icon"></i>
@@ -49,7 +49,7 @@
           {{ 'Against' | translate:lang }}
         </div>
         <div class="value">
-          {{ proposal.votes.AGAINST }}%
+          {{ proposal.votes.AGAINST * 100 }}%
         </div>
         <button class="ui red button" (click)="voteProposal('AGAINST')" *ngIf="optionVoted !== 'AGAINST'">
           <i class="thumbs down icon"></i>
