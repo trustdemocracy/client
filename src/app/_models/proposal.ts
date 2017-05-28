@@ -36,10 +36,10 @@ export class Proposal {
   removeVote(rank: number, previouslyVoted: string) {
     switch (previouslyVoted) {
       case 'FAVOUR':
-        this.votes.FAVOUR -= rank;
+        this.votes.FAVOUR = Math.ceil((this.votes.FAVOUR - rank) * 100) / 100;
         break;
       case 'AGAINST':
-        this.votes.AGAINST -= rank;
+        this.votes.AGAINST = Math.ceil((this.votes.AGAINST - rank) * 100) / 100;
         break;
     }
   }
@@ -48,10 +48,10 @@ export class Proposal {
     let rank = vote.rank;
     switch (vote.option) {
       case 'FAVOUR':
-        this.votes.FAVOUR += rank;
+        this.votes.FAVOUR = Math.ceil((this.votes.FAVOUR + rank) * 100) / 100;
         break;
       case 'AGAINST':
-        this.votes.AGAINST += rank;
+        this.votes.AGAINST = Math.ceil((this.votes.AGAINST + rank) * 100) / 100;
         break;
     }
   }
