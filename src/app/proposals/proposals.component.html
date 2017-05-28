@@ -30,7 +30,8 @@
         <div class="content">
           <div class="header">{{ proposal.title }}</div>
           <div class="meta">
-            <span class="category">{{ 'Deadline' | translate:lang }}: {{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
+            <span class="category" *ngIf="proposal.dueDate">{{ 'Deadline' | translate:lang }}: {{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
+            <span class="category" *ngIf="!proposal.dueDate">{{ 'Has never been published' | translate:lang }}</span>
           </div>
           <div class="description">
             <p>{{ proposal.brief }}</p>

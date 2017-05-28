@@ -1,7 +1,7 @@
 <section class="ui text container" *ngIf="proposal">
   <div class="proposal">
     <h2>{{ proposal.title }}</h2>
-    <div class="deadline">
+    <div class="deadline" *ngIf="proposal.dueDate">
       {{ 'Deadline' | translate:lang }}:
       <span>{{ proposal.dueDate | localeDate:lang:'fullDate' }}</span>
     </div>
