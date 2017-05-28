@@ -4,7 +4,6 @@
       <div class="content">
         <div class="header"><a routerLink="/user/{{ user.username }}">{{ user.username }}</a></div>
         <div class="meta">{{ user.name }} {{ user.surname }}</div>
-        <div class="meta">5 {{ 'units of trust' | translate:lang }}</div>
       </div>
       <div class="extra content" *ngIf="hasPending">
         <a class="ui teal label" routerLink="/users">

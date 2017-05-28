@@ -6,6 +6,7 @@ export class User {
   surname: string;
   password: string;
   visibility: string;
+  rank: number;
 
   constructor() {
 
@@ -20,6 +21,7 @@ export class User {
     instance.name = json.name;
     instance.surname = json.surname;
     instance.visibility = json.visibility;
+    instance.rank = Math.ceil(json.rank * 100);
 
     return instance;
   }

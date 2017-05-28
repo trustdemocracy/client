@@ -104,13 +104,8 @@ export class AuthenticationService {
     }
 
     const jwt = this.decodeJwt(this.accessToken);
-    const user = new User();
-    user.id = jwt['sub'];
-    user.username = jwt['username'];
-    user.email = jwt['email'];
-    user.name = jwt['name'];
-    user.surname = jwt['surname'];
-    user.visibility = jwt['visibility'];
+    jwt['id'] = jwt['sub'];
+    const user = User.buildFromJson(jwt);
 
     return user;
   }
