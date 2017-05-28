@@ -33,22 +33,25 @@ export class Proposal {
     return this.comments && this.comments.length > 0;
   }
 
-  addVote(vote: Vote, previouslyVoted: string) {
+  removeVote(rank: number, previouslyVoted: string) {
+    switch (previouslyVoted) {
+      case 'FAVOUR':
+        this.votes.FAVOUR -= rank;
+        break;
+      case 'AGAINST':
+        this.votes.AGAINST -= rank;
+        break;
+    }
+  }
+
+  addVote(vote: Vote) {
     let rank = vote.rank;
-    switch(vote.option) {
+    switch (vote.option) {
       case 'FAVOUR':
         this.votes.FAVOUR += rank;
         break;
       case 'AGAINST':
         this.votes.AGAINST += rank;
-        break;
-      case 'WITHDRAW':
-        if (previouslyVoted != null) {
-          let withdrawVote = new Vote();
-          withdrawVote.option = previouslyVoted;
-          withdrawVote.rank = -rank;
-          this.addVote(withdrawVote, null);
-        }
         break;
     }
   }
