@@ -215,6 +215,10 @@ export class AuthenticationService {
   }
 
   private getCookie(name: string): string {
+    if (document.cookie === null) {
+      return null;
+    }
+
     return document.cookie
       .split(';')
       .map(c => c.trim())
