@@ -71,7 +71,7 @@ export class Proposal {
     instance.votes = json.votes;
 
     for (let key in instance.votes) {
-      instance.votes[key] = Math.ceil(instance.votes[key] * 100) / 100;;
+      instance.votes[key] = Math.ceil(instance.votes[key] * 100) / 100;
     }
 
     return instance;

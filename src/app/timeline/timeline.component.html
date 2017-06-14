@@ -170,15 +170,15 @@
               </div>
               <div class="extra text">
                 <div class="votes">
-                  <div class="text {{ event.option.toLowerCase() }} contribution"><a class="user">{{ event.username }}</a> {{ 'contributed with a' | translate:lang }} {{ event.contributed
-                    * 100 }}%</div>
+                  <div class="text {{ event.option.toLowerCase() }} contribution"><a class="user">{{ event.username }}</a>
+                  {{ 'contributed with a' | translate:lang }} {{ (event.contributed * 100).toFixed() }}%</div>
                   <div class="legend">
                     <span class="text favour">{{ 'In favour' | translate:lang }}</span>
                     <span class="text against">{{ 'Against' | translate:lang }}</span>
                   </div>
                   <div class="bar">
-                    <div class="favour" [style.flex]="event.favourOverTotal">{{ event.favour * 100 }}%</div>
-                    <div class="against" [style.flex]="event.againstOverTotal">{{ event.against * 100 }}%</div>
+                    <div class="favour" [style.flex]="event.favourOverTotal">{{ (event.favour * 100).toFixed() }}%</div>
+                    <div class="against" [style.flex]="event.againstOverTotal">{{ (event.against * 100).toFixed() }}%</div>
                   </div>
                 </div>
               </div>
